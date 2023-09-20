@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const data = {
   email: '',
@@ -8,6 +9,8 @@ const data = {
 export default function Login() {
   const [login, setLogin] = useState(data);
   const { email, password } = login;
+
+  const navigate = useNavigate();
 
   const validLogin = /^[ a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && password.length > 6;
 
@@ -21,6 +24,8 @@ export default function Login() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    localStorage.setItem('user', JSON.stringify({ email }));
+    navigate('/meals');
   }
 
   return (
