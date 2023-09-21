@@ -1,11 +1,12 @@
 import React from 'react';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Login from '../components/Login';
+import Login from '../pages/Login';
 import { renderWithRouter } from './helpers/renderWithRouter';
 
 describe('Verifica existência dos elementos do componente Login', () => {
-  let emailInput: HTMLElement, passwordInput: HTMLElement, submitButton: HTMLElement;
+  let emailInput: HTMLElement; let passwordInput: HTMLElement; let
+    submitButton: HTMLElement;
 
   beforeEach(() => {
     const { getByTestId, getByText } = renderWithRouter(<Login />);
@@ -30,7 +31,8 @@ describe('Verifica existência dos elementos do componente Login', () => {
 });
 
 describe('Verifica se os data-testid estão corretos no componente Login', () => {
-  let emailInput: HTMLElement, passwordInput: HTMLElement, submitButton: HTMLElement;
+  let emailInput: HTMLElement; let passwordInput: HTMLElement; let
+    submitButton: HTMLElement;
 
   beforeEach(() => {
     const { getByTestId } = renderWithRouter(<Login />);
