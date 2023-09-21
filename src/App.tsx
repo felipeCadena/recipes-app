@@ -1,11 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
 import Header from './components/Header';
 import Meals from './pages/Meals';
 import Drinks from './pages/Drinks';
 import Profile from './pages/Profile';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
+import MealDetails from './pages/MealDetails';
+import DrinkDetails from './pages/DrinkDetails';
+import MealInProgress from './pages/MealInProgress';
+import DrinkInProgress from './pages/DrinkInProgress';
 
 function App() {
   return (
@@ -37,7 +42,7 @@ function App() {
         path="/profile"
         element={
           <>
-            <Header showSearchIcon={ false } pageTitle="Profile" />
+            <Header />
             <Profile />
           </>
         }
@@ -46,7 +51,7 @@ function App() {
         path="/done-recipes"
         element={
           <>
-            <Header showSearchIcon={ false } pageTitle="Done Recipes" />
+            <Header />
             <DoneRecipes />
           </>
         }
@@ -55,7 +60,7 @@ function App() {
         path="/favorite-recipes"
         element={
           <>
-            <Header showSearchIcon={ false } pageTitle="Favorite Recipes" />
+            <Header />
             <FavoriteRecipes />
           </>
         }
