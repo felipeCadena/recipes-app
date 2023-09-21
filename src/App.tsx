@@ -11,6 +11,7 @@ import MealDetails from './pages/MealDetails';
 import DrinkDetails from './pages/DrinkDetails';
 import MealInProgress from './pages/MealInProgress';
 import DrinkInProgress from './pages/DrinkInProgress';
+import { RecipeProvider } from './context/RecipesContext';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         element={
           <>
             <Header />
-            <Meals />
+            <RecipeProvider apiURL="https://www.themealdb.com/api/json/v1/1/search.php?s=" dataKey="meals">
+              <Meals />
+            </RecipeProvider>
           </>
         }
       />
@@ -30,7 +33,9 @@ function App() {
         element={
           <>
             <Header />
-            <Drinks />
+            <RecipeProvider apiURL="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" dataKey="drinks">
+              <Drinks />
+            </RecipeProvider>
           </>
         }
       />
