@@ -24,3 +24,12 @@ export type RecipeProviderProps = {
   apiURL: string;
   dataKey: string;
 };
+
+export type RecipesProps = {
+  recipe: {
+    id: string;
+    name: string;
+    image: string;
+  };
+  index: number;
+};
