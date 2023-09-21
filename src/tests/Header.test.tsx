@@ -1,19 +1,19 @@
 import React from 'react';
-import userEvent from '@testing-library/user-event';
+// import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
-import { useLocation } from 'react-router-dom';
-import App from '../App';
+// import { useLocation } from 'react-router-dom';
+// import App from '../App';
 import Header from '../components/Header';
 import { renderWithRouter } from './helpers/renderWithRouter';
 
-const mock = jest.fn();
+// const mock = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<any>('react-router-dom'),
   useLocation: jest.fn(),
 }));
 
-const PROFILE_BTN_TEST_ID = 'profile-top-btn';
+// const PROFILE_BTN_TEST_ID = 'profile-top-btn';
 const PAGE_TITLE_TEST_ID = 'page-title';
 
 describe('Verifica se o título da página é renderizado corretamente', () => {

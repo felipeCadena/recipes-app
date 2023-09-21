@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SearchBar from './SearchBar';
 
 const data = {
   email: '',
@@ -60,7 +59,6 @@ export default function Login() {
           Enter
         </button>
       </form>
-      <SearchBar inputValue="ge" />
     </>
   );
 }
