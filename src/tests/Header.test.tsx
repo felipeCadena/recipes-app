@@ -33,7 +33,6 @@ describe('Verifica renderização do Header em diferentes rotas', () => {
       renderWithRouter(<Header />);
       const profileIcon = screen.getByTestId(PROFILE_BTN_TEST_ID);
       userEvent.click(profileIcon);
-      // Você pode adicionar as verificações para a navegação aqui
     });
   });
 });
