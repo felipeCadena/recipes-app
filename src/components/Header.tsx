@@ -33,10 +33,10 @@ function Header() {
         </Link>
         {showSearchIcon && (
           <>
-            <button onClick={ toggleSearch }>
+            <button onClick={ toggleSearch } data-testid="search-top-btn">
               <img src={ searchIcon } alt="Search" data-testid="search-top-btn" />
             </button>
-            {searchVisible && ( // Renderiza o input de busca condicionalmente com base no estado
+            {searchVisible && (
               <input
                 type="text"
                 placeholder="Search..."
