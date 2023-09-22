@@ -11,6 +11,7 @@ import MealDetails from './pages/MealDetails';
 import DrinkDetails from './pages/DrinkDetails';
 import MealInProgress from './pages/MealInProgress';
 import DrinkInProgress from './pages/DrinkInProgress';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         path="/meals"
         element={
           <>
-            <Header />
+            <Footer />
             <Meals />
           </>
         }
@@ -29,7 +30,7 @@ function App() {
         path="/drinks"
         element={
           <>
-            <Header />
+            <Footer />
             <Drinks />
           </>
         }
@@ -42,7 +43,7 @@ function App() {
         path="/profile"
         element={
           <>
-            <Header />
+            <Footer />
             <Profile />
           </>
         }
