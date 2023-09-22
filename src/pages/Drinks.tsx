@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRecipeContext } from '../context/RecipesContext';
+import { Recipe } from '../types';
 
 function Drinks() {
-  const { recipes } = useRecipeContext();
+  const { recipes, setRecipes } = useRecipeContext();
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -11,7 +12,7 @@ function Drinks() {
       try {
         const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
         const data = await response.json();
-        const drinkCategories = data.drinks.map((category:any) => category.strCategory);
+        const drinkCategories = data.drinks.map((category: any) => category.strCategory);
         setCategories(drinkCategories.slice(0, 5));
       } catch (error) {
         console.error('Erro ao carregar categorias de bebida', error);
@@ -20,6 +21,57 @@ function Drinks() {
 
     fetchDrinkCategories();
   }, []);
+
+  const fetchRecipesByCategory = async (category: any) => {
+    try {
+      let url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
+      if (category !== '') {
+        url += category;
+      }
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const recipeData = data.drinks;
+      if (recipeData) {
+        const recipesData: Recipe[] = recipeData
+          .slice(0, 12)
+          .map((item: any) => ({
+            id: item.idDrink,
+            name: item.strDrink,
+            image: item.strDrinkThumb,
+            category: item.strCategory,
+          }));
+
+        setRecipes(recipesData);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar receitas por categoria', error);
+    }
+  };
+
+  const fetchAllRecipes = async () => {
+    try {
+      const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
+      const data = await response.json();
+
+      const recipeData = data.drinks;
+      if (recipeData) {
+        const recipesData: Recipe[] = recipeData
+          .slice(0, 12)
+          .map((item: any) => ({
+            id: item.idDrink,
+            name: item.strDrink,
+            image: item.strDrinkThumb,
+            category: item.strCategory,
+          }));
+
+        setRecipes(recipesData);
+        setSelectedCategory(''); // Limpa a categoria selecionada
+      }
+    } catch (error) {
+      console.error('Erro ao carregar todas as receitas', error);
+    }
+  };
 
   const filteredRecipes = selectedCategory
     ? recipes.filter((recipe) => recipe.category === selectedCategory)
@@ -33,14 +85,14 @@ function Drinks() {
           <button
             key={ category }
             data-testid={ `${category}-category-filter` }
-            onClick={ () => setSelectedCategory(category) }
+            onClick={ () => fetchRecipesByCategory(category) }
           >
             { category }
           </button>
-        ))}
+        )) }
         <button
-          data-testid="all-category-filter"
-          onClick={ () => setSelectedCategory('') }
+          data-testid="All-category-filter"
+          onClick={ () => fetchAllRecipes() }
         >
           All
         </button>
@@ -52,7 +104,7 @@ function Drinks() {
             alt={ recipe.name }
             data-testid={ `${index}-card-img` }
           />
-          <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
+          <p data-testid={ `${index}-card-name` }>{ recipe.name }</p>
         </div>
       ))}
     </div>

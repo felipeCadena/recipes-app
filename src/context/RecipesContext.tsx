@@ -1,9 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Recipe, RecipeContextType, RecipeProviderProps } from '../types';
+import { Recipe, RecipeProviderProps } from '../types';
+
+type RecipeContextType = {
+  recipes: Recipe[];
+  setRecipes: React.Dispatch<React.SetStateAction<Recipe[]>>;
+};
 
 const RecipeContext = createContext<RecipeContextType | undefined>(undefined);
-
-//  Compartilhar e acessar dados de receitas em vários partes da aplicação.
 
 function RecipeProvider({ children, apiURL, dataKey }: RecipeProviderProps) {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -22,6 +25,7 @@ function RecipeProvider({ children, apiURL, dataKey }: RecipeProviderProps) {
               id: item.idMeal || item.idDrink,
               name: item.strMeal || item.strDrink,
               image: item.strMealThumb || item.strDrinkThumb,
+              category: item.strCategory || '',
             }));
 
           setRecipes(recipesData);
@@ -35,7 +39,7 @@ function RecipeProvider({ children, apiURL, dataKey }: RecipeProviderProps) {
   }, [apiURL, dataKey]);
 
   return (
-    <RecipeContext.Provider value={ { recipes } }>
+    <RecipeContext.Provider value={ { recipes, setRecipes } }>
       {children}
     </RecipeContext.Provider>
   );
