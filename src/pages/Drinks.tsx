@@ -1,8 +1,8 @@
+import RenderApi from '../components/RenderApi';
+
 function Drinks() {
   return (
-    <div>
-      <h1>Drinks</h1>
-    </div>
+    <RenderApi patch="drinks" />
   );
 }
 
