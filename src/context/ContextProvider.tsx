@@ -20,8 +20,9 @@ export default function ContextProvider({ children }: UserProviderProps) {
   async function getApi(URL: string, type: string, param: string) {
     setLoading(true);
     const response = await fetch(`https://www.${URL}.com/api/json/v1/1/${type}=${param}`);
+
     if (response.ok) {
-      if (location.pathname === '/meals') {
+      if (location.pathname === '/meals' || location.pathname === `/meals/${param}`) {
         const { meals } = await response.json();
         setResultsApi(meals);
       } else {

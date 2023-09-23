@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 4rem;
+}
+
+.container img {
+  margin-right: 0.5rem;
+}

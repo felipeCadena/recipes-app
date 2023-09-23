@@ -1,10 +1,9 @@
 import React from 'react';
+import RecipeDetails from '../components/RecipeDetails';
 
 function DrinkDetails() {
   return (
-    <div>
-      <h1>Drink Details</h1>
-    </div>
+    <RecipeDetails patch="drinks" />
   );
 }
 
