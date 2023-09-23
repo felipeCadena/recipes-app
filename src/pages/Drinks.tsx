@@ -7,6 +7,8 @@ function Drinks() {
   const { recipes, setRecipes } = useRecipeContext();
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [previousCategory, setPreviousCategory] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +28,14 @@ function Drinks() {
 
   const fetchRecipesByCategory = async (category: any) => {
     try {
+      if (category === previousCategory) {
+        // Se a categoria é a mesma, retornar as 12 primeiras receitas sem filtro
+        await fetchAllRecipes();
+        return;
+      }
+
+      setPreviousCategory(category); // Armazena a categoria atual como a anterior
+
       let url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
       if (category !== '') {
         url += category;
