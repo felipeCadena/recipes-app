@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecipeContext } from '../context/RecipesContext';
 import { Recipe } from '../types';
 
@@ -6,6 +7,7 @@ function Drinks() {
   const { recipes, setRecipes } = useRecipeContext();
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDrinkCategories = async () => {
@@ -66,7 +68,7 @@ function Drinks() {
           }));
 
         setRecipes(recipesData);
-        setSelectedCategory(''); // Limpa a categoria selecionada
+        setSelectedCategory('');
       }
     } catch (error) {
       console.error('Erro ao carregar todas as receitas', error);
@@ -87,9 +89,9 @@ function Drinks() {
             data-testid={ `${category}-category-filter` }
             onClick={ () => fetchRecipesByCategory(category) }
           >
-            { category }
+            {category}
           </button>
-        )) }
+        ))}
         <button
           data-testid="All-category-filter"
           onClick={ () => fetchAllRecipes() }
@@ -98,7 +100,18 @@ function Drinks() {
         </button>
       </div>
       { filteredRecipes.map((recipe, index) => (
-        <div key={ recipe.id } data-testid={ `${index}-recipe-card` }>
+        <div
+          key={ recipe.id }
+          data-testid={ `${index}-recipe-card` }
+          role="button" // Adicione role="button" para torná-lo interativo
+          onClick={ () => navigate(`/drinks/${recipe.id}`) }
+          onKeyDown={ (e) => {
+            if (e.key === 'Enter' || e.key === 'Space') {
+              navigate(`/drinks/${recipe.id}`);
+            }
+          } }
+          tabIndex={ 0 } // Torna o elemento focável
+        >
           <img
             src={ recipe.image }
             alt={ recipe.name }
@@ -107,6 +120,7 @@ function Drinks() {
           <p data-testid={ `${index}-card-name` }>{ recipe.name }</p>
         </div>
       ))}
+
     </div>
   );
 }

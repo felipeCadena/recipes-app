@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecipeContext } from '../context/RecipesContext';
 import { Recipe } from '../types';
 
@@ -6,6 +7,7 @@ function Meals() {
   const { recipes, setRecipes } = useRecipeContext();
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMealCategories = async () => {
@@ -97,19 +99,28 @@ function Meals() {
           All
         </button>
       </div>
-      {filteredRecipes.map((recipe, index) => (
-        <div key={ recipe.id } data-testid={ `${index}-recipe-card` }>
+      { filteredRecipes.map((recipe, index) => (
+        <div
+          key={ recipe.id }
+          data-testid={ `${index}-recipe-card` }
+          role="button" // Adicione role="button" para torná-lo interativo
+          onClick={ () => navigate(`/meals/${recipe.id}`) }
+          onKeyDown={ (e) => {
+            if (e.key === 'Enter' || e.key === 'Space') {
+              navigate(`/meals/${recipe.id}`);
+            }
+          } }
+          tabIndex={ 0 }
+        >
           <img
             src={ recipe.image }
             alt={ recipe.name }
             data-testid={ `${index}-card-img` }
           />
-          <p data-testid={ `${index}-card-name` }>
-            {recipe.name}
-            <br />
-          </p>
+          <p data-testid={ `${index}-card-name` }>{ recipe.name }</p>
         </div>
       ))}
+
     </div>
   );
 }
