@@ -19,7 +19,7 @@ export default function RecipeDetails({ patch }: RenderProp) {
   const [copy, setCopy] = useState(false);
   const [favoriteRecipe, setFavoriteRecipe] = useState(false);
 
-  const apiResult = resultsApi[0];
+  const apiResult = resultsApi && resultsApi[0];
 
   const favoriteMeal = apiResult && [{
     id: (apiResult as MealsType).idMeal,
@@ -82,9 +82,9 @@ export default function RecipeDetails({ patch }: RenderProp) {
   const getInProgess = localStorage.getItem('inProgressRecipes');
   // será alterado nos reqs 40 em diante
 
-  function handleFinishRecipe() { // button Finish Recipe ainda não implementado
+  // function handleFinishRecipe() { // button Finish Recipe ainda não implementado
 
-  }
+  // }
 
   function handleFavoriteRecipe() {
     setFavoriteRecipe(!favoriteRecipe);
@@ -97,8 +97,6 @@ export default function RecipeDetails({ patch }: RenderProp) {
       () => {
         try {
           setCopy(true);
-        } catch (error) {
-          return error;
         } finally {
           setTimeout(() => {
             setCopy(false);
@@ -141,7 +139,9 @@ export default function RecipeDetails({ patch }: RenderProp) {
           {!getInProgess ? 'Start Recipe' : 'Continue Recipe'}
           {/* será alterado nos reqs 40 em diante */}
         </button>
-        {getInProgess && <button onClick={ handleFinishRecipe }>Finish Recipe</button>}
+        {getInProgess
+        && <button>Finish Recipe</button>}
+        {/* onClick={ handleFinishRecipe } */}
         {/* será alterado nos reqs 40 em diante */}
       </main>
     );

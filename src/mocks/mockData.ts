@@ -1,10 +1,10 @@
 export const mockData = {
   meals: [
-    {
-      idMeal: '52776',
-      strMeal: 'Chocolate Gateau',
-      strMealThumb: 'https:www.themealdb.com/images/media/meals/tqtywx1468317395.jpg',
-    },
+    // {
+    //   idMeal: '52776',
+    //   strMeal: 'Chocolate Gateau',
+    //   strMealThumb: 'https:www.themealdb.com/images/media/meals/tqtywx1468317395.jpg',
+    // },
     {
       idMeal: '52765',
       strMeal: 'Chicken Enchilada Casserole',
@@ -15,4 +15,23 @@ export const mockData = {
       strMeal: 'Brown Stew Chicken',
       strMealThumb: 'https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg',
     },
-  ] };
+  ],
+  drinks: [
+    {
+      idDrink: '15977',
+      strDrink: 'GG',
+      strDrinkThumb: 'https://www.thecocktaildb.com/images/media/drink/vyxwut1468875960.jpg',
+      strUrl: 'https://www.youtube.com/embed/_gFB1fkNhXs',
+    },
+    {
+      idMeal: '12668',
+      strMeal: 'Egg Cream',
+      strMealThumb: 'https://www.thecocktaildb.com/images/media/drink/mvis731484430445.jpg',
+    },
+    // {
+    //   idMeal: '52940',
+    //   strMeal: 'Brown Stew Chicken',
+    //   strMealThumb: 'https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg',
+    // },
+  ],
+};
