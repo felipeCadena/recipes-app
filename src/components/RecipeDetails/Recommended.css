@@ -1,7 +1,7 @@
 .container {
   display: flex;
-  overflow-x: auto;
   margin-bottom: 4rem;
+  overflow-x: auto;
 }
 
 .container img {

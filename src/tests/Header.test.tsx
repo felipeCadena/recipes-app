@@ -1,9 +1,9 @@
 import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
-import App from '../App';
+// import App from '../App';
 import Header from '../components/Header';
 import { renderWithRouter } from './helpers/renderWithRouter';
-import ContextProvider from '../context/ContextProvider';
+// import ContextProvider from '../context/ContextProvider';
 
 const PROFILE_BTN_TEST_ID = 'profile-top-btn';
 const SEARCH_TOP_BTN_TEST_ID = 'search-top-btn';

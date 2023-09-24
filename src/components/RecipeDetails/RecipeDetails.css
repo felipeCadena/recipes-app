@@ -2,9 +2,9 @@
   height: 90rem;
 } */
 
-.start  {
-  padding: 0.5rem;
+.start {
   border-radius: 1rem;
-  position: fixed;
   bottom: 0;
+  padding: 0.5rem;
+  position: fixed;
 }
