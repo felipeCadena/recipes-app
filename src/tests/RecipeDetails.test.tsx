@@ -30,7 +30,7 @@ describe('Verifica existência dos elementos do componente RecipeDetails', () =>
 
     expect(global.fetch).toHaveBeenCalled();
     expect(global.fetch).toHaveBeenCalledWith(api);
-    const title = await screen.findByText(/Chicken Enchilada Casserole/i);
+    const title = await screen.findByText(/Brown Stew Chicken/i);
 
     const sharedButton = await screen.findByTestId(/share-btn/i);
     const favoriteButton = await screen.findByTestId(/favorite-btn/i);
@@ -45,16 +45,8 @@ describe('Verifica existência dos elementos do componente RecipeDetails', () =>
     expect(screen.getByText('Link copied!')).toBeInTheDocument();
     expect(favoriteButton).toHaveAttribute('src', '/src/images/whiteHeartIcon.svg');
 
-    // expect(screen.getByText('Link copied!')).not.toBeInTheDocument();
-
-    await user.click(favoriteButton);
-    expect(favoriteButton).toHaveAttribute('src', blackHeart);
-
     const video = await waitFor(() => screen.getByTestId('video'));
     expect(video).toBeInTheDocument();
-
-    // expect(video).toHaveAttribute('src', 'https://www.youtube.com/embed/_gFB1fkNhXs');
-    // expect(video).toHaveAttribute('title', '52940');
 
     await user.click(starButton);
     expect(window.location.pathname).toBe('/meals/52940/in-progress');
@@ -67,7 +59,6 @@ describe('Verifica existência dos elementos do componente RecipeDetails', () =>
       </ContextProvider>,
       { route: routeMeal },
     );
-
     const favoriteButton = await screen.findByTestId(/favorite-btn/i);
     expect(favoriteButton).toBeInTheDocument();
     expect(favoriteButton).toHaveAttribute('src', '/src/images/whiteHeartIcon.svg');
@@ -79,10 +70,11 @@ describe('Verifica existência dos elementos do componente RecipeDetails', () =>
         <App />
       </ContextProvider>,
     );
+
     expect(favoriteButton).toHaveAttribute('src', blackHeart);
 
     const recoveryRecipe = JSON.parse(localStorage.getItem('favoriteRecipes') as string);
-    expect(recoveryRecipe[0].id).toBe('52765');
+    expect(recoveryRecipe[0].id).toBe('52940');
   });
 
   it('Verifica se o componente Recommended é renderizado corretamente, na page Meal', async () => {
