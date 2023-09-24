@@ -3,6 +3,7 @@ export interface MealsType {
   strMeal: string;
   strMealThumb: string;
   strCategory: string;
+  strArea: string;
   strIngredient1: string;
   strIngredient2: string;
   strIngredient3: string;
@@ -21,6 +22,16 @@ export interface MealsType {
   strMeasure6: string;
   strMeasure7: string;
   strMeasure8: string;
+}
+
+export interface FavoriteMealType {
+  id: string;
+  type: string;
+  nationality: string;
+  category: string;
+  alcoholicOrNot: string;
+  name: string;
+  image: string;
 }
 
 export interface DrinkType {
@@ -48,6 +59,16 @@ export interface DoneRecipesType {
   tags: string;
 }
 
+export interface FavoriteDrinkType {
+  id: string;
+  type: string;
+  nationality: string;
+  category: string;
+  alcoholicOrNot: string;
+  name: string;
+  image: string;
+}
+
 export interface InProgressRecipesType {
   drinks: {
     id: string[],
@@ -63,3 +84,28 @@ export interface GlobalContextType {
   loading: boolean;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>, s: string, r: string) => void,
 }
+
+// const doneRecipe = {
+//   id: '',
+//   type: '',
+//   nationality: '',
+//   category: '',
+//   alcoholicOrNot: '',
+//   name: '',
+//   image: '',
+//   doneDate: '',
+//   tags: '',
+// };
+
+// const InProgress = {
+//   drinks: {
+//     id: [],
+//   },
+//   meals: {
+//     id: [],
+//   },
+// };
+
+// const [doneRecipes, setDoneRecipes] = useState<DoneRecipesType[]>([]);
+// const [inProgressRecipes,
+//   setInProgressRecipes] = useState<InProgressRecipesType>(InProgress);

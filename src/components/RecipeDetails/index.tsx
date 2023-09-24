@@ -1,60 +1,54 @@
 import { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import GlobalContext from '../../context/GlobalContext';
-import {
-  DrinkType,
-  MealsType,
-  DoneRecipesType,
-  InProgressRecipesType } from '../../types';
-import RecipeCard from './RecipeCard';
+import { DrinkType, MealsType } from '../../types';
 import './RecipeDetails.css';
 import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../../images/blackHeartIcon.svg';
+import Recommended from './Recommended';
+import RecipeCard from './RecipeCard';
 
 type RenderProp = {
   patch: string,
 };
 
-// const doneRecipe = {
-//   id: '',
-//   type: '',
-//   nationality: '',
-//   category: '',
-//   alcoholicOrNot: '',
-//   name: '',
-//   image: '',
-//   doneDate: '',
-//   tags: '',
-// };
-
-const InProgress = {
-  drinks: {
-    id: [],
-  },
-  meals: {
-    id: [],
-  },
-};
-
 export default function RecipeDetails({ patch }: RenderProp) {
-  const [recomendations, setRecomendations] = useState<MealsType[] | DrinkType[]>([]);
-  // const [doneRecipes, setDoneRecipes] = useState<DoneRecipesType[]>([]);
-  // const [inProgressRecipes,
-  //   setInProgressRecipes] = useState<InProgressRecipesType>(InProgress);
-  const [favoriteRecipe, setFavoriteRecipe] = useState(true);
-  const [copy, setCopy] = useState(false);
-
   const { getApi, resultsApi, loading } = useContext(GlobalContext);
+  const [recomendations, setRecomendations] = useState<MealsType[] | DrinkType[]>([]);
+  const [copy, setCopy] = useState(false);
+  const [favoriteRecipe, setFavoriteRecipe] = useState(false);
+
+  const apiResult = resultsApi[0];
+
+  const favoriteMeal = apiResult && [{
+    id: (apiResult as MealsType).idMeal,
+    type: 'meal',
+    nationality: (apiResult as MealsType).strArea,
+    category: (apiResult as MealsType).strCategory,
+    alcoholicOrNot: '',
+    name: (apiResult as MealsType).strMeal,
+    image: (apiResult as MealsType).strMealThumb,
+  }];
+
+  const drinkMeal = apiResult && [{
+    id: (apiResult as DrinkType).idDrink,
+    type: 'drink',
+    nationality: '',
+    category: (apiResult as DrinkType).strCategory,
+    alcoholicOrNot: (apiResult as DrinkType).strAlcoholic,
+    name: (apiResult as DrinkType).strDrink,
+    image: (apiResult as DrinkType).strDrinkThumb,
+  }];
 
   const { id } = useParams();
-  const location = useLocation();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   async function getRecomendations(url: string) {
     const response = await fetch(`https://www.${url}.com/api/json/v1/1/search.php?s=`);
     if (response.ok) {
-      if (location.pathname === `/meals/${id}`) {
+      if (pathname === `/meals/${id}`) {
         const { drinks } = await response.json();
         setRecomendations(drinks);
       } else {
@@ -74,39 +68,35 @@ export default function RecipeDetails({ patch }: RenderProp) {
       getApi('themealdb', 'lookup.php?i', id);
       getRecomendations('thecocktaildb');
     }
+
+    const recoveryRecipe = JSON.parse(localStorage.getItem('favoriteRecipes') as string);
+    if (recoveryRecipe && recoveryRecipe[0].id === id) {
+      setFavoriteRecipe(true);
+    }
   }, []);
-
-  const data = resultsApi && resultsApi[0];
-
-  const ingredients = data && Object.entries(data)
-    .filter((i) => i[0].startsWith('strIngredient'));
-
-  const measures = data && Object.entries(data)
-    .filter((m) => m[0].startsWith('strMeasure'));
-
-  const param = data && (data as MealsType)?.strYoutube?.replace('watch?v=', 'embed/');
 
   function handleLocalStorage() {
     navigate(`/${patch}/${id}/in-progress`);
-    // localStorage.setItem('doneRecipes', JSON.stringify(doneRecipes));
-    // localStorage.setItem('inProgressRecipes', JSON.stringify(InProgress));
   }
 
   const getInProgess = localStorage.getItem('inProgressRecipes');
+  // será alterado nos reqs 40 em diante
 
-  function handleFinishRecipe() {
+  function handleFinishRecipe() { // button Finish Recipe ainda não implementado
 
   }
 
   function handleFavoriteRecipe() {
     setFavoriteRecipe(!favoriteRecipe);
+    const recipeToStore = pathname.includes('meals') ? favoriteMeal : drinkMeal;
+    localStorage.setItem('favoriteRecipes', JSON.stringify(recipeToStore));
   }
 
   function handleClipBoard() {
-    navigator.clipboard.writeText(`http://localhost:3000${location.pathname}`).then(
+    navigator.clipboard.writeText(`http://localhost:3000${pathname}`).then(
       () => {
         try {
-          setCopy(!copy);
+          setCopy(true);
         } catch (error) {
           return error;
         } finally {
@@ -122,7 +112,7 @@ export default function RecipeDetails({ patch }: RenderProp) {
     return <h1>Carregando...</h1>;
   }
 
-  if (data) {
+  if (resultsApi && resultsApi[0]) {
     return (
       <main className="container-main">
         <button
@@ -133,78 +123,26 @@ export default function RecipeDetails({ patch }: RenderProp) {
         </button>
         {copy && <span>Link copied!</span>}
         <button
-          data-testid="favorite-btn"
           onClick={ handleFavoriteRecipe }
         >
-          <img src={ favoriteRecipe ? whiteHeartIcon : blackHeartIcon } alt="" />
+          <img
+            data-testid="favorite-btn"
+            src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
+            alt=""
+          />
         </button>
-        {patch === 'drinks' && (
-          <>
-            <img
-              src={ (data as DrinkType).strDrinkThumb }
-              alt={ (data as DrinkType).strDrink }
-              width={ 100 }
-              data-testid="recipe-photo"
-            />
-            <h1 data-testid="recipe-title">{(data as DrinkType).strDrink}</h1>
-            <p data-testid="recipe-category">{(data as DrinkType).strAlcoholic}</p>
-            {ingredients?.map((ingredient, index) => (
-              <p
-                key={ index }
-                data-testid={ `${index}-ingredient-name-and-measure` }
-              >
-                {ingredient[1]}
-                {' '}
-                {measures[index][1]}
-              </p>
-            ))}
-            <p data-testid="instructions">
-              {(data as DrinkType).strInstructions}
-              {(data as DrinkType).strMeasure2}
-            </p>
-          </>
-        )}
-        {patch === 'meals' && (
-          <>
-            <img
-              src={ (data as MealsType).strMealThumb }
-              alt={ (data as MealsType).strMeal }
-              width={ 100 }
-              data-testid="recipe-photo"
-            />
-            <h1 data-testid="recipe-title">{(data as MealsType).strMeal}</h1>
-            <p data-testid="recipe-category">{(data as MealsType).strCategory}</p>
-            {ingredients?.map((ingredient, index) => (
-              <p
-                key={ index }
-                data-testid={ `${index}-ingredient-name-and-measure` }
-              >
-                {ingredient[1]}
-                {' '}
-                {measures[index][1]}
-              </p>
-            ))}
-            <p data-testid="instructions">
-              {(data as MealsType).strInstructions}
-            </p>
-            <iframe
-              data-testid="video"
-              width="360"
-              height="200"
-              src={ param }
-              title={ (data as MealsType).idMeal }
-            />
-          </>
-        )}
-        {recomendations && <RecipeCard recomendations={ recomendations } />}
+        <RecipeCard />
+        {recomendations && <Recommended recomendations={ recomendations } />}
         <button
           className="start"
           data-testid="start-recipe-btn"
           onClick={ handleLocalStorage }
         >
           {!getInProgess ? 'Start Recipe' : 'Continue Recipe'}
+          {/* será alterado nos reqs 40 em diante */}
         </button>
         {getInProgess && <button onClick={ handleFinishRecipe }>Finish Recipe</button>}
+        {/* será alterado nos reqs 40 em diante */}
       </main>
     );
   }
