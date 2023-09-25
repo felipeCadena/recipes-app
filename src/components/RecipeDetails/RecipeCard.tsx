@@ -15,8 +15,6 @@ export default function RecipeCard() {
   const measures = data && Object.entries(data)
     .filter((m) => m[0].startsWith('strMeasure'));
 
-  console.log((data as MealsType).strYoutube);
-
   return (
     <div>
       {pathname.includes('drinks') && (
