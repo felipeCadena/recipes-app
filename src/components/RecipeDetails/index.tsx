@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import GlobalContext from '../../context/GlobalContext';
-import { DrinkType, FavoriteDrinkType, FavoriteMealType, MealsType } from '../../types';
+import { DrinkType, MealsType } from '../../types';
 import './RecipeDetails.css';
 import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';

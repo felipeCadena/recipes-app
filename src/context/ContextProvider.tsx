@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import GlobalContext from './GlobalContext';
-import { DrinkType,
-  FavoriteDrinkType,
-  FavoriteMealType, FavoriteRecipeType, MealsType } from '../types';
-// import useFetchApi from '../hooks/useFetchApi';
+import { DrinkType, FavoriteRecipeType, MealsType } from '../types';
 
 type UserProviderProps = {
   children: React.ReactNode;
@@ -15,8 +12,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     .parse(localStorage.getItem('favoriteRecipes') as string) : [];
 
   const [resultsApi, setResultsApi] = useState<MealsType[] | DrinkType[]>([]);
-  const [saveFavorite, setSaveFavorite] = useState<FavoriteDrinkType[]
-  | FavoriteMealType[]>(recovery);
+  const [saveFavorite, setSaveFavorite] = useState<FavoriteRecipeType[]>(recovery);
   const [loading, setLoading] = useState<boolean>(false);
   const [favoriteRecipe, setFavoriteRecipe] = useState(false);
 
