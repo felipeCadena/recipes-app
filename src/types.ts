@@ -69,6 +69,16 @@ export interface FavoriteDrinkType {
   image: string;
 }
 
+export interface FavoriteRecipeType {
+  id: string;
+  type: string;
+  nationality: string;
+  category: string;
+  alcoholicOrNot: string;
+  name: string;
+  image: string;
+}
+
 export interface InProgressRecipesType {
   drinks: {
     id: string[],
@@ -83,6 +93,11 @@ export interface GlobalContextType {
   resultsApi: DrinkType[] | MealsType[],
   loading: boolean;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>, s: string, r: string) => void,
+  saveFavorite: FavoriteDrinkType[] | FavoriteMealType[];
+  setSaveFavorite: (s: FavoriteDrinkType[] | FavoriteMealType[]) => void,
+  favoriteRecipe: boolean,
+  setFavoriteRecipe: (s: boolean) => void,
+  handleFavoriteRecipe: () => void,
 }
 
 // const doneRecipe = {

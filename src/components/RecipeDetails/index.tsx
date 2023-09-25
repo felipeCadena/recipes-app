@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import GlobalContext from '../../context/GlobalContext';
-import { DrinkType, MealsType } from '../../types';
+import { DrinkType, FavoriteDrinkType, FavoriteMealType, MealsType } from '../../types';
 import './RecipeDetails.css';
 import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
@@ -14,32 +14,10 @@ type RenderProp = {
 };
 
 export default function RecipeDetails({ patch }: RenderProp) {
-  const { getApi, resultsApi, loading } = useContext(GlobalContext);
+  const { getApi, resultsApi, loading,
+    favoriteRecipe, handleFavoriteRecipe, setFavoriteRecipe } = useContext(GlobalContext);
   const [recomendations, setRecomendations] = useState<MealsType[] | DrinkType[]>([]);
   const [copy, setCopy] = useState(false);
-  const [favoriteRecipe, setFavoriteRecipe] = useState(false);
-
-  const apiResult = resultsApi && resultsApi[0];
-
-  const favoriteMeal = apiResult && [{
-    id: (apiResult as MealsType).idMeal,
-    type: 'meal',
-    nationality: (apiResult as MealsType).strArea,
-    category: (apiResult as MealsType).strCategory,
-    alcoholicOrNot: '',
-    name: (apiResult as MealsType).strMeal,
-    image: (apiResult as MealsType).strMealThumb,
-  }];
-
-  const drinkMeal = apiResult && [{
-    id: (apiResult as DrinkType).idDrink,
-    type: 'drink',
-    nationality: '',
-    category: (apiResult as DrinkType).strCategory,
-    alcoholicOrNot: (apiResult as DrinkType).strAlcoholic,
-    name: (apiResult as DrinkType).strDrink,
-    image: (apiResult as DrinkType).strDrinkThumb,
-  }];
 
   const { id } = useParams();
   const { pathname } = useLocation();
@@ -70,7 +48,7 @@ export default function RecipeDetails({ patch }: RenderProp) {
     }
 
     const recoveryRecipe = JSON.parse(localStorage.getItem('favoriteRecipes') as string);
-    if (recoveryRecipe && recoveryRecipe[0].id === id) {
+    if (recoveryRecipe && id && recoveryRecipe[0]?.id === id) {
       setFavoriteRecipe(true);
     }
   }, []);
@@ -85,12 +63,6 @@ export default function RecipeDetails({ patch }: RenderProp) {
   // function handleFinishRecipe() { // button Finish Recipe ainda não implementado
 
   // }
-
-  function handleFavoriteRecipe() {
-    setFavoriteRecipe(!favoriteRecipe);
-    const recipeToStore = pathname.includes('meals') ? favoriteMeal : drinkMeal;
-    localStorage.setItem('favoriteRecipes', JSON.stringify(recipeToStore));
-  }
 
   function handleClipBoard() {
     navigator.clipboard.writeText(`http://localhost:3000${pathname}`).then(

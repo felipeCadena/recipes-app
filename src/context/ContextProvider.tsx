@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import GlobalContext from './GlobalContext';
-import { DrinkType, MealsType } from '../types';
+import { DrinkType,
+  FavoriteDrinkType,
+  FavoriteMealType, FavoriteRecipeType, MealsType } from '../types';
 // import useFetchApi from '../hooks/useFetchApi';
 
 type UserProviderProps = {
@@ -9,12 +11,18 @@ type UserProviderProps = {
 };
 
 export default function ContextProvider({ children }: UserProviderProps) {
+  const recovery = localStorage.length ? JSON
+    .parse(localStorage.getItem('favoriteRecipes') as string) : [];
+
   const [resultsApi, setResultsApi] = useState<MealsType[] | DrinkType[]>([]);
+  const [saveFavorite, setSaveFavorite] = useState<FavoriteDrinkType[]
+  | FavoriteMealType[]>(recovery);
   const [loading, setLoading] = useState<boolean>(false);
+  const [favoriteRecipe, setFavoriteRecipe] = useState(false);
 
-  const location = useLocation();
+  const { pathname } = useLocation();
 
-  const url = location.pathname === '/meals' ? 'themealdb' : 'thecocktaildb';
+  const url = pathname === '/meals' ? 'themealdb' : 'thecocktaildb';
   const First = 'First letter';
 
   async function getApi(URL: string, type: string, param: string) {
@@ -22,7 +30,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     const response = await fetch(`https://www.${URL}.com/api/json/v1/1/${type}=${param}`);
 
     if (response.ok) {
-      if (location.pathname === '/meals' || location.pathname === `/meals/${param}`) {
+      if (pathname === '/meals' || pathname === `/meals/${param}`) {
         const { meals } = await response.json();
         setResultsApi(meals);
       } else {
@@ -31,6 +39,43 @@ export default function ContextProvider({ children }: UserProviderProps) {
       }
       setLoading(false);
     }
+  }
+
+  const apiResult = resultsApi && resultsApi[0];
+
+  function handleFavoriteRecipe() {
+    let recipeToStore: FavoriteRecipeType;
+
+    if (pathname.includes('meals')) {
+      const meal = apiResult as MealsType;
+      recipeToStore = {
+        id: meal.idMeal,
+        type: 'meal',
+        nationality: meal.strArea,
+        category: meal.strCategory,
+        alcoholicOrNot: '',
+        name: meal.strMeal,
+        image: meal.strMealThumb,
+      };
+    } else {
+      const drink = apiResult as DrinkType;
+      recipeToStore = {
+        id: drink.idDrink,
+        type: 'drink',
+        nationality: '',
+        category: drink.strCategory,
+        alcoholicOrNot: drink.strAlcoholic,
+        name: drink.strDrink,
+        image: drink.strDrinkThumb,
+      };
+    }
+
+    setFavoriteRecipe(!favoriteRecipe);
+    setSaveFavorite((prev) => [...prev, recipeToStore]);
+    localStorage.setItem(
+      'favoriteRecipes',
+      JSON.stringify([...saveFavorite, recipeToStore]),
+    );
   }
 
   async function handleSubmit(
@@ -64,6 +109,11 @@ export default function ContextProvider({ children }: UserProviderProps) {
         resultsApi,
         loading,
         handleSubmit,
+        saveFavorite,
+        setSaveFavorite,
+        favoriteRecipe,
+        setFavoriteRecipe,
+        handleFavoriteRecipe,
       } }
     >
       {children}
