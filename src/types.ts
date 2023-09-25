@@ -68,6 +68,11 @@ export interface InProgressRecipesType {
   }
 }
 
+export interface CopyType {
+  id: string,
+  click: boolean,
+}
+
 export interface GlobalContextType {
   getApi: (url: string, param: string, type: string) => void,
   resultsApi: DrinkType[] | MealsType[],
@@ -78,29 +83,7 @@ export interface GlobalContextType {
   favoriteRecipe: boolean,
   setFavoriteRecipe: (s: boolean) => void,
   handleFavoriteRecipe: () => void,
+  setCopy: (s: boolean) => void,
+  copy: boolean;
+  handleClipBoard: (s: string) => void,
 }
-
-// const doneRecipe = {
-//   id: '',
-//   type: '',
-//   nationality: '',
-//   category: '',
-//   alcoholicOrNot: '',
-//   name: '',
-//   image: '',
-//   doneDate: '',
-//   tags: '',
-// };
-
-// const InProgress = {
-//   drinks: {
-//     id: [],
-//   },
-//   meals: {
-//     id: [],
-//   },
-// };
-
-// const [doneRecipes, setDoneRecipes] = useState<DoneRecipesType[]>([]);
-// const [inProgressRecipes,
-//   setInProgressRecipes] = useState<InProgressRecipesType>(InProgress);

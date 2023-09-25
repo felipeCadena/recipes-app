@@ -15,9 +15,9 @@ type RenderProp = {
 
 export default function RecipeDetails({ patch }: RenderProp) {
   const { getApi, resultsApi, loading,
-    favoriteRecipe, handleFavoriteRecipe, setFavoriteRecipe } = useContext(GlobalContext);
+    favoriteRecipe, handleFavoriteRecipe,
+    setFavoriteRecipe, copy, handleClipBoard } = useContext(GlobalContext);
   const [recomendations, setRecomendations] = useState<MealsType[] | DrinkType[]>([]);
-  const [copy, setCopy] = useState(false);
 
   const { id } = useParams();
   const { pathname } = useLocation();
@@ -64,30 +64,16 @@ export default function RecipeDetails({ patch }: RenderProp) {
 
   // }
 
-  function handleClipBoard() {
-    navigator.clipboard.writeText(`http://localhost:3000${pathname}`).then(
-      () => {
-        try {
-          setCopy(true);
-        } finally {
-          setTimeout(() => {
-            setCopy(false);
-          }, 500);
-        }
-      },
-    );
-  }
-
   if (loading) {
     return <h1>Carregando...</h1>;
   }
 
-  if (resultsApi && resultsApi[0]) {
+  if (resultsApi && resultsApi[0] && id) {
     return (
       <main className="container-main">
         <button
           data-testid="share-btn"
-          onClick={ handleClipBoard }
+          onClick={ () => handleClipBoard(pathname) }
         >
           <img src={ shareIcon } alt="" />
         </button>
