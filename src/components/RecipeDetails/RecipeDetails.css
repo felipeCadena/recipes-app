@@ -1,0 +1,10 @@
+/* .container-main {
+  height: 90rem;
+} */
+
+.start {
+  border-radius: 1rem;
+  bottom: 0;
+  padding: 0.5rem;
+  position: fixed;
+}

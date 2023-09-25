@@ -1,7 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-// import drinkIcon from '../../images/drinkIcon.svg';
-// import mealIcon from '../../images/mealIcon.svg';
+import drinkIcon from '../../images/drinkIcon.svg';
+import mealIcon from '../../images/mealIcon.svg';
 
 function Footer() {
   return (
@@ -18,10 +17,10 @@ function Footer() {
       } }
     >
       <Link to="/drinks">
-        <img src="{ drinkIcon }" alt="Drink" data-testid="drinks-bottom-btn" />
+        <img src={ drinkIcon } alt="Drink" data-testid="drinks-bottom-btn" />
       </Link>
       <Link to="/meals">
-        <img src="{ mealIcon }" alt="Meals" data-testid="meals-bottom-btn" />
+        <img src={ mealIcon } alt="Meals" data-testid="meals-bottom-btn" />
       </Link>
     </footer>
   );

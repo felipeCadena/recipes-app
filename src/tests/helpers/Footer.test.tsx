@@ -1,4 +1,3 @@
-import React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
 import Footer from '../../components/Footer';
 import { renderWithRouter } from './renderWithRouter';
@@ -8,7 +7,7 @@ describe('Implement the bottom menu', () => {
     renderWithRouter(<Footer />);
     const footerElement = screen.getByTestId('footer');
     const mealIconElement = screen.getByTestId('meals-bottom-btn');
-    const drinkIconElement = screen.getByTestId('drink-bottom-btn');
+    const drinkIconElement = screen.getByTestId('drinks-bottom-btn');
 
     expect(footerElement).toBeInTheDocument();
     expect(mealIconElement).toBeInTheDocument();
