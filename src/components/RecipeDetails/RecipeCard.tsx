@@ -10,7 +10,7 @@ export default function RecipeCard() {
   const data = resultsApi && resultsApi[0];
 
   const ingredients = data && Object.entries(data)
-    .filter((i) => i[0].startsWith('strIngredient'));
+    .filter((i) => i[0].startsWith('strIngredient')).filter((i) => i[1] !== null);
 
   const measures = data && Object.entries(data)
     .filter((m) => m[0].startsWith('strMeasure'));
@@ -28,14 +28,12 @@ export default function RecipeCard() {
           <h1 data-testid="recipe-title">{(data as DrinkType).strDrink}</h1>
           <p data-testid="recipe-category">{(data as DrinkType).strAlcoholic}</p>
           {ingredients?.map((ingredient, index) => (
-            <p
-              key={ index }
-              data-testid={ `${index}-ingredient-name-and-measure` }
-            >
+            <label key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
+              <input type="checkbox" />
               {ingredient[1]}
               {' '}
               {measures[index][1]}
-            </p>
+            </label>
           ))}
           <p data-testid="instructions">
             {(data as DrinkType).strInstructions}
@@ -54,14 +52,12 @@ export default function RecipeCard() {
           <h1 data-testid="recipe-title">{(data as MealsType).strMeal}</h1>
           <p data-testid="recipe-category">{(data as MealsType).strCategory}</p>
           {ingredients?.map((ingredient, index) => (
-            <p
-              key={ index }
-              data-testid={ `${index}-ingredient-name-and-measure` }
-            >
+            <label key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
+              <input type="checkbox" />
               {ingredient[1]}
               {' '}
               {measures[index][1]}
-            </p>
+            </label>
           ))}
           <p data-testid="instructions">
             {(data as MealsType).strInstructions}

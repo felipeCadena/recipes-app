@@ -3,8 +3,8 @@ import { renderWithRouter } from './helpers/renderWithRouter';
 import App from '../App';
 import ContextProvider from '../context/ContextProvider';
 
-describe('Verifica existência dos elementos do componente RecipeDetails', () => {
-  it('Verifica se o componente RecipeDetails é renderizado', async () => {
+describe('Verifica existência dos elementos do componente FavoriteRecipes', () => {
+  it('Verifica se o componente FavoriteRecipes é renderizado', async () => {
     renderWithRouter(
       <ContextProvider>
         <App />

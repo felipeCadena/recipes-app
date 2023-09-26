@@ -1,52 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecipeContext } from '../context/RecipesContext';
-import { Category } from '../types';
+import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
 
 function Meals() {
-  const { recipes, setRecipes } = useRecipeContext();
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [previousCategory, setPreviousCategory] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchMealCategories();
-  }, []);
-
   const fetchMealCategories = async () => {
-    try {
-      const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list');
-      const data = await response.json();
-      const mealCategories = data.meals.map((category:Category) => category.strCategory);
-      setCategories(mealCategories.slice(0, 5));
-    } catch (error) {
-      console.error('Erro ao carregar categorias de comida', error);
-    }
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list');
+    const data = await response.json();
+    const mealCategories = data.meals.map((category:Category) => category.strCategory);
+    setCategories(mealCategories.slice(0, 5));
   };
 
-  const fetchRecipes = async (url:string) => {
-    try {
-      const response = await fetch(url);
+  useEffect(() => {
+    fetchMealCategories();
+    const fetchRecipes = async () => {
+      const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
       const data = await response.json();
 
       const recipeData = data.meals;
       if (recipeData) {
-        const recipesData = recipeData
+        const recipesfiltered: Recipe[] = recipeData
           .slice(0, 12)
-          .map((item:any) => ({
-            id: item.idMeal,
-            name: item.strMeal,
-            image: item.strMealThumb || 'URL_DA_IMAGEM_PADRAO',
-            category: item.strCategory,
+          .map((item: any) => ({
+            id: item.idMeal || item.idDrink,
+            name: item.strMeal || item.strDrink,
+            image: item.strMealThumb || item.strDrinkThumb,
+            category: item.strCategory || '',
           }));
 
-        setRecipes(recipesData);
-        setSelectedCategory('');
+        setRecipes(recipesfiltered);
       }
-    } catch (error) {
-      console.error('Erro ao carregar receitas', error);
+    };
+    fetchRecipes();
+  }, []);
+
+  const fetchRecipes = async (url:string) => {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const recipeData = data.meals;
+    if (recipeData) {
+      const recipesfiltered = recipeData
+        .slice(0, 12)
+        .map((item:any) => ({
+          id: item.idMeal,
+          name: item.strMeal,
+          image: item.strMealThumb || 'URL_DA_IMAGEM_PADRAO',
+          category: item.strCategory,
+        }));
+
+      setRecipes(recipesfiltered);
+      setSelectedCategory('');
     }
   };
 
@@ -57,7 +67,6 @@ function Meals() {
   const fetchRecipesByCategory = (category:any) => {
     if (category === previousCategory) {
       fetchAllRecipes();
-      return;
     }
 
     setPreviousCategory(category);
@@ -74,8 +83,7 @@ function Meals() {
     : recipes;
 
   return (
-    <div>
-      <h1>Meals</h1>
+    <>
       <div>
         {categories.map((category) => (
           <button
@@ -90,7 +98,7 @@ function Meals() {
           All
         </button>
       </div>
-      {filteredRecipes.map((recipe, index) => (
+      {filteredRecipes && filteredRecipes.map((recipe, index) => (
         <div
           key={ recipe.id }
           data-testid={ `${index}-recipe-card` }
@@ -107,12 +115,13 @@ function Meals() {
             src={ recipe.image }
             alt={ recipe.name }
             data-testid={ `${index}-card-img` }
+            width={ 100 }
           />
           <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
         </div>
       ))}
-    </div>
-    <RenderApi patch="meals" />
+      <RenderApi patch="meals" />
+    </>
   );
 }
 
