@@ -67,7 +67,11 @@ export default function ContextProvider({ children }: UserProviderProps) {
       };
     }
     setFavoriteRecipe(!favoriteRecipe);
-    setSaveFavorite((prev) => [...prev, recipeToStore]);
+    if (saveFavorite) {
+      setSaveFavorite((prev) => [...prev, recipeToStore]);
+    }
+    console.log(saveFavorite);
+
     localStorage.setItem(
       'favoriteRecipes',
       JSON.stringify([...saveFavorite, recipeToStore]),
