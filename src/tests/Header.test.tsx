@@ -7,8 +7,10 @@ import { renderWithRouter } from './helpers/renderWithRouter';
 
 const PROFILE_BTN_TEST_ID = 'profile-top-btn';
 const SEARCH_TOP_BTN_TEST_ID = 'search-top-btn';
+
 const PAGE_TITLE_TEST_ID = 'page-title';
 // const SEARCH_INPUT = 'search-input';
+
 describe('Verifica renderização do Header em diferentes rotas', () => {
   it('Deve renderizar o componente Header corretamente', () => {
     renderWithRouter(<Header />);
