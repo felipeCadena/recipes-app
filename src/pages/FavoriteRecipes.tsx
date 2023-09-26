@@ -1,7 +1,9 @@
+import FavoriteRender from '../components/FavoriteRender';
+
 function FavoriteRecipes() {
   return (
-    <div>
-      <h1>FavoriteRecipes</h1>
+    <div style={ { height: '80rem' } }>
+      <FavoriteRender keyStorage="favoriteRecipes" />
     </div>
   );
 }

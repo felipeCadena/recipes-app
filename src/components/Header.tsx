@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import SearchBar from './SearchBar';
 
 function Header() {
   const location = useLocation();
   const [searchVisible, setSearchVisible] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState('');
 
   const showSearchIcon = location
     .pathname === '/meals' || location.pathname === '/drinks';
@@ -25,6 +27,10 @@ function Header() {
     setSearchVisible(!searchVisible);
   };
 
+  function handleChange({ target }: React.ChangeEvent<HTMLInputElement>) {
+    setInputValue(target.value);
+  }
+
   return (
     <header>
       <div>
@@ -37,11 +43,16 @@ function Header() {
               <img src={ searchIcon } alt="Search" data-testid="search-top-btn" />
             </button>
             {searchVisible && ( // Renderiza o input de busca condicionalmente com base no estado
-              <input
-                type="text"
-                placeholder="Search..."
-                data-testid="search-input"
-              />
+              <>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  data-testid="search-input"
+                  value={ inputValue }
+                  onChange={ handleChange }
+                />
+                <SearchBar inputValue={ inputValue } />
+              </>
             )}
           </>
         )}

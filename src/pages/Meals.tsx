@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecipeContext } from '../context/RecipesContext';
 import { Category } from '../types';
+import RenderApi from '../components/RenderApi';
 
 function Meals() {
   const { recipes, setRecipes } = useRecipeContext();
@@ -111,6 +112,7 @@ function Meals() {
         </div>
       ))}
     </div>
+    <RenderApi patch="meals" />
   );
 }
 
