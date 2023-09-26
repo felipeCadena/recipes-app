@@ -1,0 +1,32 @@
+/*botao Search + bootstrap*/
+.btn-search.btn{
+  display: flex;
+  flex-direction: column;
+  height: 36px;
+  width: 240px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+
+  
+}/*container checkbox + button*/
+.search-bar-container {
+  align-items: center;
+  margin-left: 600px;
+  margin-top: 6px;
+}
+
+.search-button {
+  display: flex;
+  text-align: right;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.form-check-input.form-outline{
+margin: 4px;
+
+}
+@media (max-width: 768px) {
+
+}

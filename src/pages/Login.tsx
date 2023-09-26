@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const data = {
   email: '',
@@ -30,10 +32,17 @@ export default function Login() {
 
   return (
     <>
-      <h1>Login</h1>
+    <h1 className='recipes-type'>
+      App 
+    <>
+    </> de <br />
+    Receitas</h1>
+    <div className='login-container'>
+      <h2 className='login-title'>Login</h2>
       <form onSubmit={ handleSubmit }>
         <label>
           <input
+          className='input-email form-control'
             name="email"
             value={ email }
             type="email"
@@ -44,6 +53,7 @@ export default function Login() {
         </label>
         <label>
           <input
+          className='input-senha form-control' 
             name="password"
             value={ password }
             type="password"
@@ -53,12 +63,14 @@ export default function Login() {
           />
         </label>
         <button
+        className='btn-enter  btn btn-primary'
           data-testid="login-submit-btn"
           disabled={ !validLogin }
         >
           Enter
         </button>
       </form>
+      </div>
     </>
   );
 }

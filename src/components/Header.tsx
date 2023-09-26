@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
+import '../styles/Header.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Header() {
   const location = useLocation();
@@ -35,7 +37,9 @@ function Header() {
     <header>
       <div>
         <Link to="/profile">
-          <img src={ profileIcon } alt="Profile" data-testid="profile-top-btn" />
+          <img src={ profileIcon } alt="Profile" data-testid="profile-top-btn" 
+          className='search-profile'
+          />
         </Link>
         {showSearchIcon && (
           <>
@@ -50,6 +54,7 @@ function Header() {
                   data-testid="search-input"
                   value={ inputValue }
                   onChange={ handleChange }
+                  className='form-control input-search'
                 />
                 <SearchBar inputValue={ inputValue } />
               </>
