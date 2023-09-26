@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecipeContext } from '../context/RecipesContext';
-import { Category, Recipe } from '../types';
+import { Category } from '../types';
 
 function Meals() {
   const { recipes, setRecipes } = useRecipeContext();
@@ -78,32 +78,36 @@ function Meals() {
       <div>
         {categories.map((category) => (
           <button
-            key={category}
-            data-testid={`${category}-category-filter`}
-            onClick={() => fetchRecipesByCategory(category)}
+            key={ category }
+            data-testid={ `${category}-category-filter` }
+            onClick={ () => fetchRecipesByCategory(category) }
           >
             {category}
           </button>
         ))}
-        <button data-testid="All-category-filter" onClick={fetchAllRecipes}>
+        <button data-testid="All-category-filter" onClick={ fetchAllRecipes }>
           All
         </button>
       </div>
       {filteredRecipes.map((recipe, index) => (
         <div
-          key={recipe.id}
-          data-testid={`${index}-recipe-card`}
+          key={ recipe.id }
+          data-testid={ `${index}-recipe-card` }
           role="button"
-          onClick={() => handleRecipeClick(recipe.id)}
-          onKeyDown={(e) => {
+          onClick={ () => handleRecipeClick(recipe.id) }
+          onKeyDown={ (e) => {
             if (e.key === 'Enter' || e.key === 'Space') {
               handleRecipeClick(recipe.id);
             }
-          }}
-          tabIndex={0}
+          } }
+          tabIndex={ 0 }
         >
-          <img src={recipe.image} alt={recipe.name} data-testid={`${index}-card-img`} />
-          <p data-testid={`${index}-card-name`}>{recipe.name}</p>
+          <img
+            src={ recipe.image }
+            alt={ recipe.name }
+            data-testid={ `${index}-card-img` }
+          />
+          <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
         </div>
       ))}
     </div>

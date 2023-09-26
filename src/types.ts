@@ -1,13 +1,13 @@
-export type MealsType =  {
+export type MealsType = {
   idMeal: string;
   strMeal: string;
   strCategory: string;
-}
+};
 
-export type GlobalContextType =  {
+export type GlobalContextType = {
   getApi: (url: string, param: string, type: string) => void,
   resultsApi: MealsType[] | undefined,
-}
+};
 
 export type Recipe = {
   id: string;
@@ -35,8 +35,6 @@ export type RecipesProps = {
   index: number;
 };
 
-// types.ts
-
-export type Category  = {
+export type Category = {
   strCategory: string;
-}
+};
