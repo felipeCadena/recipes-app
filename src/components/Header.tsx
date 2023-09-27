@@ -34,20 +34,25 @@ function Header() {
   }
 
   return (
-    <header>
-      <div>
-        <Link to="/profile">
-          <img src={ profileIcon } alt="Profile" data-testid="profile-top-btn" 
-          className='search-profile'
-          />
-        </Link>
+    <header className='header' >
+   <h1 className='h1-style'><i>RECIPES</i> <strong>app</strong></h1>
+
+      
+      <div className='header-style'>
+        <div>
+          <Link to="/profile">
+            <img src={ profileIcon } alt="Profile" data-testid="profile-top-btn" className='search-profile' />
+          </Link>
+        </div>
         {showSearchIcon && (
-          <>
+          <div  className='search-icon'>
             <button onClick={ toggleSearch }>
-              <img src={ searchIcon } alt="Search" data-testid="search-top-btn" />
+              <img src={ searchIcon } alt="Search" data-testid="search-top-btn"
+              className='link-div'
+              />
             </button>
-            {searchVisible && ( // Renderiza o input de busca condicionalmente com base no estado
-              <>
+            {searchVisible && (
+              <div className='checkbox-style'> 
                 <input
                   type="text"
                   placeholder="Search..."
@@ -57,14 +62,16 @@ function Header() {
                   className='form-control input-search'
                 />
                 <SearchBar inputValue={ inputValue } />
-              </>
+              </div>
             )}
-          </>
+          </div>
         )}
       </div>
-      <h1 data-testid="page-title">{pageTitle}</h1>
+      <h1 data-testid="page-title"
+      className='page-title'
+      >{pageTitle}</h1>
     </header>
   );
-}
+            }  
 
 export default Header;

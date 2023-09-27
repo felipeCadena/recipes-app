@@ -1,101 +1,116 @@
-body {
-  background-image: url('https://www.designi.com.br/images/preview/10557860.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+/* body {
   overflow: hidden;
-}
+} */
 
 .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-size: cover;
-  margin-top: -140px;
+  height: 150vh;
+  /* background-color: blueviolet; */
+ 
 }
+/* Estilo para os inputs de email */
 .input-email.form-control,
-.input-senha.form-control{
-
-  margin: 10px;
-  padding: 9px;
-  width: 300px;
-
+.input-senha.form-control {
+  margin: 1.2rem;
+  padding: 0.75em;
+  width: 100%;
+  max-width: 300px;
+  display: block; 
 }
 
-.btn-enter.btn{
-
-  margin: 6px;
-  justify-content: center;
-  align-items: center;
-  height: 45px;
-  width: 85px;
-  margin-left: 5px;
-
+/* Estilo para o formulário */
+.form-login {
+  /* background-color: brown; */
+  width: 100%; 
+  max-width: 340px; 
 }
 
+
+
+/*Estilo para o botao*/
+.btn-enter.btn {
+  margin: auto; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 3em;
+  padding: 0 2em;
+  width: 19em;
+  margin-bottom: 1em;
+}
+
+
+
+/* quando o mouse passa sobre o botão */
+.btn-enter.btn:hover {
+  background-color: rgb(39, 3, 158); 
+  color: white; 
+}
+
+/*text LOGIN*/
 .login-title {
   color: rgb(2, 0, 10);
-  font-size: 35px;
-  -webkit-text-stroke: 1.5px rgb(17, 5, 59); 
+  font-size: 1.6rem;
+  /* -webkit-text-stroke: 1.5px rgb(17, 5, 59); */
   font-style: italic;
-margin-bottom: 30px;
-  
+  margin-bottom: 1%; 
+  /* background-color: yellow; */
 }
 
 
-.recipes-type {
+/*text RECIPES*/
+.recipes-h1 {
   color: rgb(1, 0, 8);
-  margin-left: 600px;
-  margin-top: 100px;
-  font-size: 70px;
-  -webkit-text-stroke: 1.5px rgb(17, 5, 59); 
+  font-size: 4.688rem;
+ /*  -webkit-text-stroke: 1.5px rgb(17, 5, 59); */
   font-style: italic;
   font-weight: bold;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: darkgreen; */
 }
+/*text App*/
+.recipes-h5 {
+  color: rgb(1, 0, 8);
+ /*  -webkit-text-stroke: 1.5px rgb(17, 5, 59); */
+  font-style: italic;
+  font-weight: bold;
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ /*  background-color: fuchsia; */
+}
+
 @media (max-width: 768px) {
-  
-  .login-container {
-    position: absolute;
-    top: 65%;
-    left: 56%;
-    transform: translate(-50%, -50%);
-    margin-top: 40px;
+  .recipes-h1 {
+    font-size:2.75rem;
   }
-
-  .btn-enter.btn{
-  display: flex;
-  margin: 6px;
-  justify-content: center;
-  align-items: center;
-  height: 33px;
-  width: 80px;
-  margin-left: 110px;
-}
-.login-title{
-  color: rgb(238, 236, 241);
-  margin-left: -15px;
-  font-size: 30px;
-  font-style: italic;
-  -webkit-text-stroke: 0.5px rgb(7, 7, 7);  
+  .login-title {
+    font-size: 1.3rem;
+  }
+  .input-email.form-control,
+.input-senha.form-control {
+  margin: 0.7rem;
+  padding: 0.60em;
+  width: 250px;
+  display: block; 
 }
 
-.input-email.form-control,
-.input-senha.form-control{
-
-  margin: 5px;
-  padding: 9px;
-  height: 33px;
-  margin-right: 40px;
+.form-login {
   
+  max-width: 280px;
+}
+.btn-enter.btn {
+
+  width: 15.5em;
+  margin-bottom: 1em; 
+  margin-right: 1.2rem;
 }
 
-.recipes-type {
-  color: rgb(243, 241, 250);
-  margin-left: 195px;
-  font-size: 40px;
-  margin-top: 130px;
-  font-style: italic;
-  
-}
 }

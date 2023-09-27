@@ -58,7 +58,7 @@ export default function SearchBar({ inputValue }: SearchProp) {
       <div className="search-button">
         <button
           data-testid="exec-search-btn"
-          className='btn btn-primary btn-search'
+          className='btn btn-warning btn-search'
         >
           Search
         </button>

@@ -1,10 +1,49 @@
+/*barra de pesquisa e form*/
+
 .input-search.form-control {
-  width: 370px;
-  margin-left: 550px;
-  margin-top: 220px;
+ width: 400px;
+ margin-top: 200px;
+margin-left: 510px;
+font: 50px;
+}
+/*botao de profile*/
+.search-profile {
+margin-left: 50px;
+margin-top: -88px;
+width: 32px;
+}
+.search-icon {
+
+  background-color: rgb(79, 21, 240);
+  margin-top: -70px;
+  height: 30px;
+  width: 40px;
+  margin-left: 5px;
+  
+}
+/*botao pesquisa*/
+.link-div{
+
+  height: 25px;
+}
+/*botao de pesquisa*/
+.header {
+  background-color: rgb(235, 231, 25);
+  height:54px;
+  margin-top: -7px;
+  
+}
+/*drinks ou meals renderizado*/
+.page-title {
+  margin-top: 100px;
+  margin-left: 650px;
+  width: 125px;
 }
 
-.search-profile {
-  /* float: right; */
-  margin-left: 1290px;
+.h1-style{ 
+  width: 240px;
+  margin-left: 600px;
+  margin-top: 7px;
+  font-style: italic;
+  font-weight: 100;
 }

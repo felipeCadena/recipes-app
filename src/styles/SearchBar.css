@@ -1,32 +1,26 @@
-/*botao Search + bootstrap*/
-.btn-search.btn{
-  display: flex;
-  flex-direction: column;
-  height: 36px;
-  width: 240px;
+.radio-buttons {
+  background-color: #41197f;
+  width: 400px;
+  height: 100px;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-
-  
-}/*container checkbox + button*/
-.search-bar-container {
-  align-items: center;
-  margin-left: 600px;
-  margin-top: 6px;
+  margin-left: 510px;
+  font-size: 16px;
+  border-radius: 6px;
+  color: white;
+  margin-right: 9px;
+  font-style: italic;
+  vertical-align: middle;
+  line-height: 1;
+  margin-top: 2px;
 }
 
-.search-button {
-  display: flex;
-  text-align: right;
-  margin-top: 10px;
-  margin-left: 20px;
+.btn-search.btn {
+  margin-left: 565px;
+  margin-top: -80px;
+  width: 300px;
 }
-
-.form-check-input.form-outline{
-margin: 4px;
-
-}
-@media (max-width: 768px) {
-
+.form-check-input.form-outline {
+ margin: 15px;
+ margin-top: 2px;
 }

@@ -1,0 +1,18 @@
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.welcome-message {
+  width: 140px;
+  height: 120px;
+  /* Outros estilos que você desejar */
+}
+.title-app {
+  font-weight: bold;
+  font-style: italic;
+}
+

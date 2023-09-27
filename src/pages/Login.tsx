@@ -32,14 +32,14 @@ export default function Login() {
 
   return (
     <>
-    <h1 className='recipes-type'>
-      App 
-    <>
-    </> de <br />
-    Receitas</h1>
+    <h1 className='recipes-h1'>Recipes</h1>
+    <h5 className='recipes-h5'>App</h5>
     <div className='login-container'>
-      <h2 className='login-title'>Login</h2>
-      <form onSubmit={ handleSubmit }>
+      <h2 className='login-title'>LOGIN</h2>
+      <form
+       onSubmit={ handleSubmit }
+       className='form-login'
+       >
         <label>
           <input
           className='input-email form-control'
