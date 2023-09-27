@@ -15,6 +15,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
   const [saveFavorite, setSaveFavorite] = useState<FavoriteRecipeType[]>(recovery);
   const [loading, setLoading] = useState<boolean>(false);
   const [favoriteRecipe, setFavoriteRecipe] = useState(false);
+  const [copy, setCopy] = useState(false);
 
   const { pathname } = useLocation();
 
@@ -65,12 +66,29 @@ export default function ContextProvider({ children }: UserProviderProps) {
         image: drink.strDrinkThumb,
       };
     }
-
     setFavoriteRecipe(!favoriteRecipe);
-    setSaveFavorite((prev) => [...prev, recipeToStore]);
+    if (saveFavorite) {
+      setSaveFavorite((prev) => [...prev, recipeToStore]);
+    }
+    console.log(saveFavorite);
+
     localStorage.setItem(
       'favoriteRecipes',
       JSON.stringify([...saveFavorite, recipeToStore]),
+    );
+  }
+
+  function handleClipBoard(patchName: string) {
+    navigator.clipboard.writeText(`http://localhost:3000${patchName}`).then(
+      () => {
+        try {
+          setCopy(true);
+        } finally {
+          setTimeout(() => {
+            setCopy(false);
+          }, 500);
+        }
+      },
     );
   }
 
@@ -110,6 +128,9 @@ export default function ContextProvider({ children }: UserProviderProps) {
         favoriteRecipe,
         setFavoriteRecipe,
         handleFavoriteRecipe,
+        setCopy,
+        copy,
+        handleClipBoard,
       } }
     >
       {children}

@@ -68,6 +68,41 @@ export interface InProgressRecipesType {
   }
 }
 
+export interface CopyType {
+  id: string,
+  click: boolean,
+}
+
+export type Recipe = {
+  id: string;
+  name: string;
+  image: string;
+  category:string;
+};
+
+export type RecipeContextType = {
+  recipes: Recipe[];
+};
+
+export type RecipeProviderProps = {
+  children: React.ReactNode;
+  apiURL: string;
+  dataKey: string;
+};
+
+export type RecipesProps = {
+  recipe: {
+    id: string;
+    name: string;
+    image: string;
+  };
+  index: number;
+};
+
+export type Category = {
+  strCategory: string;
+};
+
 export interface GlobalContextType {
   getApi: (url: string, param: string, type: string) => void,
   resultsApi: DrinkType[] | MealsType[],
@@ -78,29 +113,7 @@ export interface GlobalContextType {
   favoriteRecipe: boolean,
   setFavoriteRecipe: (s: boolean) => void,
   handleFavoriteRecipe: () => void,
+  setCopy: (s: boolean) => void,
+  copy: boolean;
+  handleClipBoard: (s: string) => void,
 }
-
-// const doneRecipe = {
-//   id: '',
-//   type: '',
-//   nationality: '',
-//   category: '',
-//   alcoholicOrNot: '',
-//   name: '',
-//   image: '',
-//   doneDate: '',
-//   tags: '',
-// };
-
-// const InProgress = {
-//   drinks: {
-//     id: [],
-//   },
-//   meals: {
-//     id: [],
-//   },
-// };
-
-// const [doneRecipes, setDoneRecipes] = useState<DoneRecipesType[]>([]);
-// const [inProgressRecipes,
-//   setInProgressRecipes] = useState<InProgressRecipesType>(InProgress);
