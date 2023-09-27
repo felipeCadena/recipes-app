@@ -18,7 +18,6 @@ function Meals() {
   };
 
   useEffect(() => {
-    fetchMealCategories();
     const fetchRecipes = async () => {
       const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
       const data = await response.json();
@@ -33,11 +32,11 @@ function Meals() {
             image: item.strMealThumb || item.strDrinkThumb,
             category: item.strCategory || '',
           }));
-
         setRecipes(recipesfiltered);
       }
     };
     fetchRecipes();
+    fetchMealCategories();
   }, []);
 
   const fetchRecipes = async (url:string) => {
@@ -65,13 +64,13 @@ function Meals() {
   };
 
   const fetchRecipesByCategory = (category:any) => {
-    if (category === previousCategory) {
+    if (previousCategory && category === previousCategory) {
       fetchAllRecipes();
+    } else {
+      setPreviousCategory(category);
+      const url = category ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}` : '';
+      fetchRecipes(url);
     }
-
-    setPreviousCategory(category);
-    const url = category ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}` : '';
-    fetchRecipes(url);
   };
 
   const handleRecipeClick = (recipeId:string) => {

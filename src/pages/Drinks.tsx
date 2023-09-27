@@ -66,13 +66,13 @@ function Drinks() {
   };
 
   const fetchRecipesByCategory = (category:string) => {
-    if (category === previousCategory) {
+    if (previousCategory && category === previousCategory) {
       fetchAllRecipes();
+    } else {
+      setPreviousCategory(category);
+      const url = category ? `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}` : '';
+      fetchRecipes(url);
     }
-
-    setPreviousCategory(category);
-    const url = category ? `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}` : '';
-    fetchRecipes(url);
   };
 
   const handleRecipeClick = (recipeId:string) => {
