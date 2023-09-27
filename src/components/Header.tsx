@@ -5,6 +5,9 @@ import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/Header.css'
 import 'bootstrap/dist/css/bootstrap.css';
+import mealIcon from '../images/mealIcon.svg';
+import drinkIcon from '../images/drinkIcon.svg';
+
 
 function Header() {
   const location = useLocation();
@@ -34,22 +37,19 @@ function Header() {
   }
 
   return (
-    <header className='header' >
-   <h1 className='h1-style'><i>RECIPES</i> <strong>app</strong></h1>
-
-      
+    <header className='header'>
+      <h1 className='h1-style'><i>RECIPES</i> <strong>app</strong></h1>
+        
       <div className='header-style'>
         <div>
           <Link to="/profile">
-            <img src={ profileIcon } alt="Profile" data-testid="profile-top-btn" className='search-profile' />
+            <img src={profileIcon} alt="Profile" data-testid="profile-top-btn" className='search-profile' />
           </Link>
         </div>
         {showSearchIcon && (
-          <div  className='search-icon'>
-            <button onClick={ toggleSearch }>
-              <img src={ searchIcon } alt="Search" data-testid="search-top-btn"
-              className='link-div'
-              />
+          <div className='search-icon'>
+            <button onClick={toggleSearch}>
+              <img src={searchIcon} alt="Search" data-testid="search-top-btn" className='link-div' />
             </button>
             {searchVisible && (
               <div className='checkbox-style'> 
@@ -57,21 +57,31 @@ function Header() {
                   type="text"
                   placeholder="Search..."
                   data-testid="search-input"
-                  value={ inputValue }
-                  onChange={ handleChange }
+                  value={inputValue}
+                  onChange={handleChange}
                   className='form-control input-search'
                 />
-                <SearchBar inputValue={ inputValue } />
+                <SearchBar inputValue={inputValue} />
               </div>
             )}
           </div>
         )}
       </div>
-      <h1 data-testid="page-title"
-      className='page-title'
-      >{pageTitle}</h1>
+      
+      {pageTitle === 'Drink' ? (
+        <img src={drinkIcon} alt="Drink" data-testid="drinks-bottom-btn" className='drink-link' />
+      ) : pageTitle === 'Drinks' ? (
+        <>
+          <span>Drinks</span>
+          <img src={drinkIcon} alt="Drink" data-testid="drinks-bottom-btn" className='drink-linkk' />
+        </>
+      ) : pageTitle === 'Meals' ? (
+        <img src={mealIcon} alt="Meals" data-testid="meals-bottom-btn" className='meals-linkk' />
+      ) : null}
+  
+      <h1 data-testid="page-title" className='page-title'>{pageTitle}</h1>
     </header>
   );
-            }  
-
+    
+      }
 export default Header;

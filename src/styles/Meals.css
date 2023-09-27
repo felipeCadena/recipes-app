@@ -1,0 +1,28 @@
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  margin-top: 200px;
+}
+
+.button-meals {
+  background-color: blue;
+  margin-right: 10px; /* Add spacing between the buttons */
+}
+
+
+.receitas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: green;
+  width: 240px;
+  margin-top: 20px;
+  margin-left: 570px;
+}
+
+.meals-itens {
+  background-color: aqua;
+  width: 100px; /* Largura fixa de 100px para cada item */
+  margin: 0 10px; /* Espaço entre as receitas na horizontal */
+  margin-bottom: 20px; 
+}

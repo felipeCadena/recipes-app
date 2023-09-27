@@ -1,4 +1,6 @@
-/*barra de pesquisa e form*/
+/*Barra de pesquisa e formulario*/
+
+
 
 .input-search.form-control {
  width: 400px;
@@ -6,24 +8,26 @@
 margin-left: 510px;
 font: 50px;
 }
-/*botao de profile*/
+/*Botao de profile*/
 .search-profile {
 margin-left: 50px;
 margin-top: -88px;
 width: 32px;
 }
+
+/*Botao de pesquisar(Fora do botao)*/
 .search-icon {
 
   background-color: rgb(79, 21, 240);
   margin-top: -70px;
   height: 30px;
   width: 40px;
-  margin-left: 5px;
+  
   
 }
-/*botao pesquisa*/
+/*Botao de pesquisar(Dentro do botao)*/
 .link-div{
-
+ 
   height: 25px;
 }
 /*botao de pesquisa*/
@@ -33,17 +37,82 @@ width: 32px;
   margin-top: -7px;
   
 }
-/*drinks ou meals renderizado*/
+/*Nome DRINKS ou MEALS renderizado na tela*/
 .page-title {
-  margin-top: 100px;
+  margin-top: 10px;
   margin-left: 650px;
   width: 125px;
 }
-
+/*Titulo RECIPES*/
 .h1-style{ 
   width: 240px;
   margin-left: 600px;
   margin-top: 7px;
   font-style: italic;
   font-weight: 100;
+}
+/*Icone de um drink em cima da palavra DRINK*/
+.drink-linkk{
+  background-color: blue;
+  margin-left: 650px;
+  margin-top: 30px;
+  height: 40px;
+}
+/*Icone de um meals em cima da palavra MEALS*/
+.meals-linkk{
+  background-color: blue;
+  margin-left: 685px;
+  margin-top: 30px;
+  height: 40px;
+  
+}
+
+
+@media (max-width: 768px) {
+.input-search.form-control {
+  width: 300px;
+  margin-top: 130px;
+  margin-left: 100px;
+  font: 50px;
+ }
+ .page-title {
+  margin-top: 70px;
+  margin-left: 215px;
+  width: 125px;
+}
+.h1-style{ 
+  width: 240px;
+  margin-left: 170px;
+  margin-top: 7px;
+  font-style: italic;
+  font-size: 28px;
+}
+.search-profile {
+  margin-top: -70px;
+  }
+  .drink-linkk{
+    background-color: blue;
+    margin-left: 200px;
+    margin-top: 60px;
+    height: 40px;
+  }
+  /*Icone de um meals em cima da palavra MEALS*/
+  .meals-linkk{
+    background-color: blue;
+    margin-left: 685px;
+    margin-top: 30px;
+    height: 40px;
+  }
+  /*Nome DRINKS ou MEALS renderizado na tela*/
+.page-title {
+  margin-top: 10px;
+  margin-left: 220px;
+  width: 125px;
+}
+.input-search.form-control {
+  width: 300px;
+  margin-top: 180px;
+ margin-left: 100px;
+ font: 50px;
+ }
 }

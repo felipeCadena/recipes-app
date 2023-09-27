@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
+import '../styles/Meals.css'
 
 function Meals() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -82,47 +83,53 @@ function Meals() {
     ? recipes.filter((recipe) => recipe.category === selectedCategory)
     : recipes;
 
-  return (
-    <>
-      <div>
-        {categories.map((category) => (
-          <button
-            key={ category }
-            data-testid={ `${category}-category-filter` }
-            onClick={ () => fetchRecipesByCategory(category) }
-          >
-            {category}
+    return (
+      <>
+        <div className='button-container'>
+          {categories.map((category) => (
+            <button
+              key={category}
+              data-testid={`${category}-category-filter`}
+              onClick={() => fetchRecipesByCategory(category)}
+              className='button-meals'
+            >
+              {category}
+            </button>
+          ))}
+          <button data-testid="All-category-filter" onClick={fetchAllRecipes}>
+            All
           </button>
-        ))}
-        <button data-testid="All-category-filter" onClick={ fetchAllRecipes }>
-          All
-        </button>
-      </div>
-      {filteredRecipes && filteredRecipes.map((recipe, index) => (
-        <div
-          key={ recipe.id }
-          data-testid={ `${index}-recipe-card` }
-          role="button"
-          onClick={ () => handleRecipeClick(recipe.id) }
-          onKeyDown={ (e) => {
-            if (e.key === 'Enter' || e.key === 'Space') {
-              handleRecipeClick(recipe.id);
-            }
-          } }
-          tabIndex={ 0 }
-        >
-          <img
-            src={ recipe.image }
-            alt={ recipe.name }
-            data-testid={ `${index}-card-img` }
-            width={ 100 }
-          />
-          <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
         </div>
-      ))}
-      <RenderApi patch="meals" />
-    </>
-  );
-}
-
-export default Meals;
+  
+        <div className='receitas-container'> {/* Container para as receitas */}
+          {filteredRecipes && filteredRecipes.map((recipe, index) => (
+            <div
+              className='meals-itens'
+              key={recipe.id}
+              data-testid={`${index}-recipe-card`}
+              role="button"
+              onClick={() => handleRecipeClick(recipe.id)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === 'Space') {
+                  handleRecipeClick(recipe.id);
+                }
+              }}
+              tabIndex={0}
+            >
+              <img
+                src={recipe.image}
+                alt={recipe.name}
+                data-testid={`${index}-card-img`}
+                width={100}
+              />
+              <p data-testid={`${index}-card-name`}>{recipe.name}</p>
+            </div>
+          ))}
+        </div>
+  
+        <RenderApi patch="meals" />
+      </>
+    );
+  }
+  
+  export default Meals;
