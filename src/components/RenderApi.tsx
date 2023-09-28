@@ -18,6 +18,8 @@ export default function RenderApi({ patch }: RenderProp) {
     return <h1>Carregando...</h1>;
   }
 
+  console.log(filteredResults);
+
   if (filteredResults?.length === 1) {
     const item = resultsApi[0];
 
