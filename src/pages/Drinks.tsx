@@ -13,9 +13,11 @@ function Drinks() {
   const fetchDrinkCategories = async () => {
     const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
     const data = await response.json();
-    const drinkCategories = data.drinks
+    const drinkCategories = data.drinks && data.drinks
       .map((category:Category) => category.strCategory);
-    setCategories(drinkCategories.slice(0, 5));
+    if (drinkCategories) {
+      setCategories(drinkCategories.slice(0, 5));
+    }
   };
 
   useEffect(() => {

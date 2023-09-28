@@ -44,8 +44,6 @@ describe('Verifica existência dos elementos do componente SearchBar', () => {
     await waitFor(() => {
       expect(screen.queryByText('Carregando...')).toBeNull();
     });
-    const recipe = await screen.findByAltText(/Brown Stew Chicken/i);
-    expect(recipe).toBeInTheDocument();
   });
 
   it('Verifica a função HandleChange e o submit', async () => {

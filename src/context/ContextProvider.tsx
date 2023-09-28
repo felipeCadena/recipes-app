@@ -105,14 +105,16 @@ export default function ContextProvider({ children }: UserProviderProps) {
     }
     setFavoriteRecipe(!favoriteRecipe);
 
-    if (saveFavorite.some((a) => a.id !== recipeToStore.id)) {
-      setSaveFavorite((prev) => [...prev, recipeToStore]);
-    }
+    if (saveFavorite) {
+      if (saveFavorite.some((a) => a.id !== recipeToStore.id)) {
+        setSaveFavorite((prev) => [...prev, recipeToStore]);
+      }
 
-    if (saveFavorite.some((a) => a.id === recipeToStore.id)) {
-      const deleteFavorite: FavoriteRecipeType[] = saveFavorite
-        .filter((a) => a.id !== recipeToStore.id);
-      setSaveFavorite(deleteFavorite);
+      if (saveFavorite.some((a) => a.id === recipeToStore.id)) {
+        const deleteFavorite: FavoriteRecipeType[] = saveFavorite
+          .filter((a) => a.id !== recipeToStore.id);
+        setSaveFavorite(deleteFavorite);
+      }
     }
 
     if (!favoriteRecipe && saveFavorite) {

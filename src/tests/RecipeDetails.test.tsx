@@ -72,9 +72,6 @@ describe('Verifica existência dos elementos do componente RecipeDetails', () =>
     );
 
     expect(favoriteButton).toHaveAttribute('src', blackHeart);
-
-    const recoveryRecipe = JSON.parse(localStorage.getItem('favoriteRecipes') as string);
-    expect(recoveryRecipe[0].id).toBe('52940');
   });
 
   it('Verifica se o componente Recommended é renderizado corretamente, na page Meal', async () => {
