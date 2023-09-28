@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
+<<<<<<< HEAD
 import '../styles/Meals.css'
+=======
+import GlobalContext from '../context/GlobalContext';
+>>>>>>> main-group-7
 
 function Meals() {
+  const { choiceRender, setChoiceRender } = useContext(GlobalContext);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -19,7 +24,6 @@ function Meals() {
   };
 
   useEffect(() => {
-    fetchMealCategories();
     const fetchRecipes = async () => {
       const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
       const data = await response.json();
@@ -34,11 +38,11 @@ function Meals() {
             image: item.strMealThumb || item.strDrinkThumb,
             category: item.strCategory || '',
           }));
-
         setRecipes(recipesfiltered);
       }
     };
     fetchRecipes();
+    fetchMealCategories();
   }, []);
 
   const fetchRecipes = async (url:string) => {
@@ -59,6 +63,7 @@ function Meals() {
       setRecipes(recipesfiltered);
       setSelectedCategory('');
     }
+    setChoiceRender(true);
   };
 
   const fetchAllRecipes = () => {
@@ -66,13 +71,14 @@ function Meals() {
   };
 
   const fetchRecipesByCategory = (category:any) => {
-    if (category === previousCategory) {
+    if (previousCategory && category === previousCategory) {
       fetchAllRecipes();
+    } else {
+      setPreviousCategory(category);
+      const url = category ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}` : '';
+      fetchRecipes(url);
     }
-
-    setPreviousCategory(category);
-    const url = category ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}` : '';
-    fetchRecipes(url);
+    setChoiceRender(true);
   };
 
   const handleRecipeClick = (recipeId:string) => {
@@ -101,6 +107,7 @@ function Meals() {
           >
             All
           </button>
+<<<<<<< HEAD
         </div>
   
         <div className='receitas-container'> 
@@ -136,3 +143,38 @@ function Meals() {
   }
   
   export default Meals;
+=======
+        ))}
+        <button data-testid="All-category-filter" onClick={ fetchAllRecipes }>
+          All
+        </button>
+      </div>
+      {choiceRender && filteredRecipes && filteredRecipes.map((recipe, index) => (
+        <div
+          key={ recipe.id }
+          data-testid={ `${index}-recipe-card` }
+          role="button"
+          onClick={ () => handleRecipeClick(recipe.id) }
+          onKeyDown={ (e) => {
+            if (e.key === 'Enter' || e.key === 'Space') {
+              handleRecipeClick(recipe.id);
+            }
+          } }
+          tabIndex={ 0 }
+        >
+          <img
+            src={ recipe.image }
+            alt={ recipe.name }
+            data-testid={ `${index}-card-img` }
+            width={ 100 }
+          />
+          <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
+        </div>
+      ))}
+      {!choiceRender && <RenderApi patch="meals" />}
+    </>
+  );
+}
+
+export default Meals;
+>>>>>>> main-group-7

@@ -46,7 +46,7 @@ export interface DoneRecipesType {
   name: string;
   image: string;
   doneDate: string;
-  tags: string;
+  tags: [];
 }
 
 export interface FavoriteRecipeType {
@@ -61,10 +61,10 @@ export interface FavoriteRecipeType {
 
 export interface InProgressRecipesType {
   drinks: {
-    id: string[],
+    id: number[],
   },
   meals: {
-    id: string[],
+    id: number[],
   }
 }
 
@@ -103,6 +103,12 @@ export type Category = {
   strCategory: string;
 };
 
+export interface LineType {
+  id: number,
+  name: string;
+  checked: boolean
+}
+
 export interface GlobalContextType {
   getApi: (url: string, param: string, type: string) => void,
   resultsApi: DrinkType[] | MealsType[],
@@ -116,4 +122,12 @@ export interface GlobalContextType {
   setCopy: (s: boolean) => void,
   copy: boolean;
   handleClipBoard: (s: string) => void,
+  handleLocalStorage: (keyPath: string, idRecipe: number, ingredients: string) => void,
+  recipeSave: FavoriteRecipeType[],
+  setRecipeSave: (s: FavoriteRecipeType[]) => void,
+  handleDelete: (s: string) => void,
+  disabled: boolean,
+  setDisabled: (s: boolean) => void,
+  choiceRender: boolean,
+  setChoiceRender: (s: boolean) => void,
 }

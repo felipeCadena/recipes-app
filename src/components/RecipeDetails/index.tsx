@@ -3,9 +3,6 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import GlobalContext from '../../context/GlobalContext';
 import { DrinkType, MealsType } from '../../types';
 import './RecipeDetails.css';
-import shareIcon from '../../images/shareIcon.svg';
-import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../../images/blackHeartIcon.svg';
 import Recommended from './Recommended';
 import RecipeCard from './RecipeCard';
 
@@ -15,8 +12,7 @@ type RenderProp = {
 
 export default function RecipeDetails({ patch }: RenderProp) {
   const { getApi, resultsApi, loading,
-    favoriteRecipe, handleFavoriteRecipe,
-    setFavoriteRecipe, copy, handleClipBoard } = useContext(GlobalContext);
+    setFavoriteRecipe } = useContext(GlobalContext);
   const [recomendations, setRecomendations] = useState<MealsType[] | DrinkType[]>([]);
 
   const { id } = useParams();
@@ -53,16 +49,9 @@ export default function RecipeDetails({ patch }: RenderProp) {
     }
   }, []);
 
-  function handleLocalStorage() {
-    navigate(`/${patch}/${id}/in-progress`);
-  }
+  const path = pathname.includes('meals') ? 'meals' : 'drinks';
 
   const getInProgess = localStorage.getItem('inProgressRecipes');
-  // será alterado nos reqs 40 em diante
-
-  // function handleFinishRecipe() { // button Finish Recipe ainda não implementado
-
-  // }
 
   if (loading) {
     return <h1>Carregando...</h1>;
@@ -71,36 +60,15 @@ export default function RecipeDetails({ patch }: RenderProp) {
   if (resultsApi && resultsApi[0] && id) {
     return (
       <main className="container-main">
-        <button
-          data-testid="share-btn"
-          onClick={ () => handleClipBoard(pathname) }
-        >
-          <img src={ shareIcon } alt="" />
-        </button>
-        {copy && <span>Link copied!</span>}
-        <button
-          onClick={ handleFavoriteRecipe }
-        >
-          <img
-            data-testid="favorite-btn"
-            src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
-            alt=""
-          />
-        </button>
-        <RecipeCard />
+        <RecipeCard results={ resultsApi } pathNavigate={ pathname } />
         {recomendations && <Recommended recomendations={ recomendations } />}
         <button
           className="start"
           data-testid="start-recipe-btn"
-          onClick={ handleLocalStorage }
+          onClick={ () => navigate(`/${path}/${id}/in-progress`) }
         >
           {!getInProgess ? 'Start Recipe' : 'Continue Recipe'}
-          {/* será alterado nos reqs 40 em diante */}
         </button>
-        {getInProgess
-        && <button>Finish Recipe</button>}
-        {/* onClick={ handleFinishRecipe } */}
-        {/* será alterado nos reqs 40 em diante */}
       </main>
     );
   }

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FavoriteRecipeType } from '../../types';
 import shareIcon from '../../images/shareIcon.svg';
@@ -12,8 +12,8 @@ type FavoriteType = {
 
 export default function FavoriteRender({ keyStorage }: FavoriteType) {
   const { favoriteRecipe, setFavoriteRecipe,
-    copy, handleClipBoard } = useContext(GlobalContext);
-  const [recipeSave, setRecipeSave] = useState<FavoriteRecipeType[]>([]);
+    copy, handleClipBoard, recipeSave,
+    setRecipeSave, handleDelete } = useContext(GlobalContext);
 
   useEffect(() => {
     if (keyStorage) {
@@ -23,22 +23,21 @@ export default function FavoriteRender({ keyStorage }: FavoriteType) {
     }
   }, []);
 
-  function handleDelete(id: string) {
-    const recoveryRecipe:
-    FavoriteRecipeType[] = JSON.parse(localStorage.getItem(keyStorage) as string);
-    const filterStorage = recoveryRecipe.filter((rec) => rec.id !== id);
-    setRecipeSave(filterStorage);
-    setFavoriteRecipe(!favoriteRecipe);
-    localStorage.setItem(
-      'favoriteRecipes',
-      JSON.stringify(filterStorage),
-    );
-  }
+  // function handleDelete(id: string) {
+  //   const recoveryRecipe:
+  //   FavoriteRecipeType[] = JSON.parse(localStorage.getItem(keyStorage) as string);
+  //   const filterStorage = recoveryRecipe.filter((rec) => rec.id !== id);
+  //   setRecipeSave(filterStorage);
+  //   setFavoriteRecipe(!favoriteRecipe);
+  //   localStorage.setItem(
+  //     'favoriteRecipes',
+  //     JSON.stringify(filterStorage),
+  //   );
+  // }
 
   function handleFilter(button: string) {
     const recoveryRecipe:
     FavoriteRecipeType[] = JSON.parse(localStorage.getItem(keyStorage) as string);
-
     if (button === 'All') {
       setRecipeSave(recoveryRecipe);
     }

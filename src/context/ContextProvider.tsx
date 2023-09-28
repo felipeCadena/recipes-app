@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import GlobalContext from './GlobalContext';
-import { DrinkType, FavoriteRecipeType, MealsType } from '../types';
+import { DrinkType,
+  FavoriteRecipeType, MealsType } from '../types';
 
 type UserProviderProps = {
   children: React.ReactNode;
@@ -16,9 +17,11 @@ export default function ContextProvider({ children }: UserProviderProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [favoriteRecipe, setFavoriteRecipe] = useState(false);
   const [copy, setCopy] = useState(false);
+  const [recipeSave, setRecipeSave] = useState<FavoriteRecipeType[]>([]);
+  const [disabled, setDisabled] = useState<boolean>(true);
+  const [choiceRender, setChoiceRender] = useState(true);
 
   const { pathname } = useLocation();
-
   const url = pathname === '/meals' ? 'themealdb' : 'thecocktaildb';
   const First = 'First letter';
 
@@ -27,7 +30,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     const response = await fetch(`https://www.${URL}.com/api/json/v1/1/${type}=${param}`);
 
     if (response.ok) {
-      if (pathname === '/meals' || pathname === `/meals/${param}`) {
+      if (pathname.includes('/meals')) {
         const { meals } = await response.json();
         setResultsApi(meals);
       } else {
@@ -36,6 +39,41 @@ export default function ContextProvider({ children }: UserProviderProps) {
       }
       setLoading(false);
     }
+  }
+
+  function handleLocalStorage(keyPath: string, idRecipe: number, ingredient: string) { // não funciona corretamente.
+    const recoveryInProgress = JSON.parse(localStorage
+      .getItem('inProgressRecipes') as string);
+    const existingProgress = recoveryInProgress || { drinks: {}, meals: {} };
+
+    if (!existingProgress[keyPath]) {
+      existingProgress[keyPath] = {};
+    }
+
+    if (!existingProgress[keyPath][idRecipe]) {
+      existingProgress[keyPath][idRecipe] = [];
+    }
+
+    if (ingredient !== '') {
+      existingProgress[keyPath][idRecipe].push(ingredient);
+    }
+
+    localStorage.setItem(
+      'inProgressRecipes',
+      JSON.stringify(existingProgress),
+    );
+  }
+
+  function handleDelete(id: string) {
+    const recoveryRecipe:
+    FavoriteRecipeType[] = JSON.parse(localStorage.getItem('favoriteRecipes') as string);
+    const filterStorage = recoveryRecipe.filter((rec) => rec.id !== id);
+    setRecipeSave(filterStorage);
+    setFavoriteRecipe(!favoriteRecipe);
+    localStorage.setItem(
+      'favoriteRecipes',
+      JSON.stringify(filterStorage),
+    );
   }
 
   const apiResult = resultsApi && resultsApi[0];
@@ -67,15 +105,30 @@ export default function ContextProvider({ children }: UserProviderProps) {
       };
     }
     setFavoriteRecipe(!favoriteRecipe);
-    if (saveFavorite) {
-      setSaveFavorite((prev) => [...prev, recipeToStore]);
-    }
-    console.log(saveFavorite);
 
-    localStorage.setItem(
-      'favoriteRecipes',
-      JSON.stringify([...saveFavorite, recipeToStore]),
-    );
+    if (saveFavorite) {
+      if (saveFavorite.some((a) => a.id !== recipeToStore.id)) {
+        setSaveFavorite((prev) => [...prev, recipeToStore]);
+      }
+
+      if (saveFavorite.some((a) => a.id === recipeToStore.id)) {
+        const deleteFavorite: FavoriteRecipeType[] = saveFavorite
+          .filter((a) => a.id !== recipeToStore.id);
+        setSaveFavorite(deleteFavorite);
+      }
+    }
+
+    if (!favoriteRecipe && saveFavorite) {
+      localStorage.setItem(
+        'favoriteRecipes',
+        JSON.stringify([...saveFavorite, recipeToStore]),
+      );
+    } else {
+      localStorage.setItem(
+        'favoriteRecipes',
+        JSON.stringify(saveFavorite),
+      );
+    }
   }
 
   function handleClipBoard(patchName: string) {
@@ -100,7 +153,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     event.preventDefault();
 
     if (radio === 'Ingredient') {
-      await getApi(url, 'filter.php?i', input);
+      getApi(url, 'filter.php?i', input);
     }
 
     if (radio === 'Name') {
@@ -114,6 +167,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     if (radio === First && input.length > 1) {
       window.alert('Your search must have only 1 (one) character');
     }
+    setChoiceRender(false);
   }
 
   return (
@@ -131,6 +185,14 @@ export default function ContextProvider({ children }: UserProviderProps) {
         setCopy,
         copy,
         handleClipBoard,
+        handleLocalStorage,
+        recipeSave,
+        setRecipeSave,
+        handleDelete,
+        disabled,
+        setDisabled,
+        choiceRender,
+        setChoiceRender,
       } }
     >
       {children}

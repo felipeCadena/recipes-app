@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
+<<<<<<< HEAD
 import '../styles/Drinks.css'
+=======
+import GlobalContext from '../context/GlobalContext';
+>>>>>>> main-group-7
 
 function Drinks() {
+  const { choiceRender, setChoiceRender } = useContext(GlobalContext);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -14,13 +19,14 @@ function Drinks() {
   const fetchDrinkCategories = async () => {
     const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
     const data = await response.json();
-    const drinkCategories = data.drinks
+    const drinkCategories = data.drinks && data.drinks
       .map((category:Category) => category.strCategory);
-    setCategories(drinkCategories.slice(0, 5));
+    if (drinkCategories) {
+      setCategories(drinkCategories.slice(0, 5));
+    }
   };
 
   useEffect(() => {
-    fetchDrinkCategories();
     const fetchRecipes = async () => {
       const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
       const data = await response.json();
@@ -40,6 +46,7 @@ function Drinks() {
       }
     };
     fetchRecipes();
+    fetchDrinkCategories();
   }, []);
 
   const fetchRecipes = async (url:string) => {
@@ -60,6 +67,7 @@ function Drinks() {
       setRecipes(recipesData);
       setSelectedCategory('');
     }
+    setChoiceRender(true);
   };
 
   const fetchAllRecipes = () => {
@@ -67,13 +75,14 @@ function Drinks() {
   };
 
   const fetchRecipesByCategory = (category:string) => {
-    if (category === previousCategory) {
+    if (previousCategory && category === previousCategory) {
       fetchAllRecipes();
+    } else {
+      setPreviousCategory(category);
+      const url = category ? `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}` : '';
+      fetchRecipes(url);
     }
-
-    setPreviousCategory(category);
-    const url = category ? `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}` : '';
-    fetchRecipes(url);
+    setChoiceRender(true);
   };
 
   const handleRecipeClick = (recipeId:string) => {
@@ -83,6 +92,8 @@ function Drinks() {
   const filteredRecipes = selectedCategory
     ? recipes.filter((recipe) => recipe.category === selectedCategory)
     : recipes;
+
+  console.log(choiceRender);
 
   return (
     <>
@@ -101,8 +112,12 @@ function Drinks() {
           All
         </button>
       </div>
+<<<<<<< HEAD
       <div className='drink-cont'>
       {filteredRecipes && filteredRecipes.map((recipe, index) => (
+=======
+      {choiceRender && filteredRecipes && filteredRecipes.map((recipe, index) => (
+>>>>>>> main-group-7
         <div
         className='drinks-options'
           key={ recipe.id }
@@ -126,8 +141,12 @@ function Drinks() {
           <p className='drink-card' data-testid={ `${index}-card-name` }>{recipe.name}</p>
         </div>
       ))}
+<<<<<<< HEAD
       </div>
       <RenderApi patch="drinks" />
+=======
+      {!choiceRender && <RenderApi patch="drinks" />}
+>>>>>>> main-group-7
     </>
   );
 }
