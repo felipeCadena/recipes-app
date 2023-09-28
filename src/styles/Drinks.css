@@ -1,25 +1,22 @@
-body {
-  overflow: scroll;
-}
 
-.button-container {
+.drink-container {
   display: flex;
   justify-content: center; /* Center the buttons horizontally */
   margin-top: 200px;
 
 }
 
-.button-meals {
+.drink-btn {
 
   margin-right: 5px; 
   border-radius: 5px;
 }
-.button-all{
+.btn-all{
   
   border-radius: 5px;
 }
 
-.receitas-container {
+.drink-cont {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -29,21 +26,21 @@ body {
   margin-left: 490px;
 }
 
-.meals-itens {
+.drinks-options {
   background-color: aqua;
   /* Largura fixa de 100px para cada item */
   margin: 0 10px; /* Espaço entre as receitas na horizontal */
   margin-bottom: 20px; 
   height: 122px;
 }
-.img-edit {
+.drink-image {
   width: 120px;
   height: 120px;
 
 }
 
 @media (max-width: 768px) {
-  .receitas-container {
+  .drink-cont {
     display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -54,7 +51,7 @@ body {
   box-sizing: border-box; 
     
   }
-  .meals-itens {
+  .drinks-options {
     
     background-color: aqua;
     /* Largura fixa de 100px para cada item */
@@ -68,13 +65,13 @@ body {
     justify-content: center;
     align-items: center;
   }
-  .img-edit {
+  .drink-image {
     width: 130px;
     height: 130px;
     border-radius: 8px 8px 0 0; 
   
   }
-  .card-name{
+  .drink-card {
    margin-left: 23px;
   }
 }

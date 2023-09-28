@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import '../styles/Profile.css'
 function Profile() {
   const [user, setUser] = useState('');
 
@@ -19,8 +19,9 @@ function Profile() {
   }
 
   return (
-    <div>
-      <h2 data-testid="profile-email">{user}</h2>
+    <div className='profile-container'>
+      <h2 className='prof-email' data-testid="profile-email">{user}</h2>
+      <div className='three-btn'>
       <Link to="/done-recipes">
         <button data-testid="profile-done-btn">Done Recipes</button>
       </Link>
@@ -28,6 +29,7 @@ function Profile() {
         <button data-testid="profile-favorite-btn">Favorite Recipes</button>
       </Link>
       <button onClick={ handleLogout } data-testid="profile-logout-btn">Logout</button>
+      </div>
     </div>
   );
 }

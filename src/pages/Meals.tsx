@@ -96,12 +96,14 @@ function Meals() {
               {category}
             </button>
           ))}
-          <button data-testid="All-category-filter" onClick={fetchAllRecipes}>
+          <button data-testid="All-category-filter" onClick={fetchAllRecipes}
+          className='button-all'
+          >
             All
           </button>
         </div>
   
-        <div className='receitas-container'> {/* Container para as receitas */}
+        <div className='receitas-container'> 
           {filteredRecipes && filteredRecipes.map((recipe, index) => (
             <div
               className='meals-itens'
@@ -117,12 +119,13 @@ function Meals() {
               tabIndex={0}
             >
               <img
+              className='img-edit'
                 src={recipe.image}
                 alt={recipe.name}
                 data-testid={`${index}-card-img`}
                 width={100}
               />
-              <p data-testid={`${index}-card-name`}>{recipe.name}</p>
+              <p className='card-name' data-testid={`${index}-card-name`}>{recipe.name}</p>
             </div>
           ))}
         </div>

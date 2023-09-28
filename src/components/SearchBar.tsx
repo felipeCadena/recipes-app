@@ -26,7 +26,7 @@ export default function SearchBar({ inputValue }: SearchProp) {
             value="Ingredient"
             checked={radio === 'Ingredient'}
             onChange={handleChange}
-            className='form-check-input form-outline'
+            className='checkbox form-outline'
           />
           Ingredient
         </label>
@@ -38,7 +38,7 @@ export default function SearchBar({ inputValue }: SearchProp) {
             name="search type"
             checked={radio === 'Name'}
             onChange={handleChange}
-            className='form-check-input form-outline'
+            className='checkbox  form-outline'
           />
           Name
         </label>
@@ -50,7 +50,7 @@ export default function SearchBar({ inputValue }: SearchProp) {
             name="search type"
             checked={radio === 'First letter'}
             onChange={handleChange}
-            className='form-check-input form-outline'
+            className='checkbox form-outline'
           />
           First letter
         </label>

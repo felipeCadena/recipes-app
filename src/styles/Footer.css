@@ -1,18 +1,24 @@
+/*REsponsavel por toda a estilizacao do footer*/
+/* 
 .footer-style {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: white;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
-  background-color: #41197f;
- 
+  padding: 5px ;
+  background-color: #7628ec;
 }
 
 @media (max-width: 768px) {
 
-  .meals-link{
-    margin-left:15rem;
+  .footer-style {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-around;
+    padding: 5px  ;
+    background-color: #7628ec; 
   }
 }
+ */

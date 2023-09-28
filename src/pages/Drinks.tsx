@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
+import '../styles/Drinks.css'
 
 function Drinks() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -85,22 +86,25 @@ function Drinks() {
 
   return (
     <>
-      <div>
+      <div className='drink-container'>
         {categories.map((category) => (
           <button
             key={ category }
             data-testid={ `${category}-category-filter` }
             onClick={ () => fetchRecipesByCategory(category) }
+            className='drink-btn'
           >
             {category}
           </button>
         ))}
-        <button data-testid="All-category-filter" onClick={ fetchAllRecipes }>
+        <button  className='btn-all' data-testid="All-category-filter" onClick={ fetchAllRecipes }>
           All
         </button>
       </div>
+      <div className='drink-cont'>
       {filteredRecipes && filteredRecipes.map((recipe, index) => (
         <div
+        className='drinks-options'
           key={ recipe.id }
           data-testid={ `${index}-recipe-card` }
           role="button"
@@ -113,14 +117,16 @@ function Drinks() {
           tabIndex={ 0 }
         >
           <img
+          className='drink-image'
             src={ recipe.image }
             alt={ recipe.name }
             data-testid={ `${index}-card-img` }
             width={ 100 }
           />
-          <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
+          <p className='drink-card' data-testid={ `${index}-card-name` }>{recipe.name}</p>
         </div>
       ))}
+      </div>
       <RenderApi patch="drinks" />
     </>
   );

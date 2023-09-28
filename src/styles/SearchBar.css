@@ -7,22 +7,30 @@
   margin-left: 510px;
   font-size: 16px;
   border-radius: 6px;
-  color: rgb(230, 14, 14);
+  color: rgb(252, 246, 246);
   margin-right: 9px;
   font-style: italic;
   vertical-align: middle;
   line-height: 1;
   margin-top: 2px;
+  border: 2px solid green;
+  
 }
-
+/*Botao search do checkbox*/
 .btn-search.btn {
-  margin-left: 565px;
+  margin-left: 35.313rem;
   margin-top: -80px;
-  width: 300px;
+  width:  21.961vw;
+  border: 2px solid green;
+  display: flex;
+    justify-content: center;
+  align-items: center;
 }
-.form-check-input.form-outline {
+/*Checkbox */
+.checkbox.form-outline {
  margin: 15px;
  margin-top: 2px;
+ border: 2px solid red;
 }
 
 @media (max-width: 768px) {
@@ -41,15 +49,18 @@
     vertical-align: middle;
     line-height: 1;
     margin-top: 2px;
+    border: 1px solid yellow;
   }
   .btn-search.btn {
     margin-left: 150px;
     margin-top: -95px;
     width: 200px;
     height: 35px;
+    border: 1px solid green;
   }
-  .form-check-input.form-outline {
+  .checkbox.form-outline {
    margin: 8px;
    margin-top: 2px;
+   border: 1px solid red;
   }
 }
