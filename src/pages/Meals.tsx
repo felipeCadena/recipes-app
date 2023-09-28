@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
+import GlobalContext from '../context/GlobalContext';
 
 function Meals() {
+  const { choiceRender, setChoiceRender } = useContext(GlobalContext);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -57,6 +59,7 @@ function Meals() {
       setRecipes(recipesfiltered);
       setSelectedCategory('');
     }
+    setChoiceRender(true);
   };
 
   const fetchAllRecipes = () => {
@@ -71,6 +74,7 @@ function Meals() {
       const url = category ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}` : '';
       fetchRecipes(url);
     }
+    setChoiceRender(true);
   };
 
   const handleRecipeClick = (recipeId:string) => {
@@ -97,7 +101,7 @@ function Meals() {
           All
         </button>
       </div>
-      {filteredRecipes && filteredRecipes.map((recipe, index) => (
+      {choiceRender && filteredRecipes && filteredRecipes.map((recipe, index) => (
         <div
           key={ recipe.id }
           data-testid={ `${index}-recipe-card` }
@@ -119,7 +123,7 @@ function Meals() {
           <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
         </div>
       ))}
-      <RenderApi patch="meals" />
+      {!choiceRender && <RenderApi patch="meals" />}
     </>
   );
 }

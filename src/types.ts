@@ -128,4 +128,6 @@ export interface GlobalContextType {
   handleDelete: (s: string) => void,
   disabled: boolean,
   setDisabled: (s: boolean) => void,
+  choiceRender: boolean,
+  setChoiceRender: (s: boolean) => void,
 }

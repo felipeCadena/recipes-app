@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
+import GlobalContext from '../context/GlobalContext';
 
 function Drinks() {
+  const { choiceRender, setChoiceRender } = useContext(GlobalContext);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -13,13 +15,14 @@ function Drinks() {
   const fetchDrinkCategories = async () => {
     const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
     const data = await response.json();
-    const drinkCategories = data.drinks
+    const drinkCategories = data.drinks && data.drinks
       .map((category:Category) => category.strCategory);
-    setCategories(drinkCategories.slice(0, 5));
+    if (drinkCategories) {
+      setCategories(drinkCategories.slice(0, 5));
+    }
   };
 
   useEffect(() => {
-    fetchDrinkCategories();
     const fetchRecipes = async () => {
       const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
       const data = await response.json();
@@ -39,6 +42,7 @@ function Drinks() {
       }
     };
     fetchRecipes();
+    fetchDrinkCategories();
   }, []);
 
   const fetchRecipes = async (url:string) => {
@@ -59,6 +63,7 @@ function Drinks() {
       setRecipes(recipesData);
       setSelectedCategory('');
     }
+    setChoiceRender(true);
   };
 
   const fetchAllRecipes = () => {
@@ -73,6 +78,7 @@ function Drinks() {
       const url = category ? `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}` : '';
       fetchRecipes(url);
     }
+    setChoiceRender(true);
   };
 
   const handleRecipeClick = (recipeId:string) => {
@@ -82,6 +88,8 @@ function Drinks() {
   const filteredRecipes = selectedCategory
     ? recipes.filter((recipe) => recipe.category === selectedCategory)
     : recipes;
+
+  console.log(choiceRender);
 
   return (
     <>
@@ -99,7 +107,7 @@ function Drinks() {
           All
         </button>
       </div>
-      {filteredRecipes && filteredRecipes.map((recipe, index) => (
+      {choiceRender && filteredRecipes && filteredRecipes.map((recipe, index) => (
         <div
           key={ recipe.id }
           data-testid={ `${index}-recipe-card` }
@@ -121,7 +129,7 @@ function Drinks() {
           <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
         </div>
       ))}
-      <RenderApi patch="drinks" />
+      {!choiceRender && <RenderApi patch="drinks" />}
     </>
   );
 }

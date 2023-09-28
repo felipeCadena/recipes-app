@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import GlobalContext from './GlobalContext';
 import { DrinkType,
-  FavoriteRecipeType, LineType, MealsType } from '../types';
+  FavoriteRecipeType, MealsType } from '../types';
 
 type UserProviderProps = {
   children: React.ReactNode;
@@ -19,6 +19,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
   const [copy, setCopy] = useState(false);
   const [recipeSave, setRecipeSave] = useState<FavoriteRecipeType[]>([]);
   const [disabled, setDisabled] = useState<boolean>(true);
+  const [choiceRender, setChoiceRender] = useState(true);
 
   const { pathname } = useLocation();
   const url = pathname === '/meals' ? 'themealdb' : 'thecocktaildb';
@@ -105,14 +106,16 @@ export default function ContextProvider({ children }: UserProviderProps) {
     }
     setFavoriteRecipe(!favoriteRecipe);
 
-    if (saveFavorite.some((a) => a.id !== recipeToStore.id)) {
-      setSaveFavorite((prev) => [...prev, recipeToStore]);
-    }
+    if (saveFavorite) {
+      if (saveFavorite.some((a) => a.id !== recipeToStore.id)) {
+        setSaveFavorite((prev) => [...prev, recipeToStore]);
+      }
 
-    if (saveFavorite.some((a) => a.id === recipeToStore.id)) {
-      const deleteFavorite: FavoriteRecipeType[] = saveFavorite
-        .filter((a) => a.id !== recipeToStore.id);
-      setSaveFavorite(deleteFavorite);
+      if (saveFavorite.some((a) => a.id === recipeToStore.id)) {
+        const deleteFavorite: FavoriteRecipeType[] = saveFavorite
+          .filter((a) => a.id !== recipeToStore.id);
+        setSaveFavorite(deleteFavorite);
+      }
     }
 
     if (!favoriteRecipe && saveFavorite) {
@@ -150,7 +153,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     event.preventDefault();
 
     if (radio === 'Ingredient') {
-      await getApi(url, 'filter.php?i', input);
+      getApi(url, 'filter.php?i', input);
     }
 
     if (radio === 'Name') {
@@ -164,6 +167,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     if (radio === First && input.length > 1) {
       window.alert('Your search must have only 1 (one) character');
     }
+    setChoiceRender(false);
   }
 
   return (
@@ -187,6 +191,8 @@ export default function ContextProvider({ children }: UserProviderProps) {
         handleDelete,
         disabled,
         setDisabled,
+        choiceRender,
+        setChoiceRender,
       } }
     >
       {children}
