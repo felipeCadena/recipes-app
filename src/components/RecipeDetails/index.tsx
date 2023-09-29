@@ -60,8 +60,10 @@ export default function RecipeDetails({ patch }: RenderProp) {
   if (resultsApi && resultsApi[0] && id) {
     return (
       <main className="container-main">
+        <div className='div-recipe'>
         <RecipeCard results={ resultsApi } pathNavigate={ pathname } />
         {recomendations && <Recommended recomendations={ recomendations } />}
+        </div>
         <button
           className="start"
           data-testid="start-recipe-btn"

@@ -1,36 +1,54 @@
 .radio-buttons {
-  background-color: #41197f;
-  width: 400px;
-  height: 100px;
+  width: 338px;
+  height: 88px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #41197F;
   align-items: center;
   justify-content: center;
-  margin-left: 510px;
+  color: #FFF;
+  
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   font-size: 16px;
-  border-radius: 6px;
+  border-radius:  0 0 6px 6px;
   color: rgb(252, 246, 246);
   margin-right: 9px;
-  font-style: italic;
+  
   vertical-align: middle;
   line-height: 1;
-  margin-top: 2px;
-  border: 2px solid green;
-  
 }
+
 /*Botao search do checkbox*/
 .btn-search.btn {
-  margin-left: 35.313rem;
-  margin-top: -80px;
-  width:  21.961vw;
-  border: 2px solid green;
+  width: 208.159px;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #FCC436;
+  color: #FFF;
+  text-align: center;
+  margin-left: 5vw;
+  margin-top: -2.4vw;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+
   display: flex;
-    justify-content: center;
+  justify-content: center;
   align-items: center;
 }
+
 /*Checkbox */
 .checkbox.form-outline {
- margin: 15px;
- margin-top: 2px;
- border: 2px solid red;
+  margin: 10px;
+  margin-top: 2px;
+  border: 2px solid red;
 }
 
 @media (max-width: 768px) {
@@ -48,19 +66,27 @@
     font-style: italic;
     vertical-align: middle;
     line-height: 1;
-    margin-top: 2px;
+    margin-top: 22px;
     border: 1px solid yellow;
   }
+
   .btn-search.btn {
     margin-left: 150px;
     margin-top: -95px;
     width: 200px;
     height: 35px;
-    border: 1px solid green;
+
   }
+
   .checkbox.form-outline {
-   margin: 8px;
-   margin-top: 2px;
-   border: 1px solid red;
+    margin: 8px;
+    margin-top: 2px;
+    border: 1px solid red;
   }
+}
+
+.search-bar-container {
+  background-color: orangered;
+
+
 }

@@ -27,8 +27,9 @@ font-size: 13px;
 font-style: normal;
 font-weight: 300;
 line-height: normal;
-height: 40px;
+height: 25px;
 margin: 2px;
+
 }
 
 
@@ -49,7 +50,8 @@ margin: 2px;
   margin-top: 10%;
 /*   background-color: #ccc; */
   text-align: center;
-  margin: 10px;
+  margin: 1px;
+  padding: 2px;
   justify-content: center;
   display: flex; /* Adicione display flex para .header-filha */
 }
@@ -70,9 +72,9 @@ border: 2px solid #FCC436;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-/*   background-color: purple; */
-  width: 90%; /* Define a largura do elemento */
-  height: 480px;
+/*   background-color: purple;  */
+  width: 90%;
+  height: 30vw;
   margin: 0  auto; 
   margin-top: 8px;
 
@@ -81,27 +83,38 @@ border: 2px solid #FCC436;
 
 .meals-itens {
 /*   background-color: aqua; */
-  /* Largura fixa de 100px para cada item */
-  margin: 0 10px; /* Espaço entre as receitas na horizontal */
+
+  margin: 0 10px; 
   margin-bottom: 20px; 
   height: 122px;
 }
 .img-edit {
-  width: 170px;
-  border: 1px solid black;
-  border-radius: 8px 8px 0 0 ; 
-  border-bottom: none;
+  width: 163px;
+  height: 135px;
+  flex-shrink: 0;
+  border-radius: 5px 5px 0px 0px;
+  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
 }
 
 .card-name{
 /*   background-color: lawngreen; */
-  max-width:170px;
-    border: 1px solid black;
-    border-top: none;
-  
-   align-items: center;
-   justify-content: center;
-   border-radius:  0 0 5px 5px; 
+max-width:170px;
+padding-left: 1.5vw;
+  padding-top: 0.6vw;
+height: 3.5vw;
+ border-radius: 5px;
+ border: 0.518px solid #B1B1B1;
+ background: #FFF;
+ border-top: none;
+align-items: center;
+justify-content: center;
+border-radius:  0 0 5px 5px; 
+color: #1A1B1C;
+font-family: Epilogue;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
  }
 
 @media (max-width: 768px) {
@@ -112,18 +125,18 @@ border: 2px solid #FCC436;
   height: 1700px;
   margin-top: 20px;
 
-  max-height: 100%; /* Adicionei isso para garantir que o elemento não exceda a largura da tela */
+  max-height: 100%;
   box-sizing: border-box; 
     
   }
   .meals-itens {
     
 /*     background-color: aqua; */
-    /* Largura fixa de 100px para cada item */
-    margin: 0 10px; /* Espaço entre as receitas na horizontal */
+   
+    margin: 0 10px; 
     margin-bottom: 20px; 
     height: 155px;
-    border-radius: 8px; /* Ajuste os valores para moldar a borda conforme desejado */
+    border-radius: 8px; 
 
     background-color: #fff;
     justify-content: center;
