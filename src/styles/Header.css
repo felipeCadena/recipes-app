@@ -1,117 +1,53 @@
-/*Barra de pesquisa e formulario*/
-
-
-
-.input-search.form-control {
- width: 400px;
- margin-top: 200px;
-margin-left: 510px;
-font: 50px;
-}
-/*Botao de profile*/
-.search-profile {
-margin-left: 50px;
-margin-top: -88px;
-width: 32px;
-}
-
-/*Botao de pesquisar(Fora do botao)*/
-.search-icon {
-
-  margin-top: -70px;
-  height: 30px;
-  width: 40px;
-  
-  
-}
-/*Botao de pesquisar(Dentro do botao)*/
-.link-div{
- 
-  height: 25px;
-}
-/*botao de pesquisa*/
 .header {
-  background-color: rgb(235, 231, 25);
-  height:54px;
-  margin-top: -7px;
-  
+  width: 100%;
+height: 52px;
+flex-shrink: 0;
+background: #FCDC36;
+padding-top: 5px;
 }
-/*Nome DRINKS ou MEALS renderizado na tela*/
-.page-title {
-  margin-top: 10px;
-  margin-left: 650px;
-  width: 125px;
+.profile-icon  {
+  width: 28.71px;
+  height: 28.71px;
+  flex-shrink: 0;
+  margin-left: 43vw;
 }
-/*Titulo RECIPES*/
-.h1-style{ 
-  width: 240px;
-  margin-left: 600px;
-  margin-top: 7px;
-  font-style: italic;
-  font-weight: 100;
-}
-/*Icone de um drink em cima da palavra DRINK*/
-.drink-linkk{
-
-  margin-left: 650px;
-  margin-top: 30px;
-  height: 40px;
-}
-/*Icone de um meals em cima da palavra MEALS*/
-.meals-linkk{
- 
-  margin-left: 685px;
-  margin-top: 30px;
-  height: 40px;
-  
+.bandeja-header {
+margin-left: 40vw
 }
 
 
-@media (max-width: 768px) {
-.input-search.form-control {
-  width: 300px;
-  margin-top: 130px;
-  margin-left: 100px;
-  font: 50px;
- }
- .page-title {
-  margin-top: 70px;
-  margin-left: 215px;
-  width: 125px;
+.btn-search {
+  width: 26.845px;
+height: 26.85px;
+flex-shrink: 0;
+border: none;
+margin-top: 20vw;
+
+margin: 0;
+background: yellow;
+
+
 }
-.h1-style{ 
-  width: 240px;
-  margin-left: 170px;
-  margin-top: 7px;
-  font-style: italic;
-  font-size: 28px;
+.search-icon {
+  margin-left: 90vw;
+  margin-top: -35px;
+  width: 9px;
+
 }
-.search-profile {
-  margin-top: -70px;
-  }
-  .drink-linkk{
-    
-    margin-left: 200px;
-    margin-top: 60px;
-    height: 40px;
-  }
-  /*Icone de um meals em cima da palavra MEALS*/
-  .meals-linkk{
-   
-    margin-left: 245px;
-    margin-top: 30px;
-    height: 40px;
-  }
-  /*Nome DRINKS ou MEALS renderizado na tela*/
-.page-title {
-  margin-top: 10px;
-  margin-left: 220px;
-  width: 125px;
+.drink-img-header{ 
+  width: 100%;
+height: 25.123px;
+flex-shrink: 0;
+margin-bottom: -100px;
+/* background-color: red; */
 }
-.input-search.form-control {
-  width: 300px;
-  margin-top: 180px;
- margin-left: 100px;
- font: 50px;
- }
+
+.meals-img-header{ 
+
+  width: 100%;
+height: 25.123px;
+flex-shrink: 0;
+margin-bottom: -100px;
+/* background-color: red; */
+
 }

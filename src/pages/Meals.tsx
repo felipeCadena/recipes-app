@@ -2,11 +2,16 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
-<<<<<<< HEAD
 import '../styles/Meals.css'
-=======
+import 'bootstrap/dist/css/bootstrap.css';
 import GlobalContext from '../context/GlobalContext';
->>>>>>> main-group-7
+import All from '../iconsFigma/icone-prato.svg'
+import beef from '../iconsFigma/🦆 emoji _cow face_.svg'
+import goat from '../iconsFigma/goat-svgrepo-com 1.svg'
+import chicken from '../iconsFigma/🦆 emoji _chicken_.svg'
+import breakfast from '../iconsFigma/Group 7.svg'
+import dessert from '../iconsFigma/🦆 emoji _shortcake_.svg'
+
 
 function Meals() {
   const { choiceRender, setChoiceRender } = useContext(GlobalContext);
@@ -91,27 +96,49 @@ function Meals() {
 
     return (
       <>
+       <header className='header-stymeals'>
+    <div className='header-filha-meals'>
+          <div className='drk-bar-cont'>
+          <img className='drink-bar' src={All} alt="" />
+          </div>
+          <div className='ordinary'>
+          <img src={beef} alt="" />
+          </div>
+          <div className='cocktail'>
+          <img src={goat} alt="" />
+          </div>
+          <div className='shake'>
+          <img src={chicken} alt="" />
+          </div>
+          <div className='other'>
+          <img src={breakfast} alt="" />
+          </div>
+          <div className='cocoa'>
+          <img src={dessert} alt="" />
+          </div>
+        </div>
+    </header>
+       
         <div className='button-container'>
+        <button data-testid="All-category-filter" onClick={fetchAllRecipes}
+          className='button-all btn btn-light'
+          >
+            All
+          </button>
           {categories.map((category) => (
             <button
               key={category}
               data-testid={`${category}-category-filter`}
               onClick={() => fetchRecipesByCategory(category)}
-              className='button-meals'
+              className='button-meals btn btn-light'
             >
               {category}
             </button>
           ))}
-          <button data-testid="All-category-filter" onClick={fetchAllRecipes}
-          className='button-all'
-          >
-            All
-          </button>
-<<<<<<< HEAD
         </div>
   
         <div className='receitas-container'> 
-          {filteredRecipes && filteredRecipes.map((recipe, index) => (
+        {choiceRender && filteredRecipes && filteredRecipes.map((recipe, index) => (
             <div
               className='meals-itens'
               key={recipe.id}
@@ -137,44 +164,9 @@ function Meals() {
           ))}
         </div>
   
-        <RenderApi patch="meals" />
+        {!choiceRender && <RenderApi patch="meals" />}
       </>
     );
   }
   
   export default Meals;
-=======
-        ))}
-        <button data-testid="All-category-filter" onClick={ fetchAllRecipes }>
-          All
-        </button>
-      </div>
-      {choiceRender && filteredRecipes && filteredRecipes.map((recipe, index) => (
-        <div
-          key={ recipe.id }
-          data-testid={ `${index}-recipe-card` }
-          role="button"
-          onClick={ () => handleRecipeClick(recipe.id) }
-          onKeyDown={ (e) => {
-            if (e.key === 'Enter' || e.key === 'Space') {
-              handleRecipeClick(recipe.id);
-            }
-          } }
-          tabIndex={ 0 }
-        >
-          <img
-            src={ recipe.image }
-            alt={ recipe.name }
-            data-testid={ `${index}-card-img` }
-            width={ 100 }
-          />
-          <p data-testid={ `${index}-card-name` }>{recipe.name}</p>
-        </div>
-      ))}
-      {!choiceRender && <RenderApi patch="meals" />}
-    </>
-  );
-}
-
-export default Meals;
->>>>>>> main-group-7

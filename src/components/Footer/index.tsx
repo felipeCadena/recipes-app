@@ -3,6 +3,9 @@ import drinkIcon from '../../images/drinkIcon.svg';
 import mealIcon from '../../images/mealIcon.svg';
 import  '../../styles/Footer.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import bebida from '../../iconsFigma/icone-bebida.svg'
+import prato from '../../iconsFigma//icone-prato.svg'
+
 
 function Footer() {
   return (
@@ -12,10 +15,13 @@ function Footer() {
     >
       <Link to="/drinks">
         <img
-         src={ drinkIcon } alt="Drink" data-testid="drinks-bottom-btn" />
+        className='bebida'
+         src={ bebida } alt="Drink" data-testid="drinks-bottom-btn" />
       </Link>
       <Link to="/meals">
-        <img src={ mealIcon } alt="Meals" data-testid="meals-bottom-btn" />
+        <img
+        className='prato'
+         src={ prato } alt="Meals" data-testid="meals-bottom-btn" />
       </Link>
     </footer>
   );

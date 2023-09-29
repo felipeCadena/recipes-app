@@ -1,0 +1,24 @@
+/**/
+
+.page-title-profile {
+  width: 100%;
+  color: #41197F;
+text-align: center;
+font-size: 20px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+letter-spacing: 2.1px;
+text-transform: uppercase;
+margin-top: 5vw;
+/* background-color: red; */
+}
+.pt-prof{
+  margin-top: 5vw;
+}
+@media (max-width: 768px) {
+  .page-title-profile {
+    margin-top: 10vw;
+}
+    
+}

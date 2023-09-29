@@ -5,9 +5,13 @@ import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
 import '../styles/Header.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import mealIcon from '../images/mealIcon.svg';
-import drinkIcon from '../images/drinkIcon.svg';
-
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
+import tituloHeader from'../iconsFigma/logo Recipes app.svg'
+import logoHeader from'../iconsFigma/bandeja.svg'
+import perfilHeader from '../iconsFigma/icone-perfil.svg'
+import pratoHeader from '../iconsFigma/icone-prato.svg'
+import bebidaHeader from '../iconsFigma/icone-bebida.svg'
+import pesquisa from '../iconsFigma/icone pesquiar.svg'
 
 function Header() {
   const location = useLocation();
@@ -38,18 +42,22 @@ function Header() {
 
   return (
     <header className='header'>
-      <h1 className='h1-style'><i>RECIPES</i> <strong>app</strong></h1>
-        
       <div className='header-style'>
         <div>
+          <img 
+          className='bandeja-header'
+          src={logoHeader} alt="logo-header" />
+          <img 
+          className='title-header'
+          src={tituloHeader} alt="titulo-do-header" />
           <Link to="/profile">
-            <img src={profileIcon} alt="Profile" data-testid="profile-top-btn" className='search-profile' />
+            <img src={perfilHeader} alt="Profile" data-testid="profile-top-btn" className='profile-icon' />
           </Link>
         </div>
         {showSearchIcon && (
           <div className='search-icon'>
             <button onClick={toggleSearch}>
-              <img src={searchIcon} alt="Search" data-testid="search-top-btn" className='link-div' />
+              <img src={pesquisa} alt="Search" data-testid="search-top-btn" className='btn-search' />
             </button>
             {searchVisible && (
               <div className='checkbox-style'> 
@@ -69,17 +77,16 @@ function Header() {
       </div>
       
       {pageTitle === 'Drink' ? (
-        <img src={drinkIcon} alt="Drink" data-testid="drinks-bottom-btn" className='drink-link' />
+        <img src={bebidaHeader} alt="Drink" data-testid="drinks-bottom-btn"  />
       ) : pageTitle === 'Drinks' ? (
         <>
-          <span>Drinks</span>
-          <img src={drinkIcon} alt="Drink" data-testid="drinks-bottom-btn" className='drink-linkk' />
+          <span></span>
+          <img src={bebidaHeader} alt="Drink" data-testid="drinks-bottom-btn" className='drink-img-header' />
         </>
       ) : pageTitle === 'Meals' ? (
-        <img src={mealIcon} alt="Meals" data-testid="meals-bottom-btn" className='meals-linkk' />
+        <img src={pratoHeader} alt="Meals" data-testid="meals-bottom-btn" className='meals-img-header' />
       ) : null}
-  
-      <h1 data-testid="page-title" className='page-title'>{pageTitle}</h1>
+      <h1 data-testid="page-title" className='page-title-profile'>{pageTitle}</h1>
     </header>
   );
     

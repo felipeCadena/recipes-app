@@ -1,77 +1,175 @@
+body {
+  overflow: scroll;
+
+}
 
 .drink-container {
   display: flex;
   justify-content: center; /* Center the buttons horizontally */
-  margin-top: 200px;
-
+  margin-top: 11vw;
+/*    background-color: rgb(2, 80, 2);  */
+  margin-top: 0.1vw;
 }
 
-.drink-btn {
-
-  margin-right: 5px; 
-  border-radius: 5px;
-}
-.btn-all{
-  
-  border-radius: 5px;
+.drink-btn, .btn-all{
+  width: 65px;
+  color: #797D86;
+text-align: center;
+font-family: Epilogue;
+font-size: 13px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+height: 40px;
+margin: 2px;
 }
 
 .drink-cont {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
- 
-  width: 350px;
-  margin-top: 20px;
-  margin-left: 490px;
+/*   background-color: purple; */
+  width: 90%; /* Define a largura do elemento */
+  height: 480px;
+  margin: 0  auto; 
+  margin-top: 8px;
+
 }
 
 .drinks-options {
-  background-color: aqua;
+/*   background-color: aqua; */
   /* Largura fixa de 100px para cada item */
   margin: 0 10px; /* Espaço entre as receitas na horizontal */
   margin-bottom: 20px; 
   height: 122px;
 }
-.drink-image {
-  width: 120px;
-  height: 120px;
+.drink-image{
+  width: 170px;
+ /*  border: 1px solid black; */
+  border-radius: 8px 8px 0 0 ; 
+  border-bottom: none;
+}
+
+.drink-card{
+/*   background-color: lawngreen; */
+  max-width:170px;
+    border: 1px solid black;
+    border-top: none;
+  
+   align-items: center;
+   justify-content: center;
+   border-radius:  0 0 5px 5px; 
+ }
+
+
+
+
+
+
+
+
+
+
+ .header-sty {
+  margin-top: 10%;
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  height: 4.6vw;
+
+  justify-content: center; /* Centraliza horizontalmente */
 
 }
+
+.header-filha {
+  width: 100%;
+  margin-top: 10%;
+/*   background-color: #ccc; */
+  text-align: center;
+  margin: 10px;
+  justify-content: center;
+  display: flex; /* Adicione display flex para .header-filha */
+}
+.drk-bar-cont, .ordinary, .cocktail, .shake, .other, .cocoa{
+  width: 45.28px;
+  height: 45.28px;
+  display: flex; /* Usar flexbox para centralizar verticalmente e horizontalmente */
+  justify-content: center; /* Centralizar horizontalmente */
+  align-items: center; /* Centralizar verticalmente */
+  position: relative;
+  border-radius: 45.28px;
+  margin: 10px;
+border: 2px solid #FCC436;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 768px) {
   .drink-cont {
     display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
+  height: 1550px;
   margin-top: 20px;
-  margin-left: 50px;
+
   max-height: 100%; /* Adicionei isso para garantir que o elemento não exceda a largura da tela */
   box-sizing: border-box; 
     
   }
-  .drinks-options {
+  .drinks-options{
     
     background-color: aqua;
     /* Largura fixa de 100px para cada item */
     margin: 0 10px; /* Espaço entre as receitas na horizontal */
     margin-bottom: 20px; 
     height: 155px;
-    border: 1px solid #000;
     border-radius: 8px; /* Ajuste os valores para moldar a borda conforme desejado */
-
-    background-color: #fff;
+/* 
+    background-color: #fff; */
     justify-content: center;
     align-items: center;
   }
   .drink-image {
-    width: 130px;
-    height: 130px;
+    width: 170px;
+    height: 170px;
     border-radius: 8px 8px 0 0; 
-  
+    border: 1px solid black;
+    border-bottom: none;
   }
-  .drink-card {
-   margin-left: 23px;
+
+.drink-container {
+  margin-top:30%;
+  height: 11vw;
+ /*  background-color: red; */
+}
+
+  .drink-card{
+    border: 1px solid black;
+    border-top: none;
+   border-radius: 5px;
+   align-items: center;
+   justify-content: center;
+   border-radius:  0 0 8px 8px; 
   }
 }

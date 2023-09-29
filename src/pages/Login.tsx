@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css'
+import logoRecipesApp from '../iconsFigma/logo Recipes App.svg'
+import tomateImg from '../iconsFigma/tomate.png'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const data = {
@@ -31,16 +33,19 @@ export default function Login() {
   }
 
   return (
-    <>
-    <h1 className='recipes-h1'>Recipes</h1>
-    <h5 className='recipes-h5'>App</h5>
-    <div className='login-container'>
+    <> <h1 >
+    <img src={logoRecipesApp} alt="Recipes Logo" className="recipes-logo" />
+  </h1>
+    <div className='tomate-container'>
+      <img src={tomateImg} alt="tomate" className='tomate-image'/>
+      </div>
       <h2 className='login-title'>LOGIN</h2>
       <form
        onSubmit={ handleSubmit }
        className='form-login'
        >
-        <label>
+        <div className='form-style'>
+        <label >
           <input
           className='input-email form-control'
             name="email"
@@ -53,7 +58,7 @@ export default function Login() {
         </label>
         <label>
           <input
-          className='input-senha form-control' 
+          className='input-email form-control' 
             name="password"
             value={ password }
             type="password"
@@ -63,14 +68,15 @@ export default function Login() {
           />
         </label>
         <button
-        className='btn-enter  btn btn-primary'
+        className='btn-enter  btn btn-warning'
           data-testid="login-submit-btn"
           disabled={ !validLogin }
         >
           Enter
         </button>
+        </div>
       </form>
-      </div>
+      
     </>
   );
 }
