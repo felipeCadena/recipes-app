@@ -16,6 +16,15 @@ margin-top: 5vw;
 .pt-prof{
   margin-top: 5vw;
 }
+
+
+.meals-img-header{
+  margin: 0 auto;
+}
+
+
+
+
 @media (max-width: 768px) {
   .page-title-profile {
     margin-top: 10vw;

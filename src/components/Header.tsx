@@ -84,7 +84,7 @@ function Header() {
       ) : pageTitle === 'Meals' ? (
         <img src={pratoHeader} alt="Meals" data-testid="meals-bottom-btn" className='meals-img-header' />
       ) : null}
-      <h1 data-testid="page-title" className='page-title-profile'>{pageTitle}</h1>
+      <h1 data-testid="page-title" className='page-title-profile arroz'>{pageTitle}</h1>
     </header>
   );
     

@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import drinkIcon from '../../images/drinkIcon.svg';
-import mealIcon from '../../images/mealIcon.svg';
 import  '../../styles/Footer.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import bebida from '../../iconsFigma/icone-bebida.svg'
