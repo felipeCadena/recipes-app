@@ -3,9 +3,8 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import RecipeCard from '../RecipeDetails/RecipeCard';
 import GlobalContext from '../../context/GlobalContext';
 import { DoneRecipesType, DrinkType, MealsType } from '../../types';
-import '../../styles/RecipeInProgress.css'
+import '../../styles/RecipeInProgress.css';
 import 'bootstrap/dist/css/bootstrap.css';
-
 
 function RecipeInProgress() {
   const { resultsApi, getApi, disabled } = useContext(GlobalContext);
@@ -86,20 +85,22 @@ function RecipeInProgress() {
   }
 
   return (
-    <div className='recipe-progress-container'
-    style={ { height: '120rem' } }>
+    <div
+      className="recipe-progress-container"
+      style={ { height: '120rem' } }
+    >
       <RecipeCard results={ data } pathNavigate={ cutyPath } />
-      <div className='btn-finish-style'>
-      <button
-      className='btn-finish btn btn-warning'
-        disabled={ disabled }
-        onClick={ handleFinishRecipe }
-        data-testid="finish-recipe-btn"
-        style={ { margin: '10px' } }
-      >
-        Finish Recipe
-      </button>
-    </div>
+      <div className="btn-finish-style">
+        <button
+          className="btn-finish btn btn-warning"
+          disabled={ disabled }
+          onClick={ handleFinishRecipe }
+          data-testid="finish-recipe-btn"
+          style={ { margin: '10px' } }
+        >
+          Finish Recipe
+        </button>
+      </div>
     </div>
   );
 }

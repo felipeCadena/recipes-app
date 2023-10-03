@@ -59,7 +59,7 @@ export default function RecipeDetails({ patch }: RenderProp) {
 
   if (resultsApi && resultsApi[0] && id) {
     return (
-      <main className='recipe-details-container'>
+      <main className="recipe-details-container">
         <RecipeCard results={ resultsApi } pathNavigate={ pathname } />
         {recomendations && <Recommended recomendations={ recomendations } />}
         <button

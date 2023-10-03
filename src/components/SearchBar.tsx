@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import GlobalContext from '../context/GlobalContext';
-import '../styles/SearchBar.css'
+import '../styles/SearchBar.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 type SearchProp = {
@@ -15,7 +15,10 @@ export default function SearchBar({ inputValue }: SearchProp) {
     setRadio(target.value);
   }
   return (
-    <form onSubmit={(event) => handleSubmit(event, inputValue, radio)} className="search-bar-container">
+    <form
+      onSubmit={ (event) => handleSubmit(event, inputValue, radio) }
+      className="search-bar-container"
+    >
       <div className="radio-buttons">
         <label>
           <input
@@ -23,9 +26,9 @@ export default function SearchBar({ inputValue }: SearchProp) {
             data-testid="ingredient-search-radio"
             name="search type"
             value="Ingredient"
-            checked={radio === 'Ingredient'}
-            onChange={handleChange}
-            className='checkbox form-outline'
+            checked={ radio === 'Ingredient' }
+            onChange={ handleChange }
+            className="checkbox form-outline"
           />
           Ingredient
         </label>
@@ -35,9 +38,9 @@ export default function SearchBar({ inputValue }: SearchProp) {
             data-testid="name-search-radio"
             value="Name"
             name="search type"
-            checked={radio === 'Name'}
-            onChange={handleChange}
-            className='checkbox  form-outline'
+            checked={ radio === 'Name' }
+            onChange={ handleChange }
+            className="checkbox  form-outline"
           />
           Name
         </label>
@@ -47,21 +50,21 @@ export default function SearchBar({ inputValue }: SearchProp) {
             data-testid="first-letter-search-radio"
             value="First letter"
             name="search type"
-            checked={radio === 'First letter'}
-            onChange={handleChange}
-            className='checkbox form-outline'
+            checked={ radio === 'First letter' }
+            onChange={ handleChange }
+            className="checkbox form-outline"
           />
           First letter
         </label>
-      
-      <div className="search-button">
-        <button
-          data-testid="exec-search-btn"
-          className='btn btn-warning btn-search'
-        >
-          Search
-        </button>
-      </div>
+
+        <div className="search-button">
+          <button
+            data-testid="exec-search-btn"
+            className="btn btn-warning btn-search"
+          >
+            Search
+          </button>
+        </div>
       </div>
     </form>
   );
