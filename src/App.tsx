@@ -16,7 +16,7 @@ import Welcome from './pages/welcome';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={ <Welcome /> } /> 
+      <Route path="/" element={ <Welcome /> } />
       <Route path="/login" element={ <Login /> } />
       <Route path="/meals/:id" element={ <MealDetails /> } />
       <Route path="/drinks/:id" element={ <DrinkDetails /> } />

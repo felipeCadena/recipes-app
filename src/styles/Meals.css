@@ -13,6 +13,7 @@ body {
   justify-content: center;
   margin-top: 11vw;
   margin-top: 10vw;
+  
 }
 
 .button-meals,
@@ -157,6 +158,12 @@ body {
     font-weight: 400;
     line-height: normal;
   }
+  .button-meals,
+.button-all {
+  width: 68px;
+
+}
+
 }
 
 
@@ -189,7 +196,7 @@ body {
     height: 135px;
     flex-shrink: 0;
     border-radius: 8px 8px 0 0;
-    border-bottom: none;
+    border: none;
   }
 
   .button-container {
@@ -229,6 +236,7 @@ body {
     width: 65px;
     height: 42px;
     margin-top: 8.5vw;
+  
   }
 
   .meals-bar-cont,
@@ -242,9 +250,8 @@ body {
   }
 
   .card-name {
-
     height: 50px;
-
+    
   }
 
 }

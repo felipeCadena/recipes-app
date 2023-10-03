@@ -10,7 +10,7 @@ import other from '../iconsFigma/🦆 icon _beer solid_.svg'
 import cocoa from '../iconsFigma/Group 4.svg'
 import ordinary from '../iconsFigma/🦆 icon _Drink Wine_.svg'
 import GlobalContext from '../context/GlobalContext';
-import '.././styles/Global.css';
+import '.././styles/Global.css'; 
 
 
 
@@ -103,7 +103,7 @@ function Drinks() {
 
   return (
     <>
-    <header className='header-sty'>
+      <header className='header-sty'>
     <div className='header-filha'>
           <div className='drk-bar-cont'>
           <img className='drink-bar' src={drinkIcon} alt="" />
@@ -143,40 +143,36 @@ function Drinks() {
        
         </div>
       </div>
-  
+
       <div className='drink-cont'>
-        {filteredRecipes && filteredRecipes.map((recipe, index) => (
-          <div
-            className='drinks-options'
-            key={recipe.id}
-            data-testid={`${index}-recipe-card`}
-            role="button"
-            onClick={() => handleRecipeClick(recipe.id)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === 'Space') {
-                handleRecipeClick(recipe.id);
-              }
-            }}
-            tabIndex={0}
-          >
-            <img
-              className='drink-image'
-              src={recipe.image}
-              alt={recipe.name}
-              data-testid={`${index}-card-img`}
-              width={100}
-            />
-            <p className='drink-card' data-testid={`${index}-card-name`}>{recipe.name}</p>
-          </div>
-        ))}
-  
-      </div>
-      <RenderApi patch="drinks" />
-  
+      {choiceRender && filteredRecipes && filteredRecipes.map((recipe, index) => (
+        <div
+          className='drinks-options'
+          key={ recipe.id }
+          data-testid={ `${index}-recipe-card` }
+          role="button"
+          onClick={ () => handleRecipeClick(recipe.id) }
+          onKeyDown={ (e) => {
+            if (e.key === 'Enter' || e.key === 'Space') {
+              handleRecipeClick(recipe.id);
+            }
+          } }
+          tabIndex={ 0 }
+        >
+          <img
+            className='drink-image'
+            src={ recipe.image }
+            alt={ recipe.name }
+            data-testid={ `${index}-card-img` }
+            width={ 100 }
+          />
+          <p className='drink-card' data-testid={ `${index}-card-name` }>{recipe.name}</p>
+        </div>
+      ))}
+       </div>
       {!choiceRender && <RenderApi patch="drinks" />}
     </>
   );
-  
 }
 
 export default Drinks;
