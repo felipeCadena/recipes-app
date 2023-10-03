@@ -13,25 +13,23 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
 
   if (filtered) {
     return (
-      <header className='container-recommend'>
       <>
-        <h2 className='nome-recomend'>Recommended</h2>
-        <div className="container">
+      <p className='recomended-paragraph'>Recommended</p>
+      <div className="recomended-container">
+        
+        
           {pathname.includes('drinks') && (filtered as MealsType[])
             .map((recomendation, index) => (
               <div
-              
                 key={ recomendation.idMeal }
                 data-testid={ `${index}-recommendation-card` }
               >
                 <img
-              
                   src={ recomendation.strMealThumb }
                   alt={ recomendation.strMeal }
                   width={ 180 }
                 />
                 <h5
-                 
                   data-testid={ `${index}-recommendation-title` }
                 >
                   {recomendation.strMeal}
@@ -41,27 +39,25 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
           {pathname.includes('meals') && (filtered as DrinkType[])
             .map((recomendation, index) => (
               <div
-             
                 key={ recomendation.idDrink }
                 data-testid={ `${index}-recommendation-card` }
               >
                 <img
-                
+                className='meals-recomend'
                   src={ recomendation.strDrinkThumb }
                   alt={ recomendation.strDrink }
                   width={ 180 }
                 />
-                <h4
-                 className='div-h4'
+                <p
+                className='descricao-img-meals'
                   data-testid={ `${index}-recommendation-title` }
                 >
                   {recomendation.strDrink}
-                </h4>
+                </p>
               </div>
             ))}
         </div>
       </>
-      </header>
     );
   }
 }

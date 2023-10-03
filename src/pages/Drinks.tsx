@@ -10,6 +10,9 @@ import other from '../iconsFigma/🦆 icon _beer solid_.svg'
 import cocoa from '../iconsFigma/Group 4.svg'
 import ordinary from '../iconsFigma/🦆 icon _Drink Wine_.svg'
 import GlobalContext from '../context/GlobalContext';
+import '.././styles/Global.css';
+
+
 
 function Drinks() {
   const { choiceRender, setChoiceRender } = useContext(GlobalContext);

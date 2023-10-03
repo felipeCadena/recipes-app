@@ -1,5 +1,6 @@
 import React from 'react';
 import { RecipesProps } from '../types';
+
 //  mapear uma lista de receitas e renderizar cada uma delas
 
 function Recipes({ recipe, index }: RecipesProps) {

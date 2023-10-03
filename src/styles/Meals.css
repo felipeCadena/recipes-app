@@ -1,167 +1,250 @@
 body {
-  overflow: scroll;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  margin-top: 11vw;
-/*   background-color: rgb(2, 80, 2); */
-
-}
-
-.button-container {
-  display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  margin-top: 11vw;
-/*    background-color: rgb(2, 80, 2);  */
-  margin-top: 0.1vw;
-}
-
-.button-meals, .button-all{
-  width: 65px;
-  color: #797D86;
-text-align: center;
-font-family: Epilogue;
-font-size: 13px;
-font-style: normal;
+  font-family: 'Chakra Petch', sans-serif;
 font-weight: 300;
-line-height: normal;
-height: 25px;
-margin: 2px;
+}
+
+body {
+  overflow: scroll;
 
 }
 
-
-
- .header-stymeals {
-  margin-top: 10%;
-  /* background-color: red; */
-  width: 100%;
+.button-container {
   display: flex;
-  height: 4.6vw;
-
-  justify-content: center; /* Centraliza horizontalmente */
-
-}
-
-.header-filha-meals {
-  width: 100%;
-  margin-top: 10%;
-/*   background-color: #ccc; */
-  text-align: center;
-  margin: 1px;
-  padding: 2px;
   justify-content: center;
-  display: flex; /* Adicione display flex para .header-filha */
-}
-.All, .beef, .goat, .chicken, .breakfast, .dessert{
-  width: 45.28px;
-  height: 45.28px;
-  display: flex; /* Usar flexbox para centralizar verticalmente e horizontalmente */
-  justify-content: center; /* Centralizar horizontalmente */
-  align-items: center; /* Centralizar verticalmente */
-  position: relative;
-  border-radius: 45.28px;
-  margin: 10px;
-border: 2px solid #FCC436;
+  margin-top: 11vw;
+  margin-top: 10vw;
 }
 
+.button-meals,
+.button-all {
+  width: 65px;
+  color: #4a4b52;
+  text-align: center;
+  font-size: 0.813rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  height: 40px;
+  margin: 2px;
+
+}
+
+.meals-itens {
+  margin: 0 10px;
+  margin-bottom: 1.4641288433382138vw;
+  height: 0.8784773060029283vw;
+}
 
 .receitas-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-/*   background-color: purple;  */
-  width: 90%;
-  height: 30vw;
-  margin: 0  auto; 
-  margin-top: 8px;
-
+  width: 100%;
+  height: 35vw;
+  margin: 0 auto;
+  padding-top: 1vw;
 }
 
-
-.meals-itens {
-/*   background-color: aqua; */
-
-  margin: 0 10px; 
-  margin-bottom: 20px; 
-  height: 122px;
-}
 .img-edit {
   width: 163px;
   height: 135px;
   flex-shrink: 0;
   border-radius: 5px 5px 0px 0px;
   background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+  margin: auto;
+  border: 0.518px solid #B1B1B1;
+  background: #FFF;
 }
 
-.card-name{
-/*   background-color: lawngreen; */
-max-width:170px;
-padding-left: 1.5vw;
+.card-name {
+  max-width: 170px;
+  padding-left: 1.5vw;
   padding-top: 0.6vw;
-height: 3.5vw;
- border-radius: 5px;
- border: 0.518px solid #B1B1B1;
- background: #FFF;
- border-top: none;
-align-items: center;
-justify-content: center;
-border-radius:  0 0 5px 5px; 
-color: #1A1B1C;
-font-family: Epilogue;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
- }
+  height: 4.5vw;
+  border-radius: 5px;
+  border: 0.518px solid #B1B1B1;
+  background: #FFF;
+  border-top: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 5px 5px;
+  color: #1A1B1C;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header-stymeals {
+  width: 100%;
+  display: flex;
+  height: 4vw;
+  justify-content: center;
+}
+
+.header-filha-meals {
+  width: 100%;
+  margin-top: 10vw;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.meals-bar-cont,
+.beef,
+.goat,
+.chicken,
+.breakfast,
+.dessert {
+  width: 45.28px;
+  height: 45.28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45.28px;
+  margin: 0.7320644216691069vw;
+  border: 2px solid #FCC436;
+}
+
+@media (max-width: 768px) {
+
+  .meals-bar-cont,
+  .beef,
+  .goat,
+  .chicken,
+  .breakfast,
+  .dessert {
+    margin: 2.220644216691069vw;
+    margin-top: 12vw;
+  }
+
+  .receitas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 82vw;
+    height: 28vw;
+    margin: 0 auto;
+    padding-top: 1vw;
+  }
+
+  .img-edit {
+    width: 163px;
+    height: 135px;
+    flex-shrink: 0;
+    border-radius: 5px 5px 0px 0px;
+    background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+    /*  background-color: chocolate; */
+    margin: auto;
+  }
+
+  .card-name {
+    max-width: 170px;
+    padding-left: 1.5vw;
+    padding-top: 0.6vw;
+    height: 4vw;
+    border-radius: 5px;
+    border: 0.518px solid #B1B1B1;
+    background: #FFF;
+    border-top: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+    color: #1A1B1C;
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
 
 @media (max-width: 768px) {
   .receitas-container {
     display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 1700px;
-  margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 1200px;
+    padding: 0;
+    max-height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 
-  max-height: 100%;
-  box-sizing: border-box; 
-    
   }
-  .meals-itens {
-    
-/*     background-color: aqua; */
-   
-    margin: 0 10px; 
-    margin-bottom: 20px; 
-    height: 155px;
-    border-radius: 8px; 
 
-    background-color: #fff;
+  .meals-itens {
+    margin: 0 10px;
+    margin-bottom: 20px;
+    height: 155px;
+    border-radius: 8px;
     justify-content: center;
     align-items: center;
   }
+
   .img-edit {
-    width: 170px;
-    height: 170px;
-    border-radius: 8px 8px 0 0; 
-    border: 1px solid black;
+    width: 163px;
+    height: 135px;
+    flex-shrink: 0;
+    border-radius: 8px 8px 0 0;
     border-bottom: none;
   }
 
-.button-container {
-  margin-top:22%;
-  
+  .button-container {
+    margin-top: 30%;
+    height: 11vw;
+
+  }
+
+  .card-name {
+    border-top: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 8px 8px;
+    height: 50px;
+  }
+
 }
 
-  .card-name{
-    border: 1px solid black;
-    border-top: none;
-   border-radius: 5px;
-   align-items: center;
-   justify-content: center;
-   border-radius:  0 0 8px 8px; 
+.meals-img-header {
+
+  text-align: center;
+  position: relative;
+  left: 50%;
+  top: 3vw;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 769px) and (max-width: 1360px) {
+  .receitas-container {
+    width: 82vw;
+    height: 100vw;
   }
- 
+
+  .button-meals,
+  .button-all {
+    width: 65px;
+    height: 42px;
+    margin-top: 8.5vw;
+  }
+
+  .meals-bar-cont,
+  .beef,
+  .goat,
+  .chicken,
+  .breakfast,
+  .dessert {
+    margin-left: 1.9vw;
+    margin-top: 6vw;
+  }
+
+  .card-name {
+
+    height: 50px;
+
+  }
+
 }

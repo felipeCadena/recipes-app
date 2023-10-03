@@ -1,9 +1,58 @@
-.container {
-  display: flex;
-  margin-bottom: 4rem;
-  overflow-x: auto;
-}
-
 .container img {
   margin-right: 0.5rem;
+  
+}
+
+.recomended-container {
+ 
+  display: flex;
+  margin-bottom: 4rem;
+  width: 100%;
+  height: 135px;
+  margin: 4px;
+  flex-shrink: 0;
+  overflow-x: auto;
+  border-radius: 5px 5px 0px 0px;
+  background: url(<path-to-image>), rgb(253, 253, 253) -1.5px -53.761px / 123.306% 186.119% no-repeat;
+  padding-left: 10vw;
+}
+
+.recomended-paragraph {
+  width: 142.803px;
+  color: #1A1B1C;
+  font-family: Epilogue;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 30px;
+}
+
+.meals-recomend {
+  width: 163px;
+  height: 135px;
+  margin: 3px;
+  flex-shrink: 0;
+  border-radius: 5px 5px 0px 0px;
+  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+}
+
+.descricao-img-meals {
+  width: 163px;
+  height: 24px;
+  color: #1A1B1C;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  border-radius: 5px;
+  border: 0.518px solid #B1B1B1;
+  margin-left: 3px;
+  border-radius: 0px 0px 5px 5px ;
+  margin-top: -3px;
+ 
+ 
+
 }

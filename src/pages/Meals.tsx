@@ -98,22 +98,22 @@ function Meals() {
       <>
        <header className='header-stymeals'>
     <div className='header-filha-meals'>
-          <div className='drk-bar-cont'>
-          <img className='drink-bar' src={All} alt="" />
+          <div className='meals-bar-cont'>
+          <img className='meals-bar' src={All} alt="" />
           </div>
-          <div className='ordinary'>
+          <div className='beef'>
           <img src={beef} alt="" />
           </div>
-          <div className='cocktail'>
+          <div className='goat'>
           <img src={goat} alt="" />
           </div>
-          <div className='shake'>
+          <div className='chicken'>
           <img src={chicken} alt="" />
           </div>
-          <div className='other'>
+          <div className='breakfast'>
           <img src={breakfast} alt="" />
           </div>
-          <div className='cocoa'>
+          <div className='dessert'>
           <img src={dessert} alt="" />
           </div>
         </div>

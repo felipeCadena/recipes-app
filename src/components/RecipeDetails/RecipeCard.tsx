@@ -2,9 +2,11 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { DrinkType, LineType, MealsType } from '../../types';
 import GlobalContext from '../../context/GlobalContext';
-import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../../images/blackHeartIcon.svg';
+import '../../styles/RecipeCard.css';
+import like from '../../iconsFigma/like.svg';
+import share from '../../iconsFigma/Share.svg'
+import likeBorda from '../../iconsFigma/likeBorda.svg'
 
 type RecipeProp = {
   results: MealsType[] | DrinkType[],
@@ -48,9 +50,11 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
 
       if (arrayIngredients) {
         arrayIngredients.map((ingredient: string, index: number) => done
-          .every((a) => a.name !== ingredient) && setDone((prev) => [...prev, { id: index,
-          name: ingredient,
-          checked: true }]));
+          .every((a) => a.name !== ingredient) && setDone((prev) => [...prev, {
+            id: index,
+            name: ingredient,
+            checked: true
+          }]));
       }
     }
   }, []);
@@ -81,9 +85,11 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
         .filter((item) => item.id !== index));
     }
 
-    setDone((prev) => [...prev, { id: index,
+    setDone((prev) => [...prev, {
+      id: index,
       name,
-      checked: event.target.checked }]);
+      checked: event.target.checked
+    }]);
 
     if (compareArrays(eachIngredients, doneIngredientes)) {
       setDisabled(!disabled);
@@ -91,48 +97,50 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
   }
 
   return (
-    <div>
+    <div className='recipe-card-container'>
       <button
+      className='btn-share'
         data-testid="share-btn"
-        onClick={ () => handleClipBoard(pathNavigate) }
+        onClick={() => handleClipBoard(pathNavigate)}
       >
-        <img src={ shareIcon } alt="" />
+        <img src={share} alt="" />
       </button>
       {copy && <span>Link copied!</span>}
       <button
-        onClick={ handleFavoriteRecipe }
+      className='btn-favrec'
+        onClick={handleFavoriteRecipe}
       >
         <img
           data-testid="favorite-btn"
-          src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
+          src={favoriteRecipe ? like : whiteHeartIcon}
           alt=""
         />
       </button>
       {data && pathname.includes('drinks') && (
         <>
           <img
-            src={ (data as DrinkType).strDrinkThumb }
-            alt={ (data as DrinkType).strDrink }
-            width={ 100 }
+            src={(data as DrinkType).strDrinkThumb}
+            alt={(data as DrinkType).strDrink}
+            width={100}
             data-testid="recipe-photo"
           />
           <h1 data-testid="recipe-title">{(data as DrinkType).strDrink}</h1>
           <p data-testid="recipe-category">{(data as DrinkType).strAlcoholic}</p>
           {ingredients?.map((ingredient, index) => (
-            <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
+            <span key={index} data-testid={`${index}-ingredient-name-and-measure`}>
               <label
-                data-testid={ `${index}-ingredient-step` }
-                defaultChecked={ done[index]?.checked }
-                style={ done[index]?.checked
+                data-testid={`${index}-ingredient-step`}
+                defaultChecked={done[index]?.checked}
+                style={done[index]?.checked
                   ? { textDecoration: 'line-through solid rgb(0, 0, 0)' }
-                  : { textDecoration: 'none' } }
+                  : { textDecoration: 'none' }}
               >
                 <input
                   type="checkbox"
-                  id={ (data as DrinkType).idDrink }
-                  checked={ done[index]?.checked }
-                  name={ ingredient[1] }
-                  onChange={ (event) => handleTextDecoration(event, index) }
+                  id={(data as DrinkType).idDrink}
+                  checked={done[index]?.checked}
+                  name={ingredient[1]}
+                  onChange={(event) => handleTextDecoration(event, index)}
                 />
                 {ingredient[1]}
                 {' '}
@@ -149,28 +157,36 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
       {data && pathname.includes('meals') && (
         <>
           <img
-            src={ (data as MealsType).strMealThumb }
-            alt={ (data as MealsType).strMeal }
-            width={ 100 }
+            className='img-recipe'
+            src={(data as MealsType).strMealThumb}
+            alt={(data as MealsType).strMeal}
+            width={100}
             data-testid="recipe-photo"
           />
-          <h1 data-testid="recipe-title">{(data as MealsType).strMeal}</h1>
-          <p data-testid="recipe-category">{(data as MealsType).strCategory}</p>
+          <div className='text-img-recipe'>
+          <h1
+            data-testid="recipe-title">{(data as MealsType).strMeal}</h1>
+          <p
+            data-testid="recipe-category">{(data as MealsType).strCategory}</p>
+            </div>
+            <p className='ingredients-recipe'>Ingredients</p>
           {ingredients?.map((ingredient, index) => (
-            <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
+            <span key={index} data-testid={`${index}-ingredient-name-and-measure`}>
               <label
-                defaultChecked={ done[index]?.checked }
-                data-testid={ `${index}-ingredient-step` }
-                style={ done[index]?.checked
+                className='label-recipe form-check-label'
+                defaultChecked={done[index]?.checked}
+                data-testid={`${index}-ingredient-step`}
+                style={done[index]?.checked
                   ? { textDecoration: 'line-through solid rgb(0, 0, 0)' }
-                  : { textDecoration: 'none' } }
+                  : { textDecoration: 'none' }}
               >
                 <input
+                  className='input-recipe form-check-input'
                   type="checkbox"
-                  id={ (data as MealsType).idMeal }
-                  checked={ done[index]?.checked }
-                  name={ ingredient[1] }
-                  onChange={ (event) => handleTextDecoration(event, index) }
+                  id={(data as MealsType).idMeal}
+                  checked={done[index]?.checked}
+                  name={ingredient[1]}
+                  onChange={(event) => handleTextDecoration(event, index)}
                 />
                 {ingredient[1]}
                 {' '}
@@ -178,16 +194,21 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
               </label>
             </span>
           ))}
-          <p data-testid="instructions">
+          <p className='instructions-paragraph'>Instructions</p>
+          <p
+            className='instructions-recipe'
+            data-testid="instructions">
             {(data as MealsType).strInstructions}
           </p>
+          <p className='video'>Video</p>
           <iframe
+            className='iframe-recipe-card'
             data-testid="video"
             width="360"
             height="200"
-            src={ (data as MealsType).strYoutube
-              && (data as MealsType).strYoutube.replace('watch?v=', 'embed/') }
-            title={ (data as MealsType).idMeal }
+            src={(data as MealsType).strYoutube
+              && (data as MealsType).strYoutube.replace('watch?v=', 'embed/')}
+            title={(data as MealsType).idMeal}
           />
         </>
       )}

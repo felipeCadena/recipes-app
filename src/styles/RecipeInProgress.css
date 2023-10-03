@@ -1,0 +1,8 @@
+body {
+  font-family: 'Chakra Petch', sans-serif;
+font-weight: 300;
+}
+
+.recipe-progress-container {
+  background-color: red;
+}

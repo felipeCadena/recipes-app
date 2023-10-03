@@ -1,11 +1,34 @@
-.done-edit{
+body {
+  font-family: 'Chakra Petch', sans-serif;
+font-weight: 300;
+}
+
+.done-edit {
   height: 40vw;
 
 }
-.done-icon{
-  margin-left: 48vw;
-  margin-top: 1vw;
-  width: 39.426px;
-height: 38.692px;
-flex-shrink: 0;
+
+.done-icon {
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .done-icon {
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+
+  }
+
+  .done-edit {
+    height: 108vw;
+
+  }
 }

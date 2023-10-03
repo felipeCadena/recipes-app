@@ -3,10 +3,11 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import RecipeCard from '../RecipeDetails/RecipeCard';
 import GlobalContext from '../../context/GlobalContext';
 import { DoneRecipesType, DrinkType, MealsType } from '../../types';
+import '../../styles/RecipeInProgress.css'
 
 function RecipeInProgress() {
   const { resultsApi, getApi, disabled } = useContext(GlobalContext);
-  const [finishRecipes, setFinishRecipes] = useState<DoneRecipesType[]>([]);
+  const [, setFinishRecipes] = useState<DoneRecipesType[]>([]);
 
   const date = new Date();
   const today = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
@@ -29,7 +30,7 @@ function RecipeInProgress() {
     if (id && pathname.includes('meals')) {
       getApi('themealdb', 'lookup.php?i', id);
     }
-  }, []);
+  }, [getApi, id, pathname]);
 
   function handleFinishRecipe() {
     let recipeToStore: DoneRecipesType;
@@ -83,7 +84,8 @@ function RecipeInProgress() {
   }
 
   return (
-    <div style={ { height: '60rem' } }>
+    <div className='recipe-progress-container'
+    style={ { height: '60rem' } }>
       <RecipeCard results={ data } pathNavigate={ cutyPath } />
       <button
         disabled={ disabled }

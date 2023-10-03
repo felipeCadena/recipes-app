@@ -3,7 +3,6 @@ import GlobalContext from '../context/GlobalContext';
 import '../styles/SearchBar.css'
 import 'bootstrap/dist/css/bootstrap.css';
 
-
 type SearchProp = {
   inputValue: string
 };
@@ -54,7 +53,7 @@ export default function SearchBar({ inputValue }: SearchProp) {
           />
           First letter
         </label>
-      </div>
+      
       <div className="search-button">
         <button
           data-testid="exec-search-btn"
@@ -62,6 +61,7 @@ export default function SearchBar({ inputValue }: SearchProp) {
         >
           Search
         </button>
+      </div>
       </div>
     </form>
   );

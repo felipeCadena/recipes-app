@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import '../styles/Header.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-icons/font/bootstrap-icons.css'; 
 import tituloHeader from'../iconsFigma/logo Recipes app.svg'
 import logoHeader from'../iconsFigma/bandeja.svg'
 import perfilHeader from '../iconsFigma/icone-perfil.svg'
@@ -52,11 +51,16 @@ function Header() {
             <img src={perfilHeader} alt="Profile" data-testid="profile-top-btn" className='profile-icon' />
           </Link>
         </div>
+        <div>
         {showSearchIcon && (
           <div className='search-icon'>
-            <button onClick={toggleSearch}>
+            <div className='btn-div-teste'>
+            <button 
+            className='btn-header-cascavel'
+            onClick={toggleSearch}>
               <img src={pesquisa} alt="Search" data-testid="search-top-btn" className='btn-search' />
             </button>
+            </div>
             {searchVisible && (
               <div className='checkbox-style'> 
                 <input
@@ -71,7 +75,9 @@ function Header() {
               </div>
             )}
           </div>
+          
         )}
+        </div>
       </div>
       
       {pageTitle === 'Drink' ? (
@@ -84,7 +90,7 @@ function Header() {
       ) : pageTitle === 'Meals' ? (
         <img src={pratoHeader} alt="Meals" data-testid="meals-bottom-btn" className='meals-img-header' />
       ) : null}
-      <h1 data-testid="page-title" className='page-title-profile arroz'>{pageTitle}</h1>
+      <h1 data-testid="page-title" className='page-title-profile'>{pageTitle}</h1>
     </header>
   );
     

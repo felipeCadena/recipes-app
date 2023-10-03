@@ -1,13 +1,16 @@
+body {
+  font-family: 'Chakra Petch', sans-serif;
+font-weight: 300;
+}
+
 .profile-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Alterado para centralizar verticalmente */
-  justify-content: center; /* Adicionado para centralizar horizontalmente */
+  align-items: center;
+  justify-content: center;
   margin-top: 120px;
   width: 100%;
   height: 28vw;
- /*  background-color: palevioletred; */
-
 }
 
 .prof-email {
@@ -15,48 +18,51 @@
   height: 12px;
   flex-shrink: 0;
   color: #1A1B1C;
-text-align: center;
-font-family: Epilogue;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-margin-top: -15%;
+  text-align: center;
+  font-family: Epilogue;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: -15%;
 }
 
 
 .favorite-btn {
   width: 156px;
   color: #797D86;
-font-family: Epilogue;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.48px;
-text-transform: capitalize;
-margin-left: 1.3vw;
-margin-top: 2vw;
+  font-family: Epilogue;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  text-transform: capitalize;
+  margin-left: 30px;
+  margin-top: 2vw;
 
 }
+
 .coracao-img {
   margin-top: 2vw;
 }
+
 .done-btn {
   width: 156px;
   color: #797D86;
-font-family: Epilogue;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.48px;
-text-transform: capitalize;
-margin-left: 1vw;
-margin-top: 2vw;
+  font-family: Epilogue;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  text-transform: capitalize;
+  margin-left: 30px;
+  margin-top: 2vw;
 
 
 }
+
 .logout-btn {
   width: 156px;
   color: #797D86;
@@ -67,116 +73,126 @@ margin-top: 2vw;
   line-height: normal;
   letter-spacing: 0.48px;
   text-transform: capitalize;
-  margin-left: 4vw;
+  margin-left: 70px;
   margin-top: -2.4vw;
-  
+  height: 30px;
+
 }
+
 .profile-img {
   margin-top: 2vw;
 }
+
 .logout-img {
   margin-top: 1.3vw;
 }
+
 .img-perfil {
   width: 100%;
-height: 28.71px;
-flex-shrink: 0;
-margin-top: 1vw;
+  height: 28.71px;
+  flex-shrink: 0;
+  margin-top: 5vw;
 }
+
 .three-btn {
-  /* background-color: blue; */
-  margin: 40px; /* Ajuste o valor da margem conforme necessário */
+
+  margin: 40px;
   display: grid;
   clear: both;
-  width: 20vw;
+  width: 300px;
 }
 
 @media (max-width: 768px) {
   .profile-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Alterado para centralizar verticalmente */
-    justify-content: center; /* Adicionado para centralizar horizontalmente */
+    align-items: center;
+    justify-content: center;
     margin-top: 120px;
     width: 100%;
     height: 73vw;
-  /*   background-color: palevioletred; */
-  /*   background-color: red; */
   }
-  
+
   .prof-email {
     width: 100%;
     height: 12px;
     flex-shrink: 0;
     color: #1A1B1C;
-  text-align: center;
-  font-family: Epilogue;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-top: -40%;
+    text-align: center;
+    font-family: Epilogue;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: -40%;
   }
-  
-  
+
+
   .favorite-btn {
     width: 156px;
     color: #797D86;
-  font-family: Epilogue;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0.48px;
-  text-transform: capitalize;
-  margin-left: 1.3vw;
-  margin-top: 2vw;
-  margin-left: 3.5vw;
-  
+    font-family: Epilogue;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: capitalize;
+    margin-left: 25px;
+    margin-top: 2vw;
+
+
   }
+
   .coracao-img {
     margin-top: 2vw;
   }
+
   .done-btn {
     width: 156px;
     color: #797D86;
-  font-family: Epilogue;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0.48px;
-  text-transform: capitalize;
-  margin-left: 1vw;
-  margin-top: 2vw;
-  margin-left: 3vw;
-  
-  
+    font-family: Epilogue;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: capitalize;
+    margin-left: 25px;
+    margin-top: 2vw;
+
+
+
   }
+
   .logout-btn {
-   margin-left: 11vw;
-    margin-top: -6.4vw;
-    
+    margin-left: 64px;
+    margin-top: -6vw;
+
   }
+
   .profile-img {
     margin-top: 2vw;
   }
+
   .logout-img {
     margin-top: 1.3vw;
   }
+
   .img-perfil {
     width: 100%;
-  height: 28.71px;
-  flex-shrink: 0;
-  margin-top: 3vw;
-  
+    height: 28.71px;
+    flex-shrink: 0;
+    margin-top: 9vw;
+    
+
   }
+
   .three-btn {
-    /* background-color: blue; */
-    margin: 40px; /* Ajuste o valor da margem conforme necessário */
+    margin: 40px;
     display: grid;
     clear: both;
     width: 50vw;
-    margin-top: 15vw;
+    margin-top: 90px;
   }
 }
