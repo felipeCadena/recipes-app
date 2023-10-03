@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer
       data-testid="footer"
-      className='footer-style'
+      className="footer-style"
     >
       <Link to="/drinks">
         <img
