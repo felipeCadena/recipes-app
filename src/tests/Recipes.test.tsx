@@ -48,13 +48,6 @@ describe('Verifica existência dos elementos do componente Recipe', () => {
   });
 
   it('Verifica as chamadas da API quando clica nos botões das categorias', async () => {
-    const { user } = renderWithRouter(
-      <ContextProvider>
-        <App />
-      </ContextProvider>,
-      { route: '/meals' },
-    );
-
     const api = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
 
     expect(global.fetch).toHaveBeenCalled();

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../styles/Footer.css';
+import '../../styles.css/Footer.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import bebida from '../../iconsFigma/icone-bebida.svg';
 import prato from '../../iconsFigma//icone-prato.svg';

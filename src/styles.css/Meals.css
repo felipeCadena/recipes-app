@@ -13,7 +13,6 @@ body {
   justify-content: center;
   margin-top: 11vw;
   margin-top: 10vw;
-  
 }
 
 .button-meals,
@@ -27,7 +26,6 @@ body {
   line-height: normal;
   height: 40px;
   margin: 2px;
-  
 
 }
 
@@ -35,11 +33,9 @@ body {
   margin: 0 10px;
   margin-bottom: 1.4641288433382138vw;
   height: 0.8784773060029283vw;
-  
 }
 
 .receitas-container {
-  
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -47,7 +43,6 @@ body {
   height: 35vw;
   margin: 0 auto;
   padding-top: 1vw;
-  
 }
 
 .img-edit {
@@ -78,7 +73,6 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  
 }
 
 .header-stymeals {
@@ -86,7 +80,6 @@ body {
   display: flex;
   height: 4vw;
   justify-content: center;
-  
 }
 
 .header-filha-meals {
@@ -95,7 +88,6 @@ body {
   text-align: center;
   justify-content: center;
   display: flex;
-  
 }
 
 .meals-bar-cont,
@@ -112,7 +104,6 @@ body {
   border-radius: 45.28px;
   margin: 0.7320644216691069vw;
   border: 2px solid #FCC436;
-  
 }
 
 @media (max-width: 768px) {
@@ -135,7 +126,6 @@ body {
     height: 28vw;
     margin: 0 auto;
     padding-top: 1vw;
-
   }
 
   .img-edit {
@@ -167,12 +157,6 @@ body {
     font-weight: 400;
     line-height: normal;
   }
-  .button-meals,
-.button-all {
-  width: 68px;
-
-}
-
 }
 
 
@@ -205,7 +189,7 @@ body {
     height: 135px;
     flex-shrink: 0;
     border-radius: 8px 8px 0 0;
-    border: none;
+    border-bottom: none;
   }
 
   .button-container {
@@ -245,7 +229,6 @@ body {
     width: 65px;
     height: 42px;
     margin-top: 8.5vw;
-  
   }
 
   .meals-bar-cont,
@@ -259,8 +242,9 @@ body {
   }
 
   .card-name {
+
     height: 50px;
-    
+
   }
 
 }

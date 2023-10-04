@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/Profile.css';
+import '../styles.css/Profile.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import aprovado from '../iconsFigma/aprovado.svg';
 import perfil from '../iconsFigma/Perfil.svg';
 import logout from '../iconsFigma/logout.svg';
 import coracao from '../iconsFigma/coracao.svg';
-import '../styles/Global.css';
+import '../styles.css/Global.css';
 
 function Profile() {
   const [user, setUser] = useState('');
@@ -39,7 +39,7 @@ function Profile() {
           className="prof-email"
           data-testid="profile-email"
         >
-          {user}
+          { user }
         </h2>
 
         <div className="three-btn">
@@ -66,7 +66,6 @@ function Profile() {
               className="favorite-btn btn btn-light"
               data-testid="profile-favorite-btn"
             >
-
               Favorite Recipes
             </button>
           </Link>

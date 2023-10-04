@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { DrinkType, LineType, MealsType } from '../../types';
 import GlobalContext from '../../context/GlobalContext';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import '../../styles/RecipeCard.css';
+import '../../styles.css/RecipeCard.css';
 import like from '../../iconsFigma/like.svg';
 import share from '../../iconsFigma/Share.svg';
 
@@ -107,7 +107,7 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
           alt=""
         />
       </button>
-      { copy && <span className="link-copied">Link copied!</span>}
+      { copy && <span>Link copied!</span> }
       <button
         className="btn-favrec"
         onClick={ handleFavoriteRecipe }
@@ -121,21 +121,16 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
       { data && pathname.includes('drinks') && (
         <>
           <img
-            className="img-recipe"
             src={ (data as DrinkType).strDrinkThumb }
             alt={ (data as DrinkType).strDrink }
             width={ 100 }
             data-testid="recipe-photo"
           />
-          <div className="text-img-recipe">
-            <h1 data-testid="recipe-title">{ (data as DrinkType).strDrink }</h1>
-          </div>
-          <p data-testid="recipe-category">{ (data as DrinkType).strAlcoholic }</p>
-          <p className="ingredients-recipe">Ingredients</p>
-          {ingredients?.map((ingredient, index) => (
+          <h1 data-testid="recipe-title">{(data as DrinkType).strDrink}</h1>
+          <p data-testid="recipe-category">{(data as DrinkType).strAlcoholic}</p>
+          { ingredients?.map((ingredient, index) => (
             <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
               <label
-                className="label-recipe form-check-label"
                 data-testid={ `${index}-ingredient-step` }
                 defaultChecked={ done[index]?.checked }
                 style={ done[index]?.checked
@@ -143,26 +138,21 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
                   : { textDecoration: 'none' } }
               >
                 <input
-                  className="input-recipe form-check-input"
                   type="checkbox"
                   id={ (data as DrinkType).idDrink }
                   checked={ done[index]?.checked }
                   name={ ingredient[1] }
                   onChange={ (event) => handleTextDecoration(event, index) }
                 />
-                {ingredient[1]}
+                { ingredient[1] }
                 {' '}
-                {measures[index][1]}
+                { measures[index][1] }
               </label>
             </span>
           ))}
-          <p className="instructions-paragraph">Instructions</p>
-          <p
-            className="instructions-recipe"
-            data-testid="instructions"
-          >
-            {(data as DrinkType).strInstructions}
-            {(data as DrinkType).strMeasure2}
+          <p data-testid="instructions">
+            { (data as DrinkType).strInstructions }
+            { (data as DrinkType).strMeasure2 }
           </p>
         </>
       )}
@@ -179,21 +169,17 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
             <h1
               data-testid="recipe-title"
             >
-              {(data as MealsType).strMeal}
+              { (data as MealsType).strMeal }
             </h1>
+            <p
+              data-testid="recipe-category"
+            >
+              { (data as MealsType).strCategory }
+            </p>
           </div>
-          <p
-            data-testid="recipe-category"
-          >
-            {(data as MealsType).strCategory}
-          </p>
-
           <p className="ingredients-recipe">Ingredients</p>
           {ingredients?.map((ingredient, index) => (
-            <span
-              key={ index }
-              data-testid={ `${index}-ingredient-name-and-measure` }
-            >
+            <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
               <label
                 className="label-recipe form-check-label"
                 defaultChecked={ done[index]?.checked }
@@ -210,9 +196,9 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
                   name={ ingredient[1] }
                   onChange={ (event) => handleTextDecoration(event, index) }
                 />
-                {ingredient[1]}
+                { ingredient[1] }
                 {' '}
-                {measures[index][1]}
+                { measures[index][1] }
               </label>
             </span>
           ))}

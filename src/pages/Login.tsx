@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Login.css';
+import '../styles.css/Login.css';
 import logoRecipesApp from '../iconsFigma/logo Recipes App.svg';
 import tomateImg from '../iconsFigma/tomate.png';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -48,11 +48,7 @@ export default function Login() {
           className="tomate-image"
         />
       </div>
-      <h2
-        className="login-title"
-      >
-        LOGIN
-      </h2>
+      <h2 className="login-title">LOGIN</h2>
       <form
         onSubmit={ handleSubmit }
         className="form-login"
@@ -89,6 +85,7 @@ export default function Login() {
           </button>
         </div>
       </form>
+
     </>
   );
 }

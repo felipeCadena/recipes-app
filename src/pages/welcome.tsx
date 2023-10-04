@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/welcome.css';
+import '../styles.css/welcome.css';
 import welcomeImage from '../iconsFigma/Group 5.svg';
 
 function Welcome() {

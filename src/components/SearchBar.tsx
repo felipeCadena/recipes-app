@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import GlobalContext from '../context/GlobalContext';
-import '../styles/SearchBar.css';
+import '../styles.css/SearchBar.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 type SearchProp = {

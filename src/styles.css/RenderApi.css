@@ -1,0 +1,113 @@
+body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 300;
+}
+
+.meals-pesquisa {
+  display: inline-block;
+  text-align: center;
+
+}
+
+.meals-card-pesquisa {
+  width: 165px;
+  height: 60px;
+  margin: 10px;
+  color: #1A1B1C;
+  border-bottom: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 5px 5px 0px 0px;
+  border: 0.518px solid #B1B1B1;
+  background: #FFF;
+
+}
+
+.meal-drink {
+  margin-top: -30vw;
+  margin-left: 11vw;
+
+}
+
+.meals-img-pesquisa {
+  width: 163px;
+  height: 135px;
+  margin: 10px;
+  margin-top: -9.7px;
+  flex-shrink: 0;
+  border-radius: 0px 0px 5px 5px;
+  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+
+}
+
+
+
+
+.drink-pesquisa {
+  display: inline-block;
+  text-align: center;
+
+  margin-top: 1.2vw;
+}
+
+.drinks-card-pesquisa {
+  width: 165px;
+  height: 45px;
+  margin: 10px;
+  color: #1A1B1C;
+  border-bottom: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 5px 5px 0px 0px;
+  border: 0.518px solid #B1B1B1;
+  background: #FFF;
+}
+
+.drinks-img-pesquisa {
+  width: 163px;
+  height: 135px;
+  margin: 10px;
+  margin-top: -9.7px;
+  flex-shrink: 0;
+  border-radius: 0px 0px 5px 5px;
+  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .meal-drink {
+    margin-top: -1200px;
+    margin-left: 15vw;
+  }
+
+  .drink-pesquisa {
+    display: inline-block;
+    text-align: center;
+
+    margin-top: 19.2vw;
+  }
+
+  .drinks-card-pesquisa {
+
+    border-bottom: 0;
+
+  }
+}

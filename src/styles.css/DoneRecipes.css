@@ -1,0 +1,170 @@
+body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 300;
+}
+
+.done-edit {
+  height: 40vw;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 6px;
+}
+
+.done-image {}
+
+.indice {
+  margin-top: 5px;
+  padding-top: 0;
+}
+
+.done-buttons {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #797D86;
+  text-align: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.done-image {
+  display: flex;
+  margin: 0 auto;
+}
+
+.images-done {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 3px;
+  width: 140px;
+  justify-content: space-between;
+  margin-left: 183.24px;
+
+}
+
+.image-drink-meals {
+  margin-left: 4.2vw;
+  width: 183.346px;
+  height: 144.854px;
+  flex-shrink: 0;
+  margin-top: 4px;
+  border-radius: 5px 5px 0 0;
+  border: 0.518px solid #B1B1B1;
+  background: #FFF;
+  border-right: 0;
+}
+
+.button-share-dones {
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  font: inherit;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.img-share-dones {
+  margin-top: -21vw;
+  margin-left: 36vw;
+  width: 33px;
+
+}
+
+.paragraph-um {
+  margin-top: 1vw;
+  width: 210px;
+  color: #1A1B1C;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+
+.paragraph-dois {
+  color: #1A1B1C;
+  text-align: left;
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.link-done {
+  position: absolute;
+  margin-top: 2vw;
+  color: #797D86;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.paragrafos {
+  width: 250.346px;
+  height: 144.854px;
+  margin-left: 19vw;
+  margin-top: -145.3px;
+  border-radius: 5px 5px 0 0;
+  border: 0.518px solid #B1B1B1;
+  background: #FFF;
+  border-left: 0;
+
+}
+
+.meals-btn-done,
+.drinks-btn-done,
+.all-btn-done {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  font: inherit;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+  margin: 10px;
+}
+
+
+@media (max-width: 768px) {
+
+  .done-image {
+    margin-top: 10vw;
+  }
+
+  .images-done {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 3px;
+    width: 125px;
+    justify-content: space-between;
+    margin-left: 185px;
+  }
+
+  .done-edit {
+    height: 100vw;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 6px;
+  }
+}

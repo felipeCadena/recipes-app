@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
-import '../styles/Meals.css';
+import '../styles.css/Meals.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GlobalContext from '../context/GlobalContext';
 import All from '../iconsFigma/icone-prato.svg';
@@ -97,23 +97,42 @@ function Meals() {
     <>
       <header className="header-stymeals">
         <div className="header-filha-meals">
-          <div className="meals-bar-cont'">
-            <img className="meals-bar" src={ All } alt="" />
+          <div className="meals-bar-cont">
+            <img
+              className="meals-bar"
+              src={ All }
+              alt=""
+            />
           </div>
           <div className="beef">
-            <img src={ beef } alt="" />
+            <img
+              src={ beef }
+              alt=""
+            />
           </div>
           <div className="goat">
-            <img src={ goat } alt="" />
+            <img
+              src={ goat }
+              alt=""
+            />
           </div>
           <div className="chicken">
-            <img src={ chicken } alt="" />
+            <img
+              src={ chicken }
+              alt=""
+            />
           </div>
           <div className="breakfast">
-            <img src={ breakfast } alt="" />
+            <img
+              src={ breakfast }
+              alt=""
+            />
           </div>
           <div className="dessert">
-            <img src={ dessert } alt="" />
+            <img
+              src={ dessert }
+              alt=""
+            />
           </div>
         </div>
       </header>
@@ -133,7 +152,7 @@ function Meals() {
             onClick={ () => fetchRecipesByCategory(category) }
             className="button-meals btn btn-light"
           >
-            {category}
+            { category }
           </button>
         ))}
       </div>
@@ -164,10 +183,10 @@ function Meals() {
               className="card-name"
               data-testid={ `${index}-card-name` }
             >
-              { recipe.name }
+              {recipe.name}
             </p>
           </div>
-        ))}
+        )) }
       </div>
 
       { !choiceRender && <RenderApi patch="meals" /> }

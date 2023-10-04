@@ -30,7 +30,7 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
                 <h5
                   data-testid={ `${index}-recommendation-title` }
                 >
-                  {recomendation.strMeal}
+                  { recomendation.strMeal }
                 </h5>
               </div>
             ))}
@@ -50,7 +50,7 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
                   className="descricao-img-meals"
                   data-testid={ `${index}-recommendation-title` }
                 >
-                  {recomendation.strDrink}
+                  { recomendation.strDrink }
                 </p>
               </div>
             ))}

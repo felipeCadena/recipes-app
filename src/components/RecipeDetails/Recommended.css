@@ -14,7 +14,7 @@
   overflow-x: auto;
   border-radius: 5px 5px 0px 0px;
   background: url(<path-to-image>), rgb(253, 253, 253) -1.5px -53.761px / 123.306% 186.119% no-repeat;
-  padding-left: 13%;
+  padding-left: 10vw;
 }
 
 .recomended-paragraph {
@@ -41,6 +41,7 @@
   width: 163px;
   height: 24px;
   color: #1A1B1C;
+
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
