@@ -1,24 +1,27 @@
 body {
-  font-family: 'Chakra Petch', sans-serif;
-font-weight: 300;
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
 }
 
 .recipe-progress-container {
-
+margin-top: 5px;
+  
+  
 }
-.btn-finish{
-  width: 300px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-height: 40px;
-flex-shrink: 0;
-border-radius: 5px;
-background: #FCC436;
 
-}
 .btn-finish-style {
-
- width: 340px;
   margin-left: 18vw;
+  width: 340px;
+  align-items: center;
+  background: #fcc436;
+  border-radius: 5px;
+  flex-shrink: 0;
+  height: 40px;
+  justify-content: center;
+  text-align: center;
+  width: 300px;
+}
+
+@media ( max-width : 768px ) {
+  
 }

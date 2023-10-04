@@ -1,113 +1,87 @@
 body {
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: Chakra Petch , sans-serif;
   font-weight: 300;
 }
 
 .meals-pesquisa {
   display: inline-block;
   text-align: center;
-
 }
 
 .meals-card-pesquisa {
-  width: 165px;
-  height: 60px;
-  margin: 10px;
-  color: #1A1B1C;
+  background: white;
+  border: 0.518px solid #b1b1b1;
   border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  color: #1a1b1c;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  height: 60px;
   line-height: normal;
-  border-radius: 5px 5px 0px 0px;
-  border: 0.518px solid #B1B1B1;
-  background: #FFF;
-
+  margin: 10px;
+  width: 165px;
 }
 
 .meal-drink {
-  margin-top: -30vw;
   margin-left: 11vw;
+  margin-top: -30vw;
 
 }
 
 .meals-img-pesquisa {
-  width: 163px;
+  border-radius: 0 0 5px 5px;
+  flex-shrink: 0;
   height: 135px;
   margin: 10px;
   margin-top: -9.7px;
-  flex-shrink: 0;
-  border-radius: 0px 0px 5px 5px;
-  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
-
+  width: 163px;
 }
-
-
-
 
 .drink-pesquisa {
   display: inline-block;
-  text-align: center;
-
   margin-top: 1.2vw;
+  text-align: center;
 }
 
 .drinks-card-pesquisa {
-  width: 165px;
-  height: 45px;
-  margin: 10px;
-  color: #1A1B1C;
+  background: white;
+  border: 0.518px solid #b1b1b1;
   border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  color: #1a1b1c;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  height: 45px;
   line-height: normal;
-  border-radius: 5px 5px 0px 0px;
-  border: 0.518px solid #B1B1B1;
-  background: #FFF;
+  margin: 10px;
+  width: 165px;
 }
 
 .drinks-img-pesquisa {
-  width: 163px;
+  border-radius: 0 0 5px 5px;
+  flex-shrink: 0;
   height: 135px;
   margin: 10px;
   margin-top: -9.7px;
-  flex-shrink: 0;
-  border-radius: 0px 0px 5px 5px;
-  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+  width: 163px;
 }
 
+@media ( max-width : 768px ) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
   .meal-drink {
-    margin-top: -1200px;
     margin-left: 15vw;
+    margin-top: -1200px;
   }
 
   .drink-pesquisa {
     display: inline-block;
-    text-align: center;
-
     margin-top: 19.2vw;
+    text-align: center;
   }
 
   .drinks-card-pesquisa {
-
     border-bottom: 0;
-
   }
 }

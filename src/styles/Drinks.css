@@ -1,242 +1,206 @@
 body {
-  overflow: scroll;
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: Chakra Petch , sans-serif;
   font-weight: 300;
-
+  overflow: scroll;
 }
 
 .drink-container {
   display: flex;
   justify-content: center;
-  margin-top: 12vw;
+  margin-top: 11vw;
 }
 
-.drink-btn,
-.btn-all {
-  width: 70px;
+.drink-btn, .btn-all {
   color: #4a4b52;
-  text-align: center;
   font-size: 0.813rem;
   font-style: normal;
   font-weight: 300;
-  line-height: normal;
   height: 44px;
+  line-height: normal;
   margin: 2px;
+  text-align: center;
+  width: 70px;
 }
 
 .drinks-options {
+  height: 0.878vw;
   margin: 0 10px;
-  margin-bottom: 1.4641288433382138vw;
-  height: 0.8784773060029283vw;
-
-
+  margin-bottom: 1.464vw;
 }
 
 .drink-cont {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
   height: 28vw;
+  justify-content: center;
   margin: 0 auto;
-  padding-top: 1vw;
   margin-top: 1vw;
-
+  padding-top: 1vw;
+  width: 100%;
 }
 
 .drink-image {
-  width: 163px;
-  height: 135px;
+  background: white;
+  border: 0.518px solid #b1b1b1;
+  border-radius: 5px 5px 0 0;
   flex-shrink: 0;
-  border-radius: 5px 5px 0px 0px;
-  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+  height: 135px;
   margin: auto;
-  border: 0.518px solid #B1B1B1;
-  background: #FFF;
+  width: 163px;
 }
 
 .drink-card {
-  max-width: 170px;
-  padding-left: 1.5vw;
-  padding-top: 0.6vw;
-  height: 2.6vw;
-  border-radius: 5px;
-  border: 0.518px solid #B1B1B1;
-  background: #FFF;
-  border-top: none;
   align-items: center;
-  justify-content: center;
+  background: white;
+  border: 0.518px solid #b1b1b1;
   border-radius: 0 0 5px 5px;
-  color: #1A1B1C;
+  border-top: none;
+  color: #1a1b1c;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
+  height: 2.6vw;
+  justify-content: center;
   line-height: normal;
-
+  max-width: 170px;
+  padding-left: 1.5vw;
+  padding-top: 0.6vw;
 }
 
 .header-sty {
-  width: 100%;
   display: flex;
   height: 4vw;
   justify-content: center;
-
+  width: 100%;
 }
 
 .header-filha {
-  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 10vw;
   text-align: center;
-  justify-content: center;
-  display: flex;
- 
+  width: 100%;
 }
 
-.drk-bar-cont,
-.ordinary,
-.cocktail,
-.shake,
-.other,
-.cocoa {
-  width: 45.28px;
-  height: 45.28px;
-  display: flex;
-  justify-content: center;
+.drk-bar-cont, .ordinary, .cocktail, .shake, .other, .cocoa {
   align-items: center;
+  border: 2px solid #fcc436;
   border-radius: 45.28px;
-margin: 14px;
-  border: 2px solid #FCC436;
-
+  display: flex;
+  height: 45.28px;
+  justify-content: center;
+  margin: 14px;
+  width: 45.28px;
 }
 
-@media (max-width: 768px) {
+@media ( max-width : 768px ) {
 
-  .drk-bar-cont,
-  .ordinary,
-  .cocktail,
-  .shake,
-  .other,
-  .cocoa {
-
-    margin: 2.6320644216691069vw;
+  .drk-bar-cont, .ordinary, .cocktail, .shake, .other, .cocoa {
+    margin: 2.232vw;
     margin-top: 12vw;
   }
 
   .drink-cont {
-
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 82vw;
     height: 28vw;
+    justify-content: center;
     margin: 0 auto;
     padding-top: 1vw;
-
-
-
+    width: 82vw;
   }
 
   .drink-image {
-    width: 163px;
-    height: 135px;
+    border-radius: 5px 5px 0 0;
     flex-shrink: 0;
-    border-radius: 5px 5px 0px 0px;
-    background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
-    /*  background-color: chocolate; */
+    height: 135px;
     margin: auto;
+    width: 163px;
   }
 
   .drink-card {
-
-    max-width: 170px;
-    padding-left: 1.5vw;
-    padding-top: 0.6vw;
-    height: 4vw;
-    border-radius: 5px;
-    border: 0.518px solid #B1B1B1;
-    background: #FFF;
-    border-top: none;
     align-items: center;
-    justify-content: center;
+    background: white;
+    border: 0.518px solid #b1b1b1;
     border-radius: 0 0 5px 5px;
-    color: #1A1B1C;
-    font-family: Epilogue;
+    border-top: none;
+    color: #1a1b1c;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
+    height: 4vw;
+    justify-content: center;
     line-height: normal;
+    max-width: 170px;
+    padding-left: 1.5vw;
+    padding-top: 0.6vw;
   }
 }
 
 
-@media (max-width: 768px) {
+@media ( max-width : 768px ) {
+
   .drink-cont {
+    align-items: center;
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     height: 1100px;
-    padding: 0;
-    max-height: 100%;
-    box-sizing: border-box;
-    width: 100%;
-    align-items: center;
     justify-content: center;
-
+    max-height: 100%;
+    padding: 0;
+    width: 100%;
   }
 
   .drinks-options {
+    align-items: center;
+    border-radius: 8px;
+    height: 155px;
+    justify-content: center;
     margin: 0 10px;
     margin-bottom: 20px;
-    height: 155px;
-    border-radius: 8px;
-    justify-content: center;
-    align-items: center;
   }
 
   .drink-image {
-    width: 163px;
-    height: 135px;
-    flex-shrink: 0;
-    border-radius: 8px 8px 0 0;
     border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    flex-shrink: 0;
+    height: 135px;
+    width: 163px;
   }
 
   .drink-container {
-    margin-top: 30%;
     height: 11vw;
-
+    margin-top: 30%;
   }
 
   .drink-card {
-    border-top: none;
-    border-radius: 5px;
     align-items: center;
-    justify-content: center;
     border-radius: 0 0 8px 8px;
+    border-top: none;
+    justify-content: center;
+  }
+
+  .drink-btn, .btn-all {
+    width: 68px;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1360px) {
+@media ( min-width : 769px ) and ( max-width : 1360px ) {
+
   .drink-cont {
-    width: 82vw;
     height: 86vw;
+    width: 82vw;
   }
 
-  .drink-btn,
-  .btn-all {
-    width: 65px;
+  .drink-btn, .btn-all {
     height: 42px;
     margin-top: 8.5vw;
+    width: 65px;
   }
 
-  .drk-bar-cont,
-  .ordinary,
-  .cocktail,
-  .shake,
-  .other,
-  .cocoa {
+  .drk-bar-cont, .ordinary, .cocktail, .shake, .other, .cocoa {
     margin-left: 1.9vw;
     margin-top: 6vw;
   }
-
 }

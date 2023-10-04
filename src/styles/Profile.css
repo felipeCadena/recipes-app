@@ -1,46 +1,42 @@
 body {
-  font-family: 'Chakra Petch', sans-serif;
-font-weight: 300;
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
 }
 
 .profile-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 28vw;
   justify-content: center;
   margin-top: 120px;
   width: 100%;
-  height: 28vw;
 }
 
 .prof-email {
-  width: 100%;
-  height: 12px;
+  color: #1a1b1c;
   flex-shrink: 0;
-  color: #1A1B1C;
-  text-align: center;
-  font-family: Epilogue;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
+  height: 12px;
   line-height: normal;
   margin-top: -15%;
+  text-align: center;
+  width: 100%;
 }
 
-
 .favorite-btn {
-  width: 156px;
-  color: #797D86;
-  font-family: Epilogue;
+  color: #797d86;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
   letter-spacing: 0.48px;
-  text-transform: capitalize;
+  line-height: normal;
   margin-left: 30px;
   margin-top: 2vw;
-
+  text-transform: capitalize;
+  width: 156px;
 }
 
 .coracao-img {
@@ -48,35 +44,30 @@ font-weight: 300;
 }
 
 .done-btn {
-  width: 156px;
-  color: #797D86;
-  font-family: Epilogue;
+  color: #797d86;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
   letter-spacing: 0.48px;
-  text-transform: capitalize;
+  line-height: normal;
   margin-left: 30px;
   margin-top: 2vw;
-
-
+  text-transform: capitalize;
+  width: 156px;
 }
 
 .logout-btn {
-  width: 156px;
-  color: #797D86;
-  font-family: Epilogue;
+  color: #797d86;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  height: 30px;
   letter-spacing: 0.48px;
-  text-transform: capitalize;
+  line-height: normal;
   margin-left: 70px;
   margin-top: -2.4vw;
-  height: 30px;
-
+  text-transform: capitalize;
+  width: 156px;
 }
 
 .profile-img {
@@ -88,58 +79,55 @@ font-weight: 300;
 }
 
 .img-perfil {
-  width: 100%;
-  height: 28.71px;
   flex-shrink: 0;
-  margin-top: 5vw;
+  height: 28.71px;
+  margin-top: 7vw;
+  width: 100%;
 }
 
 .three-btn {
-
-  margin: 40px;
-  display: grid;
   clear: both;
+  display: grid;
+  margin: 40px;
   width: 300px;
 }
 
-@media (max-width: 768px) {
+@media ( max-width : 768px ) {
+
   .profile-container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 73vw;
     justify-content: center;
     margin-top: 120px;
     width: 100%;
-    height: 73vw;
   }
 
   .prof-email {
-    width: 100%;
-    height: 12px;
+    color: #1a1b1c;
     flex-shrink: 0;
-    color: #1A1B1C;
-    text-align: center;
-    font-family: Epilogue;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
+    height: 12px;
     line-height: normal;
     margin-top: -40%;
+    text-align: center;
+    width: 100%;
   }
 
-
   .favorite-btn {
-    width: 156px;
-    color: #797D86;
-    font-family: Epilogue;
+    color: #797d86;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
     letter-spacing: 0.48px;
-    text-transform: capitalize;
+    line-height: normal;
     margin-left: 25px;
     margin-top: 2vw;
+    text-transform: capitalize;
+    width: 156px;
 
 
   }
@@ -149,20 +137,16 @@ font-weight: 300;
   }
 
   .done-btn {
-    width: 156px;
-    color: #797D86;
-    font-family: Epilogue;
+    color: #797d86;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
     letter-spacing: 0.48px;
-    text-transform: capitalize;
+    line-height: normal;
     margin-left: 25px;
     margin-top: 2vw;
-
-
-
+    text-transform: capitalize;
+    width: 156px;
   }
 
   .logout-btn {
@@ -180,19 +164,17 @@ font-weight: 300;
   }
 
   .img-perfil {
-    width: 100%;
-    height: 28.71px;
     flex-shrink: 0;
+    height: 28.71px;
     margin-top: 9vw;
-    
-
+    width: 100%;
   }
 
   .three-btn {
-    margin: 40px;
-    display: grid;
     clear: both;
-    width: 50vw;
+    display: grid;
+    margin: 40px;
     margin-top: 90px;
+    width: 50vw;
   }
 }

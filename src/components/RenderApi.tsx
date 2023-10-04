@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GlobalContext from '../context/GlobalContext';
 import { MealsType, DrinkType } from '../types';
-import '../styles.css/RenderApi.css';
+import '../styles/RenderApi.css';
 
 type RenderProp = {
   patch: string,

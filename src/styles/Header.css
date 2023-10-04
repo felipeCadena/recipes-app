@@ -1,23 +1,23 @@
 body {
-  font-family: 'Chakra Petch', sans-serif;
-font-weight: 300;
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
 }
 
 .header {
-  width: 100%;
-  height: 52px;
+  background: #fcdc36;
   flex-shrink: 0;
-  background: #FCDC36;
+  height: 52px;
   padding-top: 5px;
+  width: 100%;
   z-index: 1;
 }
 
 .profile-icon {
-  width: 28.71px;
-  height: 28.71px;
+  clear: both;
   flex-shrink: 0;
   float: right;
-  clear: both;
+  height: 28.71px;
+  width: 28.71px;
 }
 
 .bandeja-header {
@@ -25,34 +25,22 @@ font-weight: 300;
 }
 
 .title-header {
-  text-align: center;
-  position: relative;
   left: 38%;
+  position: relative;
+  text-align: center;
   transform: translateX(-50%);
 }
 
 .search-icon {
-  float: left;
   border-radius: 5px;
-  border: 1px solid #B1B1B1;
-  margin-top: 20vw;
-  margin-left: -40px;
-
-
-}
-
-.search-icon {
-
-  border: none;
-  border-radius: 5px 5px 0 0;
-  width: 100%;
-  padding-top: 40px;
+  float: left;
   margin: 0 auto;
+  padding-top: 40px;
   text-align: center;
+  width: 100%;
 }
 
-.btn-header-cascavel {
-
+.btn-header-casc {
   background: transparent;
   border: none;
   border-radius: 0;
@@ -62,46 +50,43 @@ font-weight: 300;
   font: inherit;
   line-height: normal;
   margin: 0;
+  margin-left: -32vw;
   padding: 0;
   text-align: inherit;
   text-decoration: none;
   text-transform: none;
-  margin-left: -32vw;
-
 }
 
 .btn-div-teste {
-
-  margin: 0 auto;
   height: 3vw;
+  margin: 0 auto;
   width: 100%;
-  width: 24.743777452415813vw;
 }
 
 .btn-search {
   background: none;
   margin-right: -115vw;
   margin-top: -155px;
-
 }
 
 .form-control.input-search {
-  height: 40px;
   border-radius: 5px 5px 0 0;
-  width: 24.743777452415813vw;
+  height: 40px;
   margin: 0 auto;
+  width: 24.743vw;
 }
 
 .checkbox-style {
   margin-top: 1vw;
 }
 
-@media (max-width: 768px) {
+@media ( max-width : 768px ) {
+
   .form-control.input-search {
-    height: 40px;
     border-radius: 5px 5px 0 0;
-    width: 300px;
+    height: 40px;
     margin: 0 auto;
+    width: 300px;
   }
 
   .btn-search {
@@ -112,13 +97,10 @@ font-weight: 300;
   }
 
   .title-header {
-    margin-left: 20vw;
-  }
-
-  .title-header {
-    text-align: center;
-    position: relative;
     left: 15%;
+    margin-left: 20vw;
+    position: relative;
+    text-align: center;
     transform: translateX(-50%);
   }
 }

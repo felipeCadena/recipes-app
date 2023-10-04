@@ -1,58 +1,48 @@
 .container img {
   margin-right: 0.5rem;
-  
 }
 
 .recomended-container {
- 
+  border-radius: 5px 5px 0 0;
   display: flex;
-  margin-bottom: 4rem;
-  width: 100%;
+  flex-shrink: 0;
   height: 135px;
   margin: 4px;
-  flex-shrink: 0;
+  margin-bottom: 4rem;
   overflow-x: auto;
-  border-radius: 5px 5px 0px 0px;
-  background: url(<path-to-image>), rgb(253, 253, 253) -1.5px -53.761px / 123.306% 186.119% no-repeat;
   padding-left: 10vw;
+  width: 100%;
 }
 
 .recomended-paragraph {
-  width: 142.803px;
-  color: #1A1B1C;
-  font-family: Epilogue;
+  color: #1a1b1c;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   padding-left: 30px;
+  width: 142.803px;
 }
 
 .meals-recomend {
-  width: 163px;
+  border-radius: 5px 5px 0 0;
+  flex-shrink: 0;
   height: 135px;
   margin: 3px;
-  flex-shrink: 0;
-  border-radius: 5px 5px 0px 0px;
-  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+  width: 163px;
 }
 
 .descricao-img-meals {
-  width: 163px;
-  height: 24px;
-  color: #1A1B1C;
-
+  border: 0.518px solid #b1b1b1;
+  border-radius: 0 0 5px 5px;
+  color: #1a1b1c;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
+  height: 24px;
   line-height: normal;
-  text-align: center;
-  border-radius: 5px;
-  border: 0.518px solid #B1B1B1;
   margin-left: 3px;
-  border-radius: 0px 0px 5px 5px ;
   margin-top: -3px;
- 
- 
-
+  text-align: center;
+  width: 163px;
 }

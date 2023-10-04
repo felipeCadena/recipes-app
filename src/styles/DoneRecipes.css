@@ -1,34 +1,156 @@
 body {
-  font-family: 'Chakra Petch', sans-serif;
-font-weight: 300;
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
 }
 
 .done-edit {
   height: 40vw;
-
+  margin: 0 auto;
+  margin-top: 6px;
+  width: 500px;
 }
 
-.done-icon {
+.indice {
+  margin-top: 5px;
+  padding-top: 0;
+}
+
+.done-buttons {
+  align-items: center;
+  color: #797d86;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  justify-content: center;
+  line-height: normal;
   text-align: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 15%;
-  flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .done-icon {
-    text-align: center;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10%;
+.done-image {
+  display: flex;
+  margin: 0 auto;
+}
 
+.images-done {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  margin-left: 183.24px;
+  margin-top: 50px;
+  width: 150px;
+}
+
+.image-drink-meals {
+  background: white;
+  border: 0.518px solid #b1b1b1;
+  border-radius: 5px 5px 0 0;
+  border-right: 0;
+  flex-shrink: 0;
+  height: 144.854px;
+  margin-left: 4.2vw;
+  margin-top: 4px;
+  width: 183.346px;
+}
+
+.button-share-dones {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  font: inherit;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.img-share-dones {
+  margin-left: 36vw;
+  margin-top: -21vw;
+  width: 33px;
+
+}
+
+.paragraph-um {
+  color: #1a1b1c;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 1vw;
+  text-align: center;
+  width: 210px;
+}
+
+.paragraph-dois {
+  color: #1a1b1c;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+}
+
+.link-done {
+  color: #797d86;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 2vw;
+  position: absolute;
+}
+
+.paragrafos {
+  background: white;
+  border: 0.518px solid #b1b1b1;
+  border-left: 0;
+  border-radius: 5px 5px 0 0;
+  height: 144.854px;
+  margin-left: 19vw;
+  margin-top: -145.3px;
+  width: 250.346px;
+}
+
+.meals-btn-done, .drinks-btn-done, .all-btn-done {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  font: inherit;
+  line-height: normal;
+  margin: 12px;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
+@media ( max-width : 768px ) {
+
+  .done-image {
+    margin-top: 10vw;
+  }
+
+  .images-done {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    margin-left: 185px;
+    margin-top: 30px;
+    width: 140px;
   }
 
   .done-edit {
-    height: 108vw;
-
+    height: 100vw;
+    margin: 0 auto;
+    margin-top: 6px;
+    width: 500px;
   }
 }

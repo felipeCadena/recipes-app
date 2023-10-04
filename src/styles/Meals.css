@@ -1,266 +1,213 @@
 body {
-  font-family: 'Chakra Petch', sans-serif;
-font-weight: 300;
-}
-
-body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
   overflow: scroll;
-
 }
 
 .button-container {
   display: flex;
   justify-content: center;
   margin-top: 11vw;
-  margin-top: 10vw;
-  
 }
 
-.button-meals,
-.button-all {
-  width: 65px;
+.button-meals, .button-all {
   color: #4a4b52;
-  text-align: center;
   font-size: 0.813rem;
   font-style: normal;
   font-weight: 300;
-  line-height: normal;
   height: 40px;
+  line-height: normal;
   margin: 2px;
-  
-
+  text-align: center;
+  width: 65px;
 }
 
 .meals-itens {
+  height: 0.878vw;
   margin: 0 10px;
-  margin-bottom: 1.4641288433382138vw;
-  height: 0.8784773060029283vw;
-  
+  margin-bottom: 1.464vw;
 }
 
 .receitas-container {
-  
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
   height: 35vw;
+  justify-content: center;
   margin: 0 auto;
   padding-top: 1vw;
-  
+  width: 100%;
 }
 
 .img-edit {
-  width: 163px;
-  height: 135px;
+  background: white;
+  border: 0.518px solid #b1b1b1;
+  border-radius: 5px 5px 0 0;
   flex-shrink: 0;
-  border-radius: 5px 5px 0px 0px;
-  background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
+  height: 135px;
   margin: auto;
-  border: 0.518px solid #B1B1B1;
-  background: #FFF;
+  width: 163px;
 }
 
 .card-name {
-  max-width: 170px;
-  padding-left: 1.5vw;
-  padding-top: 0.6vw;
-  height: 4.5vw;
-  border-radius: 5px;
-  border: 0.518px solid #B1B1B1;
-  background: #FFF;
-  border-top: none;
   align-items: center;
-  justify-content: center;
+  background: white;
+  border: 0.518px solid #b1b1b1;
   border-radius: 0 0 5px 5px;
-  color: #1A1B1C;
+  border-top: none;
+  color: #1a1b1c;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
+  height: 4.5vw;
+  justify-content: center;
   line-height: normal;
-  
+  max-width: 170px;
+  padding-left: 1.5vw;
+  padding-top: 0.6vw;
 }
 
 .header-stymeals {
-  width: 100%;
   display: flex;
   height: 4vw;
   justify-content: center;
-  
+  width: 100%;
 }
 
 .header-filha-meals {
-  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 10vw;
   text-align: center;
-  justify-content: center;
-  display: flex;
-  
+  width: 100%;
 }
 
-.meals-bar-cont,
-.beef,
-.goat,
-.chicken,
-.breakfast,
-.dessert {
-  width: 45.28px;
-  height: 45.28px;
-  display: flex;
-  justify-content: center;
+.meals-bar-cont, .beef, .goat, .chicken, .breakfast, .dessert {
   align-items: center;
+  border: 2px solid #fcc436;
   border-radius: 45.28px;
-  margin: 0.7320644216691069vw;
-  border: 2px solid #FCC436;
-  
+  display: flex;
+  height: 45.28px;
+  justify-content: center;
+  margin: 0.732vw;
+  width: 45.28px;
 }
 
-@media (max-width: 768px) {
+@media ( max-width : 768px ) {
 
-  .meals-bar-cont,
-  .beef,
-  .goat,
-  .chicken,
-  .breakfast,
-  .dessert {
-    margin: 2.220644216691069vw;
+  .meals-bar-cont, .beef, .goat, .chicken, .breakfast, .dessert {
+    margin: 2.22vw;
     margin-top: 12vw;
   }
 
   .receitas-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 82vw;
     height: 28vw;
+    justify-content: center;
     margin: 0 auto;
     padding-top: 1vw;
-
+    width: 82vw;
   }
 
   .img-edit {
-    width: 163px;
-    height: 135px;
+    border-radius: 5px 5px 0 0;
     flex-shrink: 0;
-    border-radius: 5px 5px 0px 0px;
-    background: url(<path-to-image>), lightgray -1.5px -53.761px / 123.306% 186.119% no-repeat;
-    /*  background-color: chocolate; */
+    height: 135px;
     margin: auto;
+    width: 163px;
   }
 
   .card-name {
-    max-width: 170px;
-    padding-left: 1.5vw;
-    padding-top: 0.6vw;
-    height: 4vw;
-    border-radius: 5px;
-    border: 0.518px solid #B1B1B1;
-    background: #FFF;
-    border-top: none;
     align-items: center;
-    justify-content: center;
+    background: white;
+    border: 0.518px solid #b1b1b1;
     border-radius: 0 0 5px 5px;
-    color: #1A1B1C;
-    font-family: Epilogue;
+    border-top: none;
+    color: #1a1b1c;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
+    height: 4vw;
+    justify-content: center;
     line-height: normal;
+    max-width: 170px;
+    padding-left: 1.5vw;
+    padding-top: 0.6vw;
   }
-  .button-meals,
-.button-all {
-  width: 68px;
-
 }
 
-}
+@media ( max-width : 768px ) {
 
-
-@media (max-width: 768px) {
   .receitas-container {
+    align-items: center;
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     height: 1200px;
-    padding: 0;
-    max-height: 100%;
-    box-sizing: border-box;
-    width: 100%;
-    align-items: center;
     justify-content: center;
-
+    max-height: 100%;
+    padding: 0;
+    width: 100%;
   }
 
   .meals-itens {
+    align-items: center;
+    border-radius: 8px;
+    height: 155px;
+    justify-content: center;
     margin: 0 10px;
     margin-bottom: 20px;
-    height: 155px;
-    border-radius: 8px;
-    justify-content: center;
-    align-items: center;
   }
 
   .img-edit {
-    width: 163px;
-    height: 135px;
-    flex-shrink: 0;
+    border-bottom: none;
     border-radius: 8px 8px 0 0;
-    border: none;
+    flex-shrink: 0;
+    height: 135px;
+    width: 163px;
   }
 
   .button-container {
-    margin-top: 30%;
     height: 11vw;
-
+    margin-top: 30%;
   }
 
   .card-name {
-    border-top: none;
-    border-radius: 5px;
     align-items: center;
-    justify-content: center;
     border-radius: 0 0 8px 8px;
+    border-top: none;
     height: 50px;
+    justify-content: center;
   }
-
 }
 
 .meals-img-header {
-
-  text-align: center;
-  position: relative;
   left: 50%;
+  position: relative;
+  text-align: center;
   top: 3vw;
   transform: translateX(-50%);
 }
 
-@media (min-width: 769px) and (max-width: 1360px) {
+@media ( min-width : 769px ) and ( max-width : 1360px ) {
+
   .receitas-container {
-    width: 82vw;
     height: 100vw;
+    width: 82vw;
   }
 
-  .button-meals,
-  .button-all {
-    width: 65px;
+  .button-meals, .button-all {
     height: 42px;
     margin-top: 8.5vw;
-  
+    width: 65px;
   }
 
-  .meals-bar-cont,
-  .beef,
-  .goat,
-  .chicken,
-  .breakfast,
-  .dessert {
+  .meals-bar-cont, .beef, .goat, .chicken, .breakfast, .dessert {
     margin-left: 1.9vw;
     margin-top: 6vw;
   }
 
   .card-name {
     height: 50px;
-    
   }
-
 }

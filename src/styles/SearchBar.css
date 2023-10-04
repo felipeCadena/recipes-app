@@ -1,76 +1,62 @@
 body {
-  font-family: 'Chakra Petch', sans-serif;
-font-weight: 300;
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
 }
 
 .radio-buttons {
-  width: 24.743777452415813vw;
-  height: 6.44216691068814vw;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #41197F;
-  color: #FFF;
-  font-size: 9px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  font-size: 16px;
+  background: #41197f;
   border-radius: 0 0 6px 6px;
   color: rgb(252, 246, 246);
+  flex-shrink: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  height: 6.442vw;
+  line-height: normal;
   margin: 0 auto;
-
+  width: 24.743vw;
 }
 
 .btn-search.btn {
-  width: 15.23857979502196vw;
-  height: 1.8301610541727673vw;
-  flex-shrink: 0;
+  align-items: center;
+  background: #fcc436;
   border-radius: 5px;
-  background: #FCC436;
-  color: #FFF;
+  color: white;
+  display: flex;
+  flex-shrink: 0;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.023rem;
-  text-transform: uppercase;
-  display: flex;
+  height: 1.83vw;
   justify-content: center;
-  align-items: center;
+  letter-spacing: 0.023rem;
+  line-height: normal;
   margin: 0 auto;
   margin-top: 5.5%;
+  text-transform: uppercase;
+  width: 15.238vw;
 
 }
 
 .checkbox.form-outline {
-  margin: 0.7320644216691069vw;
+  margin: 0.732vw;
   margin-top: 5%;
 }
 
-@media (max-width: 768px) {
+@media ( max-width : 768px ) {
+
   .radio-buttons {
-    width: 300px;
-    height: 100px;
     align-items: center;
-    justify-content: center;
-    margin-left: 100px;
-    font-size: 16px;
     border-radius: 6px;
     color: white;
-    margin-right: 9px;
+    font-size: 16px;
     font-style: italic;
-    vertical-align: middle;
+    height: 100px;
+    justify-content: center;
     line-height: 1;
-    margin-top: 22px;
     margin: 0 auto;
-  }
-
-  .btn-search.btn {
-    margin-left: 150px;
-    margin-top: -95px;
-    width: 200px;
-    height: 35px;
-
+    vertical-align: middle;
+    width: 300px;
   }
 
   .checkbox.form-outline {
@@ -79,22 +65,21 @@ font-weight: 300;
   }
 
   .btn-search.btn {
-    width: 208.159px;
-    height: 25px;
-    flex-shrink: 0;
+    align-items: center;
     border-radius: 5px;
-    color: #FFF;
+    color: white;
+    display: flex;
+    flex-shrink: 0;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0.023rem;
-    text-transform: uppercase;
-    display: flex;
+    height: 35px;
     justify-content: center;
-    align-items: center;
+    letter-spacing: 0.023rem;
+    line-height: normal;
     margin: 0 auto;
-    margin-top: 5.5%;
-
+    margin-top: 6px;
+    text-transform: uppercase;
+    width: 208.159px;
   }
 }

@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
-import '../styles.css/Meals.css';
+import '../styles/Meals.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GlobalContext from '../context/GlobalContext';
 import All from '../iconsFigma/icone-prato.svg';

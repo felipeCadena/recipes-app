@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles.css/Login.css';
+import '../styles/Login.css';
 import logoRecipesApp from '../iconsFigma/logo Recipes App.svg';
 import tomateImg from '../iconsFigma/tomate.png';
 import 'bootstrap/dist/css/bootstrap.css';

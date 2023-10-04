@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles.css/Profile.css';
+import '../styles/Profile.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import aprovado from '../iconsFigma/aprovado.svg';
 import perfil from '../iconsFigma/Perfil.svg';
 import logout from '../iconsFigma/logout.svg';
 import coracao from '../iconsFigma/coracao.svg';
-import '../styles.css/Global.css';
+import '../styles/Global.css';
 
 function Profile() {
   const [user, setUser] = useState('');

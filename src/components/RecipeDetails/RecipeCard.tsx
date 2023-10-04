@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { DrinkType, LineType, MealsType } from '../../types';
 import GlobalContext from '../../context/GlobalContext';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import '../../styles.css/RecipeCard.css';
+import '../../styles/RecipeCard.css';
 import like from '../../iconsFigma/like.svg';
 import share from '../../iconsFigma/Share.svg';
 
@@ -107,7 +107,7 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
           alt=""
         />
       </button>
-      { copy && <span>Link copied!</span> }
+      { copy && <span className='link-copy'>Link copied!</span> }
       <button
         className="btn-favrec"
         onClick={ handleFavoriteRecipe }
@@ -121,16 +121,21 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
       { data && pathname.includes('drinks') && (
         <>
           <img
+            className="img-recipe"
             src={ (data as DrinkType).strDrinkThumb }
             alt={ (data as DrinkType).strDrink }
             width={ 100 }
             data-testid="recipe-photo"
           />
-          <h1 data-testid="recipe-title">{(data as DrinkType).strDrink}</h1>
+          <div className="text-img-recipe">
+          <h1 className="text-title" data-testid="recipe-title">{(data as DrinkType).strDrink}</h1>
           <p data-testid="recipe-category">{(data as DrinkType).strAlcoholic}</p>
+          </div>
+          <p className="ingredients-recipe">Ingredients</p>
           { ingredients?.map((ingredient, index) => (
             <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
               <label
+                className="label-recipe form-check-label"
                 data-testid={ `${index}-ingredient-step` }
                 defaultChecked={ done[index]?.checked }
                 style={ done[index]?.checked
@@ -138,6 +143,7 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
                   : { textDecoration: 'none' } }
               >
                 <input
+                  className="input-recipe form-check-input"
                   type="checkbox"
                   id={ (data as DrinkType).idDrink }
                   checked={ done[index]?.checked }
