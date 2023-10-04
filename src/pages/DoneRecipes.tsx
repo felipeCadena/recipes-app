@@ -32,7 +32,7 @@ function DoneRecipes() {
       setFilteredRecipes(parsedRecipes);
     }
   }, []);
-  console.log(doneRecipes);
+
   const filterRecipes = (type: string) => {
     if (type === 'All') {
       setFilteredRecipes(doneRecipes);
@@ -44,9 +44,9 @@ function DoneRecipes() {
         return recipe.type === 'meal';
       });
       setFilteredRecipes(filtered);
-      console.log(filtered);
     }
   };
+
   const handleShareClick = (recipe: DoneRecipesType) => {
     const { name } = recipe;
     if (navigator.share) {

@@ -5,7 +5,7 @@ import GlobalContext from '../../context/GlobalContext';
 import { DoneRecipesType, DrinkType, MealsType } from '../../types';
 
 function RecipeInProgress() {
-  const { resultsApi, getApi, disabled } = useContext(GlobalContext);
+  const { resultsApi, getApi, Disabled } = useContext(GlobalContext);
   const [finishRecipes, setFinishRecipes] = useState<DoneRecipesType[]>([]);
 
   const date = new Date();
@@ -86,7 +86,7 @@ function RecipeInProgress() {
     <div style={ { height: '60rem' } }>
       <RecipeCard results={ data } pathNavigate={ cutyPath } />
       <button
-        disabled={ disabled }
+        disabled={ Disabled() }
         onClick={ handleFinishRecipe }
         data-testid="finish-recipe-btn"
         style={ { margin: '10px' } }
