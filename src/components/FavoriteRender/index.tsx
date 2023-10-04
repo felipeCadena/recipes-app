@@ -23,18 +23,6 @@ export default function FavoriteRender({ keyStorage }: FavoriteType) {
     }
   }, []);
 
-  // function handleDelete(id: string) {
-  //   const recoveryRecipe:
-  //   FavoriteRecipeType[] = JSON.parse(localStorage.getItem(keyStorage) as string);
-  //   const filterStorage = recoveryRecipe.filter((rec) => rec.id !== id);
-  //   setRecipeSave(filterStorage);
-  //   setFavoriteRecipe(!favoriteRecipe);
-  //   localStorage.setItem(
-  //     'favoriteRecipes',
-  //     JSON.stringify(filterStorage),
-  //   );
-  // }
-
   function handleFilter(button: string) {
     const recoveryRecipe:
     FavoriteRecipeType[] = JSON.parse(localStorage.getItem(keyStorage) as string);

@@ -1,6 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-import { DrinkType, LineType, MealsType } from '../../types';
+import { useContext, useEffect } from 'react';
+import { DrinkType, FavoriteRecipeType, MealsType } from '../../types';
 import GlobalContext from '../../context/GlobalContext';
 import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
@@ -16,9 +16,9 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
     favoriteRecipe, handleFavoriteRecipe,
     copy, handleClipBoard,
     handleLocalStorage,
-    setFavoriteRecipe, setDisabled, disabled } = useContext(GlobalContext);
+    setFavoriteRecipe, selectIngredients,
+    setSelectIngredients } = useContext(GlobalContext);
   const { pathname } = useLocation();
-  const [done, setDone] = useState<LineType[]>([]);
 
   const path = pathname.includes('meals') ? 'meals' : 'drinks';
   const { id } = useParams();
@@ -27,7 +27,8 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
 
   const ingredients = data && Object.entries(data)
     .filter((i) => i[0].startsWith('strIngredient'))
-    .filter((i) => i[1] !== null && i[1] !== '');
+    .filter((i) => i[1] !== null && i[1] !== '')
+    .map((a) => a[1]);
 
   const measures = data && Object.entries(data)
     .filter((m) => m[0].startsWith('strMeasure'));
@@ -36,7 +37,8 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
     handleLocalStorage(path, Number(id), '');
 
     const recoveryRecipe = JSON.parse(localStorage.getItem('favoriteRecipes') as string);
-    if (recoveryRecipe && id && recoveryRecipe[0]?.id === id) {
+    if (recoveryRecipe && id && recoveryRecipe
+      .some((i: FavoriteRecipeType) => i.id === id)) {
       setFavoriteRecipe(true);
     }
 
@@ -45,48 +47,26 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
 
     if (id && recoveryInProgressRecipe) {
       const arrayIngredients = recoveryInProgressRecipe[path][id];
-
-      if (arrayIngredients) {
-        arrayIngredients.map((ingredient: string, index: number) => done
-          .every((a) => a.name !== ingredient) && setDone((prev) => [...prev, { id: index,
-          name: ingredient,
-          checked: true }]));
-      }
+      setSelectIngredients(arrayIngredients);
     }
   }, []);
 
-  const eachIngredients: string[] = ingredients && ingredients.map((a) => a[1]);
-  const doneIngredientes: string[] = done && done.map((a) => a.name);
-
-  function compareArrays(array1: string[], array2: string[]) {
-    if (array1 && array2 && array1.length === array2.length) {
-      return array1.every((element, index) => element === array2[index]);
-    }
-    return false;
-  }
-
   function handleTextDecoration(
     event: React.ChangeEvent<HTMLInputElement>,
-    index: number,
   ) {
     const { name } = event.target;
 
-    if (localStorage.getItem('inProgressRecipes')) {
+    const recoveryRecipe = JSON.parse(localStorage
+      .getItem('inProgressRecipes') as string);
+
+    if (recoveryRecipe) {
       handleLocalStorage(path, Number(event.target.id), name);
     }
 
-    if (done && done
-      .some((item) => item.id === index)) {
-      setDone((prev) => (prev)
-        .filter((item) => item.id !== index));
-    }
-
-    setDone((prev) => [...prev, { id: index,
-      name,
-      checked: event.target.checked }]);
-
-    if (compareArrays(eachIngredients, doneIngredientes)) {
-      setDisabled(!disabled);
+    if (selectIngredients.includes(name)) {
+      setSelectIngredients(selectIngredients.filter((a: string) => a !== name));
+    } else {
+      setSelectIngredients([...selectIngredients, name]);
     }
   }
 
@@ -122,19 +102,18 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
             <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
               <label
                 data-testid={ `${index}-ingredient-step` }
-                defaultChecked={ done[index]?.checked }
-                style={ done[index]?.checked
+                style={ selectIngredients.includes(ingredient)
                   ? { textDecoration: 'line-through solid rgb(0, 0, 0)' }
                   : { textDecoration: 'none' } }
               >
                 <input
                   type="checkbox"
                   id={ (data as DrinkType).idDrink }
-                  checked={ done[index]?.checked }
-                  name={ ingredient[1] }
-                  onChange={ (event) => handleTextDecoration(event, index) }
+                  checked={ selectIngredients.includes(ingredient) }
+                  name={ ingredient }
+                  onChange={ (event) => handleTextDecoration(event) }
                 />
-                {ingredient[1]}
+                {ingredient}
                 {' '}
                 {measures[index][1]}
               </label>
@@ -159,20 +138,19 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
           {ingredients?.map((ingredient, index) => (
             <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
               <label
-                defaultChecked={ done[index]?.checked }
                 data-testid={ `${index}-ingredient-step` }
-                style={ done[index]?.checked
+                style={ selectIngredients.includes(ingredient)
                   ? { textDecoration: 'line-through solid rgb(0, 0, 0)' }
                   : { textDecoration: 'none' } }
               >
                 <input
                   type="checkbox"
                   id={ (data as MealsType).idMeal }
-                  checked={ done[index]?.checked }
-                  name={ ingredient[1] }
-                  onChange={ (event) => handleTextDecoration(event, index) }
+                  checked={ selectIngredients.includes(ingredient) }
+                  name={ ingredient }
+                  onChange={ (event) => handleTextDecoration(event) }
                 />
-                {ingredient[1]}
+                {ingredient}
                 {' '}
                 {measures[index][1]}
               </label>

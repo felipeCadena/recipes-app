@@ -89,8 +89,6 @@ function Drinks() {
     ? recipes.filter((recipe) => recipe.category === selectedCategory)
     : recipes;
 
-  console.log(choiceRender);
-
   return (
     <>
       <div>
