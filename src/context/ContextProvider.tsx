@@ -9,8 +9,8 @@ type UserProviderProps = {
 };
 
 export default function ContextProvider({ children }: UserProviderProps) {
-  const recoveryFavorite = localStorage.length ? JSON
-    .parse(localStorage.getItem('favoriteRecipes') as string) : [];
+  const recoveryFavorite = JSON
+    .parse(localStorage.getItem('favoriteRecipes') as string) || [];
 
   const [resultsApi, setResultsApi] = useState<MealsType[] | DrinkType[]>([]);
   const [saveFavorite,
