@@ -1,5 +1,5 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { DrinkType, FavoriteRecipeType, MealsType } from '../../types';
 import GlobalContext from '../../context/GlobalContext';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
@@ -70,17 +70,21 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
       setSelectIngredients([...selectIngredients, name]);
     }
   }
-
   return (
-    <div>
+    <div className="recipe-card-container">
       <button
+        className="btn-share"
         data-testid="share-btn"
         onClick={ () => handleClipBoard(pathNavigate) }
       >
-        <img src={ share } alt="" />
+        <img
+          src={ share }
+          alt=""
+        />
       </button>
-      {copy && <span>Link copied!</span>}
+      {copy && <span className="link-copy">Link copied!</span>}
       <button
+        className="btn-favrec"
         onClick={ handleFavoriteRecipe }
       >
         <img
@@ -92,59 +96,93 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
       {data && pathname.includes('drinks') && (
         <>
           <img
+            className="img-recipe"
             src={ (data as DrinkType).strDrinkThumb }
             alt={ (data as DrinkType).strDrink }
             width={ 100 }
             data-testid="recipe-photo"
           />
-          <h1 data-testid="recipe-title">{(data as DrinkType).strDrink}</h1>
-          <p data-testid="recipe-category">{(data as DrinkType).strAlcoholic}</p>
+          <div className="text-img-recipe">
+            <h1
+              className="text-title"
+              data-testid="recipe-title"
+            >
+              {(data as DrinkType).strDrink}
+            </h1>
+            <p
+              data-testid="recipe-category"
+            >
+              {(data as DrinkType).strAlcoholic}
+            </p>
+          </div>
+          <p
+            className="ingredients-recipe"
+          >
+            Ingredients
+          </p>
           {ingredients?.map((ingredient, index) => (
             <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
               <label
+                className="label-recipe form-check-label"
                 data-testid={ `${index}-ingredient-step` }
                 style={ selectIngredients.includes(ingredient)
+
                   ? { textDecoration: 'line-through solid rgb(0, 0, 0)' }
                   : { textDecoration: 'none' } }
               >
                 <input
+                  className="input-recipe form-check-input"
                   type="checkbox"
                   id={ (data as DrinkType).idDrink }
                   checked={ selectIngredients.includes(ingredient) }
-                  name={ ingredient }
+                  name={ ingredient[1] }
                   onChange={ (event) => handleTextDecoration(event) }
                 />
-                {ingredient}
+                {ingredient[1]}
                 {' '}
                 {measures[index][1]}
               </label>
             </span>
           ))}
           <p data-testid="instructions">
-            {(data as DrinkType).strInstructions}
-            {(data as DrinkType).strMeasure2}
+            { (data as DrinkType).strInstructions }
+            { (data as DrinkType).strMeasure2 }
           </p>
         </>
       )}
       {data && pathname.includes('meals') && (
         <>
           <img
+            className="img-recipe"
             src={ (data as MealsType).strMealThumb }
             alt={ (data as MealsType).strMeal }
             width={ 100 }
             data-testid="recipe-photo"
           />
-          <h1 data-testid="recipe-title">{(data as MealsType).strMeal}</h1>
-          <p data-testid="recipe-category">{(data as MealsType).strCategory}</p>
+          <div className="text-img-recipe">
+            <h1
+              data-testid="recipe-title"
+            >
+              { (data as MealsType).strMeal }
+            </h1>
+            <p
+              data-testid="recipe-category"
+            >
+              { (data as MealsType).strCategory }
+            </p>
+          </div>
+          <p className="ingredients-recipe">Ingredients</p>
           {ingredients?.map((ingredient, index) => (
             <span key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
               <label
+                className="label-recipe form-check-label"
                 data-testid={ `${index}-ingredient-step` }
                 style={ selectIngredients.includes(ingredient)
                   ? { textDecoration: 'line-through solid rgb(0, 0, 0)' }
                   : { textDecoration: 'none' } }
               >
                 <input
+                  className="input-recipe form-check-input"
                   type="checkbox"
                   id={ (data as MealsType).idMeal }
                   checked={ selectIngredients.includes(ingredient) }
@@ -156,11 +194,17 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
                 {measures[index][1]}
               </label>
             </span>
-          ))}
-          <p data-testid="instructions">
-            {(data as MealsType).strInstructions}
+          )) }
+          <p className="instructions-paragraph">Instructions</p>
+          <p
+            className="instructions-recipe"
+            data-testid="instructions"
+          >
+            { (data as MealsType).strInstructions }
           </p>
+          <p className="video">Video</p>
           <iframe
+            className="iframe-recipe-card"
             data-testid="video"
             width="360"
             height="200"
