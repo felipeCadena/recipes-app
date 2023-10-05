@@ -70,6 +70,7 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
       setSelectIngredients([...selectIngredients, name]);
     }
   }
+
   return (
     <div className="recipe-card-container">
       <button
@@ -135,10 +136,10 @@ export default function RecipeCard({ results, pathNavigate }: RecipeProp) {
                   type="checkbox"
                   id={ (data as DrinkType).idDrink }
                   checked={ selectIngredients.includes(ingredient) }
-                  name={ ingredient[1] }
+                  name={ ingredient }
                   onChange={ (event) => handleTextDecoration(event) }
                 />
-                {ingredient[1]}
+                {ingredient}
                 {' '}
                 {measures[index][1]}
               </label>
