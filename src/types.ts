@@ -73,41 +73,35 @@ export interface CopyType {
   click: boolean,
 }
 
-export interface Recipe {
+export type Recipe = {
   id: string;
   name: string;
   image: string;
   category:string;
-}
+};
 
-export interface RecipeContextType {
+export type RecipeContextType = {
   recipes: Recipe[];
-}
+};
 
-export interface RecipeProviderProps {
+export type RecipeProviderProps = {
   children: React.ReactNode;
   apiURL: string;
   dataKey: string;
-}
+};
 
-export interface RecipesProps {
+export type RecipesProps = {
   recipe: {
     id: string;
     name: string;
     image: string;
   };
   index: number;
-}
+};
 
-export interface Category {
+export type Category = {
   strCategory: string;
-}
-
-export interface LineType {
-  id: number,
-  name: string;
-  checked: boolean
-}
+};
 
 export interface GlobalContextType {
   getApi: (url: string, param: string, type: string) => void,
@@ -126,8 +120,9 @@ export interface GlobalContextType {
   recipeSave: FavoriteRecipeType[],
   setRecipeSave: (s: FavoriteRecipeType[]) => void,
   handleDelete: (s: string) => void,
-  disabled: boolean,
-  setDisabled: (s: boolean) => void,
   choiceRender: boolean,
   setChoiceRender: (s: boolean) => void,
+  selectIngredients: string[],
+  setSelectIngredients: (s: string[]) => void,
+  Disabled: () => boolean,
 }
