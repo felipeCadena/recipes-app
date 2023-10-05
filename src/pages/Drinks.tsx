@@ -4,11 +4,11 @@ import { Category, Recipe } from '../types';
 import RenderApi from '../components/RenderApi';
 import '../styles/Drinks.css';
 import drinkIcon from '../iconsFigma/icone-bebida.svg';
-import cocktail from '../iconsFigma/🦆 icon _cocktail_.svg';
-import shake from '../iconsFigma/🦆 icon _drink_.svg';
-import other from '../iconsFigma/🦆 icon _beer solid_.svg';
+import cocktail from '../iconsFigma/icon _cocktail_.svg';
+import shake from '../iconsFigma/icon _drink_.svg';
+import other from '../iconsFigma/icon _beer solid_.svg';
 import cocoa from '../iconsFigma/Group 4.svg';
-import ordinary from '../iconsFigma/🦆 icon _Drink Wine_.svg';
+import ordinary from '../iconsFigma/icon _Drink Wine_.svg';
 import GlobalContext from '../context/GlobalContext';
 import '../styles/Global.css';
 

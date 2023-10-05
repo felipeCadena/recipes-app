@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import all from '../iconsFigma/icon _fast food outline_.svg';
 import { DoneRecipesType } from '../types';
 import GlobalContext from '../context/GlobalContext';
 import '../styles/DoneRecipes.css';
 import done from '../iconsFigma/aprovado.svg';
 import food from '../iconsFigma/icone-prato.svg';
 import bebida from '../iconsFigma/icone-bebida.svg';
-import all from '../iconsFigma/🦆 icon _fast food outline_.svg';
 import share from '../iconsFigma/Share.svg';
 
 export const initialRecipesState: DoneRecipesType = {
-
   id: '',
   type: '',
   nationality: '',
@@ -20,15 +19,14 @@ export const initialRecipesState: DoneRecipesType = {
   image: '',
   doneDate: '',
   tags: [],
-
 };
 
-function DoneRecipes() {
+export default function DoneRecipes() {
   const { handleClipBoard, copy } = useContext(GlobalContext);
   const [doneRecipes, setDoneRecipes] = useState<DoneRecipesType[]>([]);
   const [filteredRecipes, setFilteredRecipes] = useState<DoneRecipesType[]>([]);
+  const [showAlcoholic, setShowAlcoholic] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
-
   useEffect(() => {
     const savedRecipes = localStorage.getItem('doneRecipes');
     if (savedRecipes) {
@@ -37,7 +35,7 @@ function DoneRecipes() {
       setFilteredRecipes(parsedRecipes);
     }
   }, []);
-
+  console.log(doneRecipes);
   const filterRecipes = (type: string) => {
     if (type === 'All') {
       setFilteredRecipes(doneRecipes);
@@ -52,25 +50,25 @@ function DoneRecipes() {
       console.log(filtered);
     }
   };
-  // const handleShareClick = (recipe: DoneRecipesType) => {
-  //   const { name } = recipe;
-  //   if (navigator.share) {
-  //     navigator.share({
-  //       title: 'Compartilhar Receita',
-  //       text: `Confira a receita de ${name}`,
-  //     })
-  //       .then(() => {
-  //         console.log('Receita compartilhada com sucesso');
-  //         setCopySuccess(true);
-  //         setTimeout(() => {
-  //           setCopySuccess(false);
-  //         }, 10000);
-  //       })
-  //       .catch((error) => console.error('Erro ao compartilhar a receita', error));
-  //   } else {
-  //     alert(`Compartilhe a receita de ${name} manualmente`);
-  //   }
-  // };
+  const handleShareClick = (recipe: DoneRecipesType) => {
+    const { name } = recipe;
+    if (navigator.share) {
+      navigator.share({
+        title: 'Compartilhar Receita',
+        text: `Confira a receita de ${name}`,
+      })
+        .then(() => {
+          console.log('Receita compartilhada com sucesso');
+          setCopySuccess(true);
+          setTimeout(() => {
+            setCopySuccess(false);
+          }, 10000);
+        })
+        .catch((error) => console.error('Erro ao compartilhar a receita', error));
+    } else {
+      alert(`Compartilhe a receita de ${name} manualmente`);
+    }
+  };
   return (
     <div className="done-edit">
       <div>
@@ -117,7 +115,6 @@ function DoneRecipes() {
           All
         </button>
       </div>
-
       {filteredRecipes.map((recipe, index) => (
         <div className="indice" key={ index }>
           <Link to={ `/${recipe.type}s/${recipe.id}` }>
@@ -162,7 +159,6 @@ function DoneRecipes() {
               {tag}
             </p>
           ))}
-
           <button
             className="button-share-dones"
             onClick={ () => handleClipBoard(`/meals/${recipe.id}`) }
@@ -180,5 +176,3 @@ function DoneRecipes() {
     </div>
   );
 }
-
-export default DoneRecipes;

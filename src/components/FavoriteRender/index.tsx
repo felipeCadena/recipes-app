@@ -6,7 +6,7 @@ import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../../images/blackHeartIcon.svg';
 import GlobalContext from '../../context/GlobalContext';
 import '../../styles/FavoriteRender.css';
-import all from '../../iconsFigma/🦆 icon _fast food outline_.svg';
+import all from '../../iconsFigma/icon _fast food outline_.svg';
 import meal from '../../iconsFigma/Group 1.svg';
 import drink from '../../iconsFigma/icone-bebida.svg';
 import 'bootstrap/dist/css/bootstrap.css';
