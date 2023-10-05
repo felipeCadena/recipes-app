@@ -14,8 +14,8 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
   if (filtered) {
     return (
       <>
-        <h2>Recommended</h2>
-        <div className="container">
+        <p className="recomended-paragraph">Recommended</p>
+        <div className="recomended-container">
           {pathname.includes('drinks') && (filtered as MealsType[])
             .map((recomendation, index) => (
               <div
@@ -30,7 +30,7 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
                 <h5
                   data-testid={ `${index}-recommendation-title` }
                 >
-                  {recomendation.strMeal}
+                  { recomendation.strMeal }
                 </h5>
               </div>
             ))}
@@ -41,15 +41,17 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
                 data-testid={ `${index}-recommendation-card` }
               >
                 <img
+                  className="meals-recomend"
                   src={ recomendation.strDrinkThumb }
                   alt={ recomendation.strDrink }
                   width={ 180 }
                 />
-                <h4
+                <p
+                  className="descricao-img-meals"
                   data-testid={ `${index}-recommendation-title` }
                 >
-                  {recomendation.strDrink}
-                </h4>
+                  { recomendation.strDrink }
+                </p>
               </div>
             ))}
         </div>

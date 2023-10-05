@@ -9,28 +9,17 @@ type UserProviderProps = {
 };
 
 export default function ContextProvider({ children }: UserProviderProps) {
-  const recoveryFavorite = localStorage.length ? JSON
+  const recovery = localStorage.length ? JSON
     .parse(localStorage.getItem('favoriteRecipes') as string) : [];
 
   const [resultsApi, setResultsApi] = useState<MealsType[] | DrinkType[]>([]);
-  const [saveFavorite,
-    setSaveFavorite] = useState<FavoriteRecipeType[]>(recoveryFavorite);
+  const [saveFavorite, setSaveFavorite] = useState<FavoriteRecipeType[]>(recovery);
   const [loading, setLoading] = useState<boolean>(false);
   const [favoriteRecipe, setFavoriteRecipe] = useState(false);
   const [copy, setCopy] = useState(false);
   const [recipeSave, setRecipeSave] = useState<FavoriteRecipeType[]>([]);
+  const [disabled, setDisabled] = useState<boolean>(true);
   const [choiceRender, setChoiceRender] = useState(true);
-  const [selectIngredients, setSelectIngredients] = useState<string[]>([]);
-
-  const ingredients = resultsApi[0] && Object.entries(resultsApi[0])
-    .filter((i) => i[0].startsWith('strIngredient'))
-    .filter((i) => i[1] !== null && i[1] !== '')
-    .map((a) => a[1]);
-
-  function Disabled() {
-    const isValid = (selectIngredients?.length === ingredients?.length);
-    return !isValid;
-  }
 
   const { pathname } = useLocation();
   const url = pathname === '/meals' ? 'themealdb' : 'thecocktaildb';
@@ -52,7 +41,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
     }
   }
 
-  function handleLocalStorage(keyPath: string, idRecipe: number, ingredient: string) {
+  function handleLocalStorage(keyPath: string, idRecipe: number, ingredient: string) { // não funciona corretamente.
     const recoveryInProgress = JSON.parse(localStorage
       .getItem('inProgressRecipes') as string);
     const existingProgress = recoveryInProgress || { drinks: {}, meals: {} };
@@ -65,7 +54,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
       existingProgress[keyPath][idRecipe] = [];
     }
 
-    if (ingredient !== '' && !existingProgress[keyPath][idRecipe].includes(ingredient)) {
+    if (ingredient !== '') {
       existingProgress[keyPath][idRecipe].push(ingredient);
     }
 
@@ -91,6 +80,7 @@ export default function ContextProvider({ children }: UserProviderProps) {
 
   function handleFavoriteRecipe() {
     let recipeToStore: FavoriteRecipeType;
+
     if (pathname.includes('meals')) {
       const meal = apiResult as MealsType;
       recipeToStore = {
@@ -116,17 +106,28 @@ export default function ContextProvider({ children }: UserProviderProps) {
     }
     setFavoriteRecipe(!favoriteRecipe);
 
-    if (recoveryFavorite && recoveryFavorite
-      .some((a: FavoriteRecipeType) => a.id === recipeToStore.id)) {
-      setSaveFavorite(recoveryFavorite
-        .filter((a: FavoriteRecipeType) => a.id !== recipeToStore.id));
-      const filter = recoveryFavorite
-        .filter((a: FavoriteRecipeType) => a.id !== recipeToStore.id);
-      localStorage.setItem('favoriteRecipes', JSON.stringify(filter));
+    if (saveFavorite) {
+      if (saveFavorite.some((a) => a.id !== recipeToStore.id)) {
+        setSaveFavorite((prev) => [...prev, recipeToStore]);
+      }
+
+      if (saveFavorite.some((a) => a.id === recipeToStore.id)) {
+        const deleteFavorite: FavoriteRecipeType[] = saveFavorite
+          .filter((a) => a.id !== recipeToStore.id);
+        setSaveFavorite(deleteFavorite);
+      }
+    }
+
+    if (!favoriteRecipe && saveFavorite) {
+      localStorage.setItem(
+        'favoriteRecipes',
+        JSON.stringify([...saveFavorite, recipeToStore]),
+      );
     } else {
-      setSaveFavorite([...saveFavorite, recipeToStore]);
-      localStorage.setItem('favoriteRecipes', JSON
-        .stringify([...saveFavorite, recipeToStore]));
+      localStorage.setItem(
+        'favoriteRecipes',
+        JSON.stringify(saveFavorite),
+      );
     }
   }
 
@@ -188,11 +189,10 @@ export default function ContextProvider({ children }: UserProviderProps) {
         recipeSave,
         setRecipeSave,
         handleDelete,
+        disabled,
+        setDisabled,
         choiceRender,
         setChoiceRender,
-        selectIngredients,
-        setSelectIngredients,
-        Disabled,
       } }
     >
       {children}

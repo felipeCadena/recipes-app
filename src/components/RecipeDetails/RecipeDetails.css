@@ -1,10 +1,13 @@
-/* .container-main {
-  height: 90rem;
-} */
-
 .start {
-  border-radius: 1rem;
+  background: #fcc436;
+  border-radius: 5px;
   bottom: 0;
+  display: flex;
+  flex-shrink: 0;
+  height: 40px;
+  justify-content: center;
+  margin: 0 auto;
   padding: 0.5rem;
-  position: fixed;
+  text-align: center;
+  width: 260px;
 }

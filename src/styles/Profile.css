@@ -1,0 +1,180 @@
+body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
+}
+
+.profile-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 28vw;
+  justify-content: center;
+  margin-top: 120px;
+  width: 100%;
+}
+
+.prof-email {
+  color: #1a1b1c;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  height: 12px;
+  line-height: normal;
+  margin-top: -15%;
+  text-align: center;
+  width: 100%;
+}
+
+.favorite-btn {
+  color: #797d86;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  margin-left: 30px;
+  margin-top: 2vw;
+  text-transform: capitalize;
+  width: 156px;
+}
+
+.coracao-img {
+  margin-top: 2vw;
+}
+
+.done-btn {
+  color: #797d86;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  margin-left: 30px;
+  margin-top: 2vw;
+  text-transform: capitalize;
+  width: 156px;
+}
+
+.logout-btn {
+  color: #797d86;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  height: 30px;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  margin-left: 70px;
+  margin-top: -2.4vw;
+  text-transform: capitalize;
+  width: 156px;
+}
+
+.profile-img {
+  margin-top: 2vw;
+}
+
+.logout-img {
+  margin-top: 1.3vw;
+}
+
+.img-perfil {
+  flex-shrink: 0;
+  height: 28.71px;
+  margin-top: 7vw;
+  width: 100%;
+}
+
+.three-btn {
+  clear: both;
+  display: grid;
+  margin: 40px;
+  width: 300px;
+}
+
+@media ( max-width : 768px ) {
+
+  .profile-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 73vw;
+    justify-content: center;
+    margin-top: 120px;
+    width: 100%;
+  }
+
+  .prof-email {
+    color: #1a1b1c;
+    flex-shrink: 0;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    height: 12px;
+    line-height: normal;
+    margin-top: -40%;
+    text-align: center;
+    width: 100%;
+  }
+
+  .favorite-btn {
+    color: #797d86;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.48px;
+    line-height: normal;
+    margin-left: 25px;
+    margin-top: 2vw;
+    text-transform: capitalize;
+    width: 156px;
+
+
+  }
+
+  .coracao-img {
+    margin-top: 2vw;
+  }
+
+  .done-btn {
+    color: #797d86;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.48px;
+    line-height: normal;
+    margin-left: 25px;
+    margin-top: 2vw;
+    text-transform: capitalize;
+    width: 156px;
+  }
+
+  .logout-btn {
+    margin-left: 64px;
+    margin-top: -6vw;
+
+  }
+
+  .profile-img {
+    margin-top: 2vw;
+  }
+
+  .logout-img {
+    margin-top: 1.3vw;
+  }
+
+  .img-perfil {
+    flex-shrink: 0;
+    height: 28.71px;
+    margin-top: 9vw;
+    width: 100%;
+  }
+
+  .three-btn {
+    clear: both;
+    display: grid;
+    margin: 40px;
+    margin-top: 90px;
+    width: 50vw;
+  }
+}

@@ -1,0 +1,67 @@
+body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
+}
+
+.fav-render-container {
+  margin-top: 2vw;
+}
+
+.buttons-render {
+  text-align: center;
+}
+
+.buttons-render button {
+  color: #797d86;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 10px auto;
+  text-align: center;
+  width: 100px;
+}
+
+.btn-favs {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  text-align: center;
+  width: 210px;
+}
+
+.btall.btn {
+  margin: 4px;
+  width: 80px;
+}
+
+.btmeals.btn {
+  margin: 4px;
+  width: 80px;
+}
+
+.btdrink.btn {
+  margin: 4px;
+  width: 80px;
+}
+
+.header-fav-render {
+  height: 55px;
+  left: 50%;
+  position: relative;
+  text-align: center;
+  top: 6vw;
+  transform: translateX(-50%);
+}
+
+
+@media ( max-width : 768px ) {
+
+  .fav-render-container {
+    margin-top: 4vw;
+  }
+
+  .header-fav-render {
+    top: 10vw;
+  }
+}

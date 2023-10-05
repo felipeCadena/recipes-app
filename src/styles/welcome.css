@@ -1,0 +1,28 @@
+body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
+}
+
+.welcome-image {
+  display: flex;
+  height: 52px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+}
+
+.title-app {
+  color: black;
+  font-family: Chakra Petch , sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  left: 50%;
+  line-height: normal;
+  position: absolute;
+  text-transform: capitalize;
+  top: 50%;
+  transform: translate(-50%, 250%);
+}

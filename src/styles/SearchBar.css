@@ -1,0 +1,85 @@
+body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
+}
+
+.radio-buttons {
+  background: #41197f;
+  border-radius: 0 0 6px 6px;
+  color: rgb(252, 246, 246);
+  flex-shrink: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  height: 6.442vw;
+  line-height: normal;
+  margin: 0 auto;
+  width: 24.743vw;
+}
+
+.btn-search.btn {
+  align-items: center;
+  background: #fcc436;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  height: 1.83vw;
+  justify-content: center;
+  letter-spacing: 0.023rem;
+  line-height: normal;
+  margin: 0 auto;
+  margin-top: 5.5%;
+  text-transform: uppercase;
+  width: 15.238vw;
+
+}
+
+.checkbox.form-outline {
+  margin: 0.732vw;
+  margin-top: 5%;
+}
+
+@media ( max-width : 768px ) {
+
+  .radio-buttons {
+    align-items: center;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+    height: 100px;
+    justify-content: center;
+    line-height: 1;
+    margin: 0 auto;
+    vertical-align: middle;
+    width: 300px;
+  }
+
+  .checkbox.form-outline {
+    margin: 8px;
+    margin-top: 2vw;
+  }
+
+  .btn-search.btn {
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    height: 35px;
+    justify-content: center;
+    letter-spacing: 0.023rem;
+    line-height: normal;
+    margin: 0 auto;
+    margin-top: 6px;
+    text-transform: uppercase;
+    width: 208.159px;
+  }
+}

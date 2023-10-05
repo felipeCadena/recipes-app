@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Meals from './pages/Meals';
@@ -10,11 +11,13 @@ import DrinkDetails from './pages/DrinkDetails';
 import MealInProgress from './pages/MealInProgress';
 import DrinkInProgress from './pages/DrinkInProgress';
 import Layout from './components/Layout';
+import Welcome from './pages/welcome';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={ <Login /> } />
+      <Route path="/" element={ <Welcome /> } />
+      <Route path="/login" element={ <Login /> } />
       <Route path="/meals/:id" element={ <MealDetails /> } />
       <Route path="/drinks/:id" element={ <DrinkDetails /> } />
       <Route path="/" element={ <Layout /> }>

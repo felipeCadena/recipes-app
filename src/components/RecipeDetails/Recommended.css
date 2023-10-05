@@ -1,9 +1,48 @@
-.container {
-  display: flex;
-  margin-bottom: 4rem;
-  overflow-x: auto;
-}
-
 .container img {
   margin-right: 0.5rem;
+}
+
+.recomended-container {
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-shrink: 0;
+  height: 135px;
+  margin: 4px;
+  margin-bottom: 4rem;
+  overflow-x: auto;
+  padding-left: 10vw;
+  width: 100%;
+}
+
+.recomended-paragraph {
+  color: #1a1b1c;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 30px;
+  width: 142.803px;
+}
+
+.meals-recomend {
+  border-radius: 5px 5px 0 0;
+  flex-shrink: 0;
+  height: 135px;
+  margin: 3px;
+  width: 163px;
+}
+
+.descricao-img-meals {
+  border: 0.518px solid #b1b1b1;
+  border-radius: 0 0 5px 5px;
+  color: #1a1b1c;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  height: 24px;
+  line-height: normal;
+  margin-left: 3px;
+  margin-top: -3px;
+  text-align: center;
+  width: 163px;
 }

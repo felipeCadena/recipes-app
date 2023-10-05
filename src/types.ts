@@ -103,6 +103,12 @@ export type Category = {
   strCategory: string;
 };
 
+export interface LineType {
+  id: number,
+  name: string;
+  checked: boolean
+}
+
 export interface GlobalContextType {
   getApi: (url: string, param: string, type: string) => void,
   resultsApi: DrinkType[] | MealsType[],
@@ -120,9 +126,8 @@ export interface GlobalContextType {
   recipeSave: FavoriteRecipeType[],
   setRecipeSave: (s: FavoriteRecipeType[]) => void,
   handleDelete: (s: string) => void,
+  disabled: boolean,
+  setDisabled: (s: boolean) => void,
   choiceRender: boolean,
   setChoiceRender: (s: boolean) => void,
-  selectIngredients: string[],
-  setSelectIngredients: (s: string[]) => void,
-  Disabled: () => boolean,
 }

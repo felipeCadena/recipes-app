@@ -1,0 +1,32 @@
+body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
+}
+
+.page-title-profile {
+  color: #41197f;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 2.1px;
+  line-height: normal;
+  margin-top: 4vw;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.drink-img-header {
+  left: 50%;
+  position: relative;
+  text-align: center;
+  top: 3vw;
+  transform: translateX(-50%);
+}
+
+@media ( max-width : 768px ) {
+
+  .page-title-profile {
+    margin-top: 3vw;
+  }
+}

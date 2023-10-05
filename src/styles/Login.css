@@ -1,0 +1,116 @@
+body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
+}
+
+.tomate-image {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-shrink: 0;
+  height: 279px;
+  width: 458px;
+}
+
+.recipes-logo {
+  background-color: #41197f;
+  display: block;
+  filter: drop-shadow(0.785px 13.357px 10.214px rgba(33, 18, 55, 0.2));
+  flex-shrink: 0;
+  height: 157.25px;
+  margin: 0 auto;
+  padding-top: 25px;
+  width: 100%;
+}
+
+.login-title {
+  color: #41197f;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  height: 21px;
+  letter-spacing: 3.3px;
+  line-height: normal;
+  margin-top: 5%;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.input-email.form-control {
+  border: 0.5px solid #41197f;
+  border-radius: 5px;
+  flex-shrink: 0;
+  height: 40px;
+  margin: 5px;
+  width: 276px;
+}
+
+.btn.btn-enter {
+  background: #fcc436;
+  border-radius: 5px;
+  color: white;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  height: 40px;
+  letter-spacing: 0.42px;
+  line-height: normal;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 276px;
+}
+
+.form-style {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.tomate-container {
+  align-items: center;
+  background: linear-gradient(to bottom, #41197f 0%, white 100%);
+  background-color: #41197f;
+  display: flex;
+  height: 279px;
+  justify-content: center;
+  margin-top: -1.12%;
+  transform: scaleX(-1);
+  width: 100%;
+}
+
+@media ( max-width : 768px ) {
+
+  .tomate-container {
+    margin-top: -1.61%;
+  }
+
+  .btn.btn-enter {
+    background: #fcc436;
+    border-radius: 5px;
+    color: white;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    height: 40px;
+    letter-spacing: 0.42px;
+    line-height: normal;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 276px;
+  }
+
+  .form-style {
+    margin: 0 auto;
+    margin-bottom: 89px;
+  }
+}

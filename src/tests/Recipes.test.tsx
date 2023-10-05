@@ -42,16 +42,12 @@ describe('Verifica existência dos elementos do componente Recipe', () => {
 
     expect(footerDrink).toBeInTheDocument();
     expect(footerMeal).toBeInTheDocument();
+
+    // const recipeCard = screen.findByTestId(/0-recipe-card/i);
+    // expect(recipeCard).toBeInTheDocument();
   });
 
   it('Verifica as chamadas da API quando clica nos botões das categorias', async () => {
-    renderWithRouter(
-      <ContextProvider>
-        <App />
-      </ContextProvider>,
-      { route: '/meals' },
-    );
-
     const api = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
 
     expect(global.fetch).toHaveBeenCalled();
@@ -66,6 +62,13 @@ describe('Verifica existência dos elementos do componente Recipe', () => {
     expect(allButton).toBeInTheDocument();
     expect(footerDrink).toBeInTheDocument();
     expect(footerMeal).toBeInTheDocument();
+
+    // await user.click(allButton);
+    // const recipeCard = screen.findByTestId(/0-recipe-card/i);
+    // expect(recipeCard).toBeInTheDocument();
+
+    // const beefButton = screen.getByTestId(/Beef-category-filter/i);
+    // expect(beefButton).toBeInTheDocument();
   });
 });
 

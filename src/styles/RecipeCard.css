@@ -1,0 +1,252 @@
+body {
+  font-family: Chakra Petch , sans-serif;
+  font-weight: 300;
+}
+
+.iframe-recipe-card {
+  display: flex;
+  margin: 0 auto;
+}
+
+.instructions-recipe {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.label-recipe {
+  display: flex;
+  margin-left: 3vw;
+  width: 280px;
+}
+
+.text-img-recipe {
+  color: white;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  left: 50%;
+  letter-spacing: 2.1px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  width: 147px;
+
+}
+
+.img-recipe {
+  display: block;
+  flex-shrink: 0;
+  height: 161.854px;
+  margin: 0 auto;
+  width: 362.012px;
+}
+
+.btn-favrec {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  float: right;
+  font: inherit;
+  left: 91%;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+  top: 9%;
+}
+
+.link-copy {
+  background-color: red;
+  margin-left: 75vw;
+  margin-top: 60px;
+  position: absolute;
+}
+
+.btn-share {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  float: right;
+  font: inherit;
+  left: 85%;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+  top: 9%;
+}
+
+.ingredients-recipe {
+  color: #1a1b1c;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 30px;
+  width: 142.803px;
+}
+
+.input-recipe {
+  border: 2px solid #fcc436;
+  border-radius: 3px;
+  flex-shrink: 0;
+  height: 17px;
+  margin: 3px;
+  width: 17px;
+}
+
+.instructions-paragraph {
+  color: #1a1b1c;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 30px;
+  width: 142.803px;
+}
+
+.video {
+  color: #1a1b1c;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 30px;
+  width: 142.803px;
+}
+
+@media ( max-width : 768px ) {
+
+  .iframe-recipe-card {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .instructions-recipe {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .label-recipe {
+    display: flex;
+    margin-left: 3vw;
+    width: 280px;
+  }
+
+  .text-img-recipe {
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 900;
+    left: 47%;
+    letter-spacing: 2.1px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 24vw;
+    width: 147px;
+  }
+
+  .img-recipe {
+    display: block;
+    flex-shrink: 0;
+    height: 161.854px;
+    margin: 0 auto;
+    width: 362.012px;
+  }
+
+  .btn-favrec {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    cursor: auto;
+    float: right;
+    font: inherit;
+    left: 80%;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: inherit;
+    text-decoration: none;
+    text-transform: none;
+    top: 9%;
+  }
+
+  .btn-share {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    cursor: auto;
+    float: right;
+    font: inherit;
+    left: 70%;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: inherit;
+    text-decoration: none;
+    text-transform: none;
+    top: 9%;
+  }
+
+  .ingredients-recipe {
+    color: #1a1b1c;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-left: 30px;
+    width: 142.803px;
+  }
+
+  .input-recipe {
+    border: 2px solid #fcc436;
+    border-radius: 3px;
+    flex-shrink: 0;
+    height: 17px;
+    margin: 3px;
+    width: 17px;
+  }
+
+  .instructions-paragraph {
+    color: #1a1b1c;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-left: 30px;
+    width: 142.803px;
+  }
+
+  .video {
+    color: #1a1b1c;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-left: 30px;
+    width: 142.803px;
+  }
+}
