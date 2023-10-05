@@ -14,7 +14,7 @@ body {
 }
 .done-buttons {
   align-items: center;
-  color: #797D86;
+  color: #797d86;
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -36,7 +36,7 @@ body {
 }
 .image-drink-meals {
   background: white;
-  border: 1.918px solid #B1B1B1;
+  border: 1.918px solid #b1b1b1;
   border-radius: 5px  0 0;
   border-right: 0;
   flex-shrink: 0;
