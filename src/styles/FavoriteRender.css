@@ -5,6 +5,7 @@ body {
 
 .fav-render-container {
   margin-top: 2vw;
+
 }
 
 .buttons-render {
@@ -20,6 +21,7 @@ body {
   margin: 10px auto;
   text-align: center;
   width: 100px;
+
 }
 
 .btn-favs {
@@ -28,6 +30,7 @@ body {
   margin: 0 auto;
   text-align: center;
   width: 210px;
+
 }
 
 .btall.btn {
@@ -54,6 +57,83 @@ body {
   transform: translateX(-50%);
 }
 
+.favorite-imgg {
+  background: white;
+  border: 1.918px solid #b1b1b1;
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+  flex-shrink: 0;
+  height: 145.854px;
+  margin-left: 50px;
+  margin-top: 4px;
+  width: 183.346px;
+}
+
+.h1-img {
+  display: flex;
+  font-size: 23px;
+  margin-left: 245.88px;
+  margin-top: -140px;
+  padding-left: 15px;
+  position: absolute;
+  width: 180px;
+}
+
+.para-fav {
+  border: 0.518px solid #b1b1b1;
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+  font-size: 12px;
+  height: 145.854px;
+  margin-top: 4px;
+  padding-top: 40px;
+  width: 200px;
+}
+
+.btn-share-favv {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  font: inherit;
+  line-height: normal;
+  margin: 12px;
+  margin-left: 300px;
+  margin-top: 100px;
+  padding: 0;
+  position: absolute;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.btn-fav-fav {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  cursor: auto;
+  font: inherit;
+  line-height: normal;
+  margin: 12px;
+  margin-left: 350px;
+  margin-top: 100px;
+  padding: 0;
+  position: absolute;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.fav-contt {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 35px;
+  width: 500px;
+}
 
 @media ( max-width : 768px ) {
 

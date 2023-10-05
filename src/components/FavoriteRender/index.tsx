@@ -1,9 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FavoriteRecipeType } from '../../types';
-import shareIcon from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../../images/blackHeartIcon.svg';
 import GlobalContext from '../../context/GlobalContext';
 import '../../styles/FavoriteRender.css';
 import all from '../../iconsFigma/icon _fast food outline_.svg';
@@ -11,6 +9,8 @@ import meal from '../../iconsFigma/Group 1.svg';
 import drink from '../../iconsFigma/icone-bebida.svg';
 import 'bootstrap/dist/css/bootstrap.css';
 import heart from '../../iconsFigma/coracao.svg';
+import share from '../../iconsFigma/Share.svg';
+import coracao from '../../iconsFigma/like.svg';
 
 type FavoriteType = {
   keyStorage: string;
@@ -92,50 +92,66 @@ export default function FavoriteRender({ keyStorage }: FavoriteType) {
           </button>
         </div>
         {recipeSave && recipeSave.map((recipe, index) => (
-          <div key={ recipe.id }>
+          <div className="fav-contt" key={ recipe.id }>
             <Link to={ `/${recipe.type}s/${recipe.id}` }>
               <img
+                className="favorite-imgg"
                 src={ recipe.image }
                 alt={ recipe.name }
                 data-testid={ `${index}-horizontal-image` }
                 width={ 100 }
               />
-              <h1 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h1>
+              <h1
+                className="h1-img"
+                data-testid={ `${index}-horizontal-name` }
+              >
+                { recipe.name }
+              </h1>
             </Link>
             {recipe.type === 'meal' ? (
-              <p data-testid={ `${index}-horizontal-top-text` }>
+              <p
+                className="para-fav"
+                data-testid={ `${index}-horizontal-top-text` }
+              >
                 {recipe.nationality}
                 {' '}
                 -
                 {' '}
                 {recipe.category}
               </p>) : (
-                <p data-testid={ `${index}-horizontal-top-text` }>
+                <p
+                  className="para-fav"
+                  data-testid={ `${index}-horizontal-top-text` }
+                >
                   {recipe.alcoholicOrNot}
                   {' '}
                   -
                   {' '}
                   {recipe.category}
-                </p>)}
+                </p>) }
             <button
+              className="btn-share-favv"
               onClick={ () => handleClipBoard(`/${recipe.type}s/${recipe.id}`) }
             >
               <img
-                src={ shareIcon }
+                src={ share }
                 alt=""
                 data-testid={ `${index}-horizontal-share-btn` }
               />
             </button>
             {copy && <span>Link copied!</span>}
-            <button onClick={ () => handleDelete(recipe.id) }>
+            <button
+              className="btn-fav-fav"
+              onClick={ () => handleDelete(recipe.id) }
+            >
               <img
                 data-testid={ `${index}-horizontal-favorite-btn` }
-                src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
+                src={ favoriteRecipe ? coracao : whiteHeartIcon }
                 alt=""
               />
             </button>
           </div>
-        ))}
+        )) }
       </div>
     </header>
   );
