@@ -6,7 +6,7 @@ import { DoneRecipesType, DrinkType, MealsType } from '../../types';
 import '../../styles/RecipeInProgress.css';
 
 function RecipeInProgress() {
-  const { resultsApi, getApi } = useContext(GlobalContext);
+  const { resultsApi, getApi, Disabled } = useContext(GlobalContext);
   const [, setFinishRecipes] = useState<DoneRecipesType[]>([]);
 
   const date = new Date();
@@ -91,9 +91,9 @@ function RecipeInProgress() {
       <RecipeCard results={ data } pathNavigate={ cutyPath } />
       <button
         className="btn-finish-style btn btn-light"
+        disabled={ Disabled() }
         onClick={ handleFinishRecipe }
         data-testid="finish-recipe-btn"
-
       >
         Finish Recipe
       </button>
