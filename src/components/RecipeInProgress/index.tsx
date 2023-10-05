@@ -94,7 +94,6 @@ function RecipeInProgress() {
         disabled={ Disabled() }
         onClick={ handleFinishRecipe }
         data-testid="finish-recipe-btn"
-        style={ { margin: '10px' } }
       >
         Finish Recipe
       </button>

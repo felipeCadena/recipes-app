@@ -2,16 +2,19 @@ body {
   font-family: Chakra Petch , sans-serif;
   font-weight: 300;
 }
+
 .done-edit {
   height: 40vw;
   margin: 0 auto;
   margin-top: 6px;
   width: 500px;
 }
+
 .indice {
   margin-top: 5px;
   padding-top: 0;
 }
+
 .done-buttons {
   align-items: center;
   color: #797d86;
@@ -22,10 +25,12 @@ body {
   line-height: normal;
   text-align: center;
 }
+
 .done-image {
   display: flex;
   margin: 0 auto;
 }
+
 .images-done {
   display: flex;
   justify-content: space-between;
@@ -34,10 +39,11 @@ body {
   margin-top: 50px;
   width: 150px;
 }
+
 .image-drink-meals {
   background: white;
   border: 1.918px solid #b1b1b1;
-  border-radius: 5px  0 0;
+  border-radius: 5px 0 0;
   border-right: 0;
   flex-shrink: 0;
   height: 145.854px;
@@ -45,6 +51,7 @@ body {
   margin-top: 4px;
   width: 183.346px;
 }
+
 .button-share-dones {
   background: transparent;
   border: none;
@@ -60,13 +67,15 @@ body {
   text-decoration: none;
   text-transform: none;
 }
+
 .img-share-dones {
   margin-left: 445.44px;
   margin-top: -273.2px;
   width: 33px;
 }
+
 .paragraph-um {
-  color: #1A1B1C;
+  color: #1a1b1c;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -76,8 +85,9 @@ body {
   text-align: left;
   width: 210px;
 }
+
 .paragraph-dois {
-  color: #1A1B1C;
+  color: #1a1b1c;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -85,8 +95,9 @@ body {
   padding-left: 20px;
   text-align: left;
 }
+
 .link-done {
-  color: #797D86;
+  color: #797d86;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -95,9 +106,10 @@ body {
   padding-left: 20px;
   position: absolute;
 }
+
 .paragrafos {
   background: white;
-  border: 0.518px solid #B1B1B1;
+  border: 0.518px solid #b1b1b1;
   border-left: 0;
   border-radius: 5px 5px 0 0;
   height: 144.854px;
@@ -105,6 +117,7 @@ body {
   margin-top: -145.3px;
   width: 250.346px;
 }
+
 .meals-btn-done, .drinks-btn-done, .all-btn-done {
   background: transparent;
   border: none;
@@ -120,10 +133,13 @@ body {
   text-decoration: none;
   text-transform: none;
 }
+
 @media ( max-width : 768px ) {
+
   .done-image {
     margin-top: 10vw;
   }
+
   .images-done {
     display: flex;
     justify-content: space-between;
@@ -132,22 +148,27 @@ body {
     margin-top: 30px;
     width: 140px;
   }
+
   .done-edit {
     height: 100vw;
     margin: 0 auto;
     margin-top: 6px;
     width: 500px;
   }
+
   .image-drink-meals {
     margin-left: 30px;
   }
+
   .paragrafos {
     margin-left: 212.54px;
   }
+
   .img-share-dones {
     margin-left: 415.44px;
     width: 33px;
   }
+
   .link-done {
     margin-top: 5vw;
   }
