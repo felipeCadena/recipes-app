@@ -42,9 +42,6 @@ describe('Verifica existência dos elementos do componente Recipe', () => {
 
     expect(footerDrink).toBeInTheDocument();
     expect(footerMeal).toBeInTheDocument();
-
-    // const recipeCard = screen.findByTestId(/0-recipe-card/i);
-    // expect(recipeCard).toBeInTheDocument();
   });
 
   it('Verifica as chamadas da API quando clica nos botões das categorias', async () => {
@@ -62,13 +59,6 @@ describe('Verifica existência dos elementos do componente Recipe', () => {
     expect(allButton).toBeInTheDocument();
     expect(footerDrink).toBeInTheDocument();
     expect(footerMeal).toBeInTheDocument();
-
-    // await user.click(allButton);
-    // const recipeCard = screen.findByTestId(/0-recipe-card/i);
-    // expect(recipeCard).toBeInTheDocument();
-
-    // const beefButton = screen.getByTestId(/Beef-category-filter/i);
-    // expect(beefButton).toBeInTheDocument();
   });
 });
 

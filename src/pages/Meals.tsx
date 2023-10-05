@@ -6,11 +6,11 @@ import '../styles/Meals.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GlobalContext from '../context/GlobalContext';
 import All from '../iconsFigma/icone-prato.svg';
-import beef from '../iconsFigma/🦆 emoji _cow face_.svg';
+import beef from '../iconsFigma/emoji _cow face_.svg';
 import goat from '../iconsFigma/goat-svgrepo-com 1.svg';
-import chicken from '../iconsFigma/🦆 emoji _chicken_.svg';
+import chicken from '../iconsFigma/emoji _chicken_.svg';
 import breakfast from '../iconsFigma/Group 7.svg';
-import dessert from '../iconsFigma/🦆 emoji _shortcake_.svg';
+import dessert from '../iconsFigma/emoji _shortcake_.svg';
 
 function Meals() {
   const { choiceRender, setChoiceRender } = useContext(GlobalContext);

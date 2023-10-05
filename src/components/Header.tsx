@@ -94,27 +94,21 @@ function Header() {
           )}
         </div>
       </div>
-
-      {pageTitle === 'Drink' ? (
-        <img
-          src={ bebidaHeader }
-          alt="Drink"
-          data-testid="drinks-bottom-btn"
-        />
-      ) : pageTitle === 'Drinks' ? (
+      {pageTitle === 'Drinks' && (
         <img
           src={ bebidaHeader }
           alt="Drink"
           data-testid="drinks-bottom-btn"
           className="drink-img-header"
         />
-      ) : pageTitle === 'Meals' ? (
+      )}
+      {pageTitle === 'Meals' ? (
         <img
           src={ pratoHeader }
           alt="Meals"
           data-testid="meals-bottom-btn"
           className="meals-img-header"
-       />
+        />
       ) : null}
       <h1
         data-testid="page-title"

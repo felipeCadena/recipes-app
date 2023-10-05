@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/Footer.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import bebida from '../../iconsFigma/icone-bebida.svg';
-import prato from '../../iconsFigma//icone-prato.svg';
+import prato from '../../iconsFigma/icone-prato.svg';
 
 function Footer() {
   return (
