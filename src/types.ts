@@ -73,35 +73,35 @@ export interface CopyType {
   click: boolean,
 }
 
-export type Recipe = {
+export interface Recipe {
   id: string;
   name: string;
   image: string;
   category:string;
-};
+}
 
-export type RecipeContextType = {
+export interface RecipeContextType {
   recipes: Recipe[];
-};
+}
 
-export type RecipeProviderProps = {
+export interface RecipeProviderProps {
   children: React.ReactNode;
   apiURL: string;
   dataKey: string;
-};
+}
 
-export type RecipesProps = {
+export interface RecipesProps {
   recipe: {
     id: string;
     name: string;
     image: string;
   };
   index: number;
-};
+}
 
-export type Category = {
+export interface Category {
   strCategory: string;
-};
+}
 
 export interface GlobalContextType {
   getApi: (url: string, param: string, type: string) => void,
