@@ -6,7 +6,7 @@ import { DoneRecipesType, DrinkType, MealsType } from '../../types';
 import '../../styles/RecipeInProgress.css';
 
 function RecipeInProgress() {
-  const { resultsApi, getApi, } = useContext(GlobalContext)
+  const { resultsApi, getApi } = useContext(GlobalContext);
   const [, setFinishRecipes] = useState<DoneRecipesType[]>([]);
 
   const date = new Date();
@@ -102,4 +102,3 @@ function RecipeInProgress() {
 }
 
 export default RecipeInProgress;
-

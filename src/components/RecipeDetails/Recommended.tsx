@@ -23,15 +23,17 @@ export default function Recommended({ recomendations }: RecipeCardProp) {
                 data-testid={ `${index}-recommendation-card` }
               >
                 <img
+                  className="meals-recomend"
                   src={ recomendation.strMealThumb }
                   alt={ recomendation.strMeal }
                   width={ 180 }
                 />
-                <h5
+                <p
+                  className="descricao-img-meals"
                   data-testid={ `${index}-recommendation-title` }
                 >
                   { recomendation.strMeal }
-                </h5>
+                </p>
               </div>
             ))}
           {pathname.includes('meals') && (filtered as DrinkType[])
