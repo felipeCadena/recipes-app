@@ -1,14 +1,17 @@
-Recipes APP 🍔 🍹
+## Recipes APP 🍔 🍹
+
 Neste projeto desenvolvido em grupo, realizamos frontend de uma aplicação utilizando React.js juntamente com ContextAPI para gerenciamento de estados globais. Neste projeto conta com uma tela de login, e após o login feito é possível navegar entre as receitas tanto de comidas quanto bebidas. Neste projeto é possível acessar uma receita e começar a realizar ela, marcando os ingredientes já utilizados, após marcar todos ingredientes você tem a opção de marcar a receita como finalizada assim ficando salva no seu perfil via localStorage.
 
-Tecnologias Utilizadas:
-Ver detalhes:
-TypeScript
-ContextAPI
-Custom Hooks
-Metodologia Kanban 📊
-Styled Components 💅🏻
-Aplicação
+## Tecnologias Utilizadas:
+
+ - TypeScript
+ - ContextAPI
+ - Custom Hooks
+ - Metodologia Kanban 📊
+ - Styled Components 💅🏻
+
+## Aplicação
+
 🪛 Instalação
 
 Clone o repositório
@@ -20,6 +23,7 @@ Instale as dependências com npm install
 Inicialize o projeto com npm run start
 Acesse o projeto
 O projeto estará disponível na porta 3001 localhost:3001
+
 📋 Requisitos
 
 1 – Desenvolva os testes unitários de maneira que a cobertura seja de, no mínimo, 90%
