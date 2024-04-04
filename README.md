@@ -1,30 +1,26 @@
-## Recipes APP 🍔 🍹
+# Recipes APP 🍔 🍹
 
 Neste projeto desenvolvido em grupo, realizamos frontend de uma aplicação utilizando React.js juntamente com ContextAPI para gerenciamento de estados globais. Neste projeto conta com uma tela de login, e após o login feito é possível navegar entre as receitas tanto de comidas quanto bebidas. Neste projeto é possível acessar uma receita e começar a realizar ela, marcando os ingredientes já utilizados, após marcar todos ingredientes você tem a opção de marcar a receita como finalizada assim ficando salva no seu perfil via localStorage.
 
 ## Tecnologias Utilizadas:
 
- - TypeScript
- - ContextAPI
- - Custom Hooks
- - Metodologia Kanban 📊
- - Styled Components 💅🏻
+- TypeScript
+- ContextAPI
+- Custom Hooks
+- Metodologia Kanban 📊
+- Styled Components 💅🏻
 
 ## Aplicação
 
-🪛 Instalação
+### 🪛 Instalação
 
-Clone o repositório
-Utilize o comando: git clone [git@github.com](mailto:git@github.com):felipeCadena/recipes-app.git
-Faça uma nova Branch a partir da main :
-git checkout -b nome-da-sua-branch
-Instale as dependências do projeto
-Instale as dependências com npm install
-Inicialize o projeto com npm run start
-Acesse o projeto
-O projeto estará disponível na porta 3001 localhost:3001
+- Clone o repositório Utilize o comando: git clone git@github.com:felipeCadena/recipes-app.git 
+- Faça uma nova Branch a partir da main: git checkout -b nome-da-sua-branch 
+- Instale as dependências com npm install 
+- Inicialize o projeto com npm run start 
+- Acesse o projeto O projeto estará disponível na porta 3001 localhost:3001
 
-📋 Requisitos
+### 📋 Requisitos
 
 1 – Desenvolva os testes unitários de maneira que a cobertura seja de, no mínimo, 90%
 
@@ -149,4 +145,3 @@ O projeto estará disponível na porta 3001 localhost:3001
 61 – Redirecione a pessoa usuária de modo que, ao clicar no botão de Favorite Recipes, a rota mude para a tela de receitas favoritas
 
 62 – Redirecione a pessoa usuária de modo que, ao clicar no botão Logout, o localStorage seja limpo e a rota mude para a tela de login
-
